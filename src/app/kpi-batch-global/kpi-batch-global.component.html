@@ -1,0 +1,97 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <lbd-chart style="height: 199px !important;"
+                  [title]="'KPI Batch Global'"
+                  [subtitle]="'Media Mensual'"
+                  [chartType]="hoursChartType"
+                  [chartData]="hoursChartData"
+                  [chartOptions]="hoursChartOptions"
+                  [chartResponsive]="hoursChartResponsive"
+                  [legendItems]="hoursChartLegendItems"
+                  [withHr]="true"
+                  [footerIconClass]="'fa fa-history'"
+                  [footerText]="'Updated 3 minutes ago'">
+                </lbd-chart>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+               <div class="card card-indicator">
+                    <div class="col-sm-2"> </div>
+                    <div class="col-sm-8">
+                        <div class="header">
+                            <h4 class="title">KPI Dia actual</h4>
+                            <button type="button" class="btn btn-primary">57.0</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-2"> </div>
+               </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-indicator">
+                    <div class="col-sm-2"> </div>
+                    <div class="col-sm-8"> 
+                        <div class="header">
+                            <h4 class="title">Ejecuciones ETHER</h4>
+                            <button type="button" class="btn btn-primary">83000</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-2"> </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-indicator">
+                    <div class="col-sm-2"> </div>
+                    <div class="col-sm-8"> 
+                        <div class="header">
+                            <h4 class="title">Ejecuciones HOST</h4>
+                            <button type="button" class="btn btn-primary">100000</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-2"> </div>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card" style="padding-top:2.2%">
+                    <div class="header">
+                        <h4 class="title">KPI Batch Global</h4>
+                        <p class="category">Ultimos 7 días</p>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th *ngFor="let cell of tableData2.headerRow">{{ cell }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let row of tableData2.dataRows">
+                                        <td *ngFor="let cell of row">{{cell}}</td>
+                                    </tr>
+                                </tbody>
+                        </table>
+
+                    </div>
+                </div>
+           </div>
+           <div class="col-md-6">
+                <lbd-chart
+                [title]="'KPI Batch Global'"
+                [subtitle]="'Ultimos 7 días'"
+                [chartType]="kpiLastDaysCharType"
+                [chartData]="kpiLastDaysCharData"
+                [chartOptions]="kpiLastDaysCharOptions"
+                [chartResponsive]="kpiLastDaysCharResponsive"
+                [legendItems]="kpiLastDaysCharLegendItems"
+                [withHr]="true"
+                [footerIconClass]="'fa fa-history'"
+                [footerText]="'Updated 3 minutes ago'">
+                </lbd-chart>
+            </div>
+        </div>
+      
+    </div>
+</div>

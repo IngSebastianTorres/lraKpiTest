@@ -1,0 +1,99 @@
+
+<div class="sidebar-wrapper" id="sidebar-component">
+    <div class="logo">
+        <a href="#sidebar-component" class="simple-text bbva-icon" >
+            <div class="logo-img" style="width: 40%;" >
+                <img src="/assets/img/BBVA_2019.svg.png" style="width: 33% !important; margin-top: 2%;"/>
+            </div>
+            LRA TM
+        </a>
+    </div>
+    <ul class="nav responsive-nav">
+        <!--<li *ngIf="isMobileMenu()">
+            <a class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-dashboard"></i>
+				<p class="hidden-lg hidden-md">Dashboard</p>
+            </a>
+        </li>
+        <li class="dropdown" *ngIf="isMobileMenu()">
+              <a class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-globe"></i>
+                    <b class="caret hidden-sm hidden-xs"></b>
+                    <span class="notification hidden-sm hidden-xs">5</span>
+					<p class="hidden-lg hidden-md">
+						5 Notifications
+						<b class="caret"></b>
+					</p>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Notification 1</a></li>
+                <li><a href="#">Notification 2</a></li>
+                <li><a href="#">Notification 3</a></li>
+                <li><a href="#">Notification 4</a></li>
+                <li><a href="#">Another notification</a></li>
+              </ul>
+        </li>-->
+        <!--<li *ngIf="isMobileMenu()">
+           <a>
+                <i class="fa fa-search"></i>
+				<p class="hidden-lg hidden-md">Search</p>
+            </a>
+        </li>
+        <li class="dropdown" *ngIf="isMobileMenu()">
+              <a class="dropdown-toggle" data-toggle="dropdown">
+                    <p>
+    					Dropdown
+    					<b class="caret"></b>
+    				</p>
+
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+        </li>-->
+        <li *ngIf="isMobileMenu()">
+            <a>
+                <p>Log out</p>
+            </a>
+        </li>
+        <li>
+            <a>
+              <i class="pe-7s-refresh-2"></i>
+              <p>API Rest</p>
+            </a> 
+         </li>
+        <li routerLinkActive="active" [routerLink]="'/summaryReport'">
+            <a>
+              <i class="pe-7s-pin"></i>
+              <p>Resumen de la jornada</p>
+            </a> 
+        </li>
+        <!--<li class="separator hidden-lg hidden-md" ></li>-->
+        <li *ngFor="let menuItem of menuItems" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" >
+                <i class="{{menuItem.icon}}"></i>
+                <p>{{menuItem.title}}
+                    <b class="caret"></b>
+                </p>
+            </a> 
+            <ul id="customizedKpiUnorderedList" class="dropdown-menu">
+                <li routerLinkActive="active" [routerLink]="['/estadisticasOnline']">
+                    <a class="kpi-ref">KPI Online</a>
+                </li>
+                <li routerLinkActive="active" [routerLink]="['/estadisticasBatchGlobal']">
+                    <a class="kpi-ref">KPI Batch Global</a>
+                </li>
+                <li routerLinkActive="active" [routerLink]="['/estadisticasBatchCore']">
+                    <a class="kpi-ref">KPI Batch Core </a>
+                </li>
+
+            </ul>
+        </li>
+    </ul>
+</div>

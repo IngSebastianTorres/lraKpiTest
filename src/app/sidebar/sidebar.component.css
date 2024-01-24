@@ -1,0 +1,30 @@
+.responsive-nav .open .dropdown-menu>li>a {
+    padding: 10px 15px 10px 60px
+}
+
+.dropdown-menu>li:first-child>a {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.sidebar .nav li>a,.bootstrap-navbar .nav li>a {
+    color: transparent !important;
+    opacity: .86;
+    border-radius: 4px;
+    display: block;
+    margin: 0px 0px !important;
+}
+
+#customizedKpiUnorderedList{
+    border-radius: 0% !important;
+    margin: 0% !important;
+    padding: 9.7% !important;
+    background-color: transparent !important;
+    top: 20% !important;
+    border: 0px solid transparent !important;
+    box-shadow: 0 0px 0px transparent !important;
+}
+
+.kpi-ref{
+    margin-left: 0% !important;
+}
