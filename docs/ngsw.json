@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1706197413166,
+  "timestamp": 1706198803156,
   "index": "/lraKpiTest/index.html",
   "assetGroups": [
     {
@@ -45,7 +45,7 @@
         "/lraKpiTest/assets/icons/favicon-16x16.png",
         "/lraKpiTest/assets/icons/favicon-32x32.png",
         "/lraKpiTest/assets/icons/mstile-150x150.png",
-        "/lraKpiTest/assets/img/BBVA_2019.svg.png",
+        "/lraKpiTest/assets/img/BBVA_2019.png",
         "/lraKpiTest/assets/img/angular-red.png",
         "/lraKpiTest/assets/img/angular2-logo-white.png",
         "/lraKpiTest/assets/img/angular2-logo.png",
@@ -127,7 +127,7 @@
     "/lraKpiTest/assets/icons/favicon-16x16.png": "89c2c8f519b9158997994b73da2e461ad9005191",
     "/lraKpiTest/assets/icons/favicon-32x32.png": "14848c5e41863966984823aeca640697ff40bbc9",
     "/lraKpiTest/assets/icons/mstile-150x150.png": "c5e47e845ef16dc27f083834f28b5d368671ba2c",
-    "/lraKpiTest/assets/img/BBVA_2019.svg.png": "3df345f5800432adbfec36ec6dc312ff0fc58893",
+    "/lraKpiTest/assets/img/BBVA_2019.png": "3df345f5800432adbfec36ec6dc312ff0fc58893",
     "/lraKpiTest/assets/img/angular-red.png": "cd652e491380065a399349a03408453a11e09bba",
     "/lraKpiTest/assets/img/angular2-logo-white.png": "e2c2667f3134b130a1bf6f5b6b57e8ccdeba3340",
     "/lraKpiTest/assets/img/angular2-logo.png": "90740d086fd8ec0921bf4fec0baca484c6541754",
@@ -190,7 +190,7 @@
     "/lraKpiTest/glyphicons-halflings-regular.woff": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f",
     "/lraKpiTest/glyphicons-halflings-regular.woff2": "ca35b697d99cae4d1b60f2d60fcd37771987eb07",
     "/lraKpiTest/index.html": "368c510e21606f0d967391f4e9b7072f888dea1c",
-    "/lraKpiTest/main.js": "5ca3e6d52ee479ac925dd844f907e07e9b827401",
+    "/lraKpiTest/main.js": "68793042a48fab831179e75f7f1abfae6cc1d18a",
     "/lraKpiTest/manifest.webmanifest": "5007377af41f4553a58e23dc48839602f5288600",
     "/lraKpiTest/polyfills.js": "01df6e4bceb15a9ba0754e66a8a00142cf546270",
     "/lraKpiTest/runtime.js": "44cc2afbfb44b017314faa17d1426809ec489a86",
