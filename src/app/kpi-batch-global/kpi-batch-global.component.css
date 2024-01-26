@@ -2,14 +2,81 @@
     height:25rem;
 }
 
-.btn-primary{
+.div-indicator{
     padding: 6px 36px 6px 20px;
     background-color:blue;
     color: white;
     font-size: xxx-large;
+    margin-top: 15%;
+    opacity: 0.85;
+    border-radius: 5px;
+}
+@media(max-width: 1552px){
+    .col-sm-8{
+        width: 81%;
+    }
 }
 
-.btn{
-    margin-top: 15%;
-    opacity: 1;
+@media(max-width: 1302px){
+    
+    .col-sm-8 {
+        width: 81%; 
+    }
+    .div-indicator{
+        padding: 6px 36px 6px 20px;
+        background-color:blue;
+        color: white;
+        font-size: xx-large;
+        margin-top: 15%;
+        opacity: 0.85;
+        border-radius: 5px;
+    }
+}
+
+@media(max-width:1065px){
+    .div-indicator{
+        padding: 6px 36px 6px 20px;
+        background-color:blue;
+        color: white;
+        font-size: x-large;
+        margin-top: 15%;
+        opacity: 0.85;
+        border-radius: 5px;
+    }
+}
+
+@media(max-width:991px){
+    .div-indicator{
+        padding: 6px 36px 6px 20px;
+        background-color:blue;
+        color: white;
+        font-size: xxx-large;
+        margin-top: 15%;
+        opacity: 0.85;
+        border-radius: 5px;
+    }
+}
+
+@media(max-width:367px){
+    .div-indicator{
+        padding: 6px 36px 6px 20px;
+        background-color:blue;
+        color: white;
+        font-size: xx-large;
+        margin-top: 15%;
+        opacity: 0.85;
+        border-radius: 5px;
+    }
+}
+
+@media(max-width:265px){
+    .div-indicator{
+        padding: 6px 36px 6px 20px;
+        background-color:blue;
+        color: white;
+        font-size: small;
+        margin-top: 15%;
+        opacity: 0.85;
+        border-radius: 5px;
+    }
 }
