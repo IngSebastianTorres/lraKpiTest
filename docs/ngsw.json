@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1706635573426,
+  "timestamp": 1706636544000,
   "index": "/lraKpiTest/index.html",
   "assetGroups": [
     {
@@ -13,12 +13,12 @@
       "urls": [
         "/lraKpiTest/favicon.ico",
         "/lraKpiTest/index.html",
-        "/lraKpiTest/main.js",
+        "/lraKpiTest/main.25f6f5202dc845fa.js",
         "/lraKpiTest/manifest.webmanifest",
-        "/lraKpiTest/polyfills.js",
-        "/lraKpiTest/runtime.js",
-        "/lraKpiTest/scripts.js",
-        "/lraKpiTest/styles.css"
+        "/lraKpiTest/polyfills.2d038bc31652c7d2.js",
+        "/lraKpiTest/runtime.f99debab09b4b2c7.js",
+        "/lraKpiTest/scripts.0fd27278605081db.js",
+        "/lraKpiTest/styles.b6022c8766b01f10.css"
       ],
       "patterns": []
     },
@@ -30,9 +30,9 @@
         "ignoreVary": true
       },
       "urls": [
-        "/lraKpiTest/Pe-icon-7-stroke.svg",
-        "/lraKpiTest/Pe-icon-7-stroke.ttf",
-        "/lraKpiTest/Pe-icon-7-stroke.woff",
+        "/lraKpiTest/Pe-icon-7-stroke.07189b6db4cc9bdb.svg",
+        "/lraKpiTest/Pe-icon-7-stroke.a7f3b3901043384e.ttf",
+        "/lraKpiTest/Pe-icon-7-stroke.d0c2290ca4ed247c.woff",
         "/lraKpiTest/assets/css/demo.css",
         "/lraKpiTest/assets/css/pe-icon-7-stroke.css",
         "/lraKpiTest/assets/fonts/Pe-icon-7-stroke.eot",
@@ -102,19 +102,19 @@
         "/lraKpiTest/assets/sass/lbd/mixins/_transparency.scss",
         "/lraKpiTest/assets/sass/lbd/mixins/_vendor-prefixes.scss",
         "/lraKpiTest/assets/sass/light-bootstrap-dashboard.scss",
-        "/lraKpiTest/glyphicons-halflings-regular.svg",
-        "/lraKpiTest/glyphicons-halflings-regular.ttf",
-        "/lraKpiTest/glyphicons-halflings-regular.woff",
-        "/lraKpiTest/glyphicons-halflings-regular.woff2"
+        "/lraKpiTest/glyphicons-halflings-regular.009b407a9881be10.ttf",
+        "/lraKpiTest/glyphicons-halflings-regular.4ba85deaf3670942.woff",
+        "/lraKpiTest/glyphicons-halflings-regular.85f0466cb4ab3a4d.svg",
+        "/lraKpiTest/glyphicons-halflings-regular.b70781972ce7320b.woff2"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/lraKpiTest/Pe-icon-7-stroke.svg": "0c9cce08f3bd0a8077951b99b4f06dcd099354a4",
-    "/lraKpiTest/Pe-icon-7-stroke.ttf": "e8d21ab91877f0042fbeeb72beaf71ca6595b9e8",
-    "/lraKpiTest/Pe-icon-7-stroke.woff": "7e544bb11b7655998db6f324c612f7ffbf0ab66e",
+    "/lraKpiTest/Pe-icon-7-stroke.07189b6db4cc9bdb.svg": "0c9cce08f3bd0a8077951b99b4f06dcd099354a4",
+    "/lraKpiTest/Pe-icon-7-stroke.a7f3b3901043384e.ttf": "e8d21ab91877f0042fbeeb72beaf71ca6595b9e8",
+    "/lraKpiTest/Pe-icon-7-stroke.d0c2290ca4ed247c.woff": "7e544bb11b7655998db6f324c612f7ffbf0ab66e",
     "/lraKpiTest/assets/css/demo.css": "10e3d02070cc1fd86b971eb09fe966a450d03533",
     "/lraKpiTest/assets/css/pe-icon-7-stroke.css": "452bbb2dc10e0e27bfb43ef025f396603812d412",
     "/lraKpiTest/assets/fonts/Pe-icon-7-stroke.eot": "6c09f9b01a2f8a9d672292b2d41d94e639eaf13d",
@@ -185,17 +185,17 @@
     "/lraKpiTest/assets/sass/lbd/mixins/_vendor-prefixes.scss": "d7d4a30f3409129fd93e89c3f7cd7618cd53f710",
     "/lraKpiTest/assets/sass/light-bootstrap-dashboard.scss": "99b1e731935e7cfd04aeabf25f552f27de45c13b",
     "/lraKpiTest/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/lraKpiTest/glyphicons-halflings-regular.svg": "de51a8494180a6db074af2dee2383f0a363c5b08",
-    "/lraKpiTest/glyphicons-halflings-regular.ttf": "44bc1850f570972267b169ae18f1cb06b611ffa2",
-    "/lraKpiTest/glyphicons-halflings-regular.woff": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f",
-    "/lraKpiTest/glyphicons-halflings-regular.woff2": "ca35b697d99cae4d1b60f2d60fcd37771987eb07",
-    "/lraKpiTest/index.html": "368c510e21606f0d967391f4e9b7072f888dea1c",
-    "/lraKpiTest/main.js": "aec22b388574ef0883dd7b5c0374b81a54fe3a51",
+    "/lraKpiTest/glyphicons-halflings-regular.009b407a9881be10.ttf": "44bc1850f570972267b169ae18f1cb06b611ffa2",
+    "/lraKpiTest/glyphicons-halflings-regular.4ba85deaf3670942.woff": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f",
+    "/lraKpiTest/glyphicons-halflings-regular.85f0466cb4ab3a4d.svg": "de51a8494180a6db074af2dee2383f0a363c5b08",
+    "/lraKpiTest/glyphicons-halflings-regular.b70781972ce7320b.woff2": "ca35b697d99cae4d1b60f2d60fcd37771987eb07",
+    "/lraKpiTest/index.html": "a08475dc6165cfdc8a8189bfdfe41d94ccaf9048",
+    "/lraKpiTest/main.25f6f5202dc845fa.js": "38ab3abd0039d97fc7c239ea1ab93f58f38b3803",
     "/lraKpiTest/manifest.webmanifest": "5007377af41f4553a58e23dc48839602f5288600",
-    "/lraKpiTest/polyfills.js": "01df6e4bceb15a9ba0754e66a8a00142cf546270",
-    "/lraKpiTest/runtime.js": "44cc2afbfb44b017314faa17d1426809ec489a86",
-    "/lraKpiTest/scripts.js": "d78e278c48cce665a168abefa32fcda67b5280e7",
-    "/lraKpiTest/styles.css": "110c9919bb93d7671fcd48918e086996a14ff214"
+    "/lraKpiTest/polyfills.2d038bc31652c7d2.js": "01df6e4bceb15a9ba0754e66a8a00142cf546270",
+    "/lraKpiTest/runtime.f99debab09b4b2c7.js": "44cc2afbfb44b017314faa17d1426809ec489a86",
+    "/lraKpiTest/scripts.0fd27278605081db.js": "d78e278c48cce665a168abefa32fcda67b5280e7",
+    "/lraKpiTest/styles.b6022c8766b01f10.css": "147a18eb2ac0ad049c0024e096a9be7fb5f86050"
   },
   "navigationUrls": [
     {
