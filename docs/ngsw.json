@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1706636544000,
+  "timestamp": 1707144942186,
   "index": "/lraKpiTest/index.html",
   "assetGroups": [
     {
@@ -13,12 +13,12 @@
       "urls": [
         "/lraKpiTest/favicon.ico",
         "/lraKpiTest/index.html",
-        "/lraKpiTest/main.25f6f5202dc845fa.js",
+        "/lraKpiTest/main.49dabcb09cdfacef.js",
         "/lraKpiTest/manifest.webmanifest",
         "/lraKpiTest/polyfills.2d038bc31652c7d2.js",
         "/lraKpiTest/runtime.f99debab09b4b2c7.js",
         "/lraKpiTest/scripts.0fd27278605081db.js",
-        "/lraKpiTest/styles.b6022c8766b01f10.css"
+        "/lraKpiTest/styles.21048b0908733876.css"
       ],
       "patterns": []
     },
@@ -63,6 +63,7 @@
         "/lraKpiTest/assets/img/full-screen-image-3.jpg",
         "/lraKpiTest/assets/img/loader-preview.svg",
         "/lraKpiTest/assets/img/loading-bubbles.svg",
+        "/lraKpiTest/assets/img/loginImage.jpg",
         "/lraKpiTest/assets/img/mask.png",
         "/lraKpiTest/assets/img/new_logo.png",
         "/lraKpiTest/assets/img/opt_lbd_angular_thumbnail.jpg",
@@ -73,6 +74,7 @@
         "/lraKpiTest/assets/img/sidebar-4.jpg",
         "/lraKpiTest/assets/img/sidebar-5.jpg",
         "/lraKpiTest/assets/img/tim_80x80.png",
+        "/lraKpiTest/assets/img/whiteBBVA.png",
         "/lraKpiTest/assets/sass/lbd/_alerts.scss",
         "/lraKpiTest/assets/sass/lbd/_buttons.scss",
         "/lraKpiTest/assets/sass/lbd/_cards.scss",
@@ -102,6 +104,14 @@
         "/lraKpiTest/assets/sass/lbd/mixins/_transparency.scss",
         "/lraKpiTest/assets/sass/lbd/mixins/_vendor-prefixes.scss",
         "/lraKpiTest/assets/sass/light-bootstrap-dashboard.scss",
+        "/lraKpiTest/fontawesome-webfont.263ad4e5760b3f71.woff2",
+        "/lraKpiTest/fontawesome-webfont.4d7106362c96d859.svg",
+        "/lraKpiTest/fontawesome-webfont.8a7cb27d142e3e19.ttf",
+        "/lraKpiTest/fontawesome-webfont.be578d115be007c4.ttf",
+        "/lraKpiTest/fontawesome-webfont.cf011583fb81df9f.woff",
+        "/lraKpiTest/fontawesome-webfont.da909aa098b0ee2d.svg",
+        "/lraKpiTest/fontawesome-webfont.e9955780856cf8aa.woff2",
+        "/lraKpiTest/fontawesome-webfont.f9f5fef431c65591.woff",
         "/lraKpiTest/glyphicons-halflings-regular.009b407a9881be10.ttf",
         "/lraKpiTest/glyphicons-halflings-regular.4ba85deaf3670942.woff",
         "/lraKpiTest/glyphicons-halflings-regular.85f0466cb4ab3a4d.svg",
@@ -145,6 +155,7 @@
     "/lraKpiTest/assets/img/full-screen-image-3.jpg": "b8029570c501ba3e40ee5e802e1663851523fed3",
     "/lraKpiTest/assets/img/loader-preview.svg": "96a2fd9fbf205369f8357b023b47527be67fb7d3",
     "/lraKpiTest/assets/img/loading-bubbles.svg": "a236ccabc614a9f577ad5795d5dc8ed9d0524750",
+    "/lraKpiTest/assets/img/loginImage.jpg": "53c7c80f589e7af67c22990c52edbb52d3ac5941",
     "/lraKpiTest/assets/img/mask.png": "ddaf8c9979f290f7d89defec2f9dbbebe71be8d1",
     "/lraKpiTest/assets/img/new_logo.png": "a1eab6e169ade519f090135d1a8fba8cf89907f6",
     "/lraKpiTest/assets/img/opt_lbd_angular_thumbnail.jpg": "f20f400cb35815f01bd68fc877d6a015bfaba843",
@@ -155,6 +166,7 @@
     "/lraKpiTest/assets/img/sidebar-4.jpg": "f21a4a3b974e70c7f8656fbfc2d2b692ff77e424",
     "/lraKpiTest/assets/img/sidebar-5.jpg": "d10744ef43268e1e941fa410afcfa1c215b23cf3",
     "/lraKpiTest/assets/img/tim_80x80.png": "badc53cc7844979e5a9d65acebfc9b235f4f4dd9",
+    "/lraKpiTest/assets/img/whiteBBVA.png": "89191ed171e1bc4655f545d6c5f1271787917185",
     "/lraKpiTest/assets/sass/lbd/_alerts.scss": "ec3e0ed07b6849b8a8843b3df71dc1948363dcbd",
     "/lraKpiTest/assets/sass/lbd/_buttons.scss": "5245d30d1c3ac9c730b4a9a78e7724d171ff5552",
     "/lraKpiTest/assets/sass/lbd/_cards.scss": "019e9abfa8a3835166e11b3076148b2afbfc360d",
@@ -185,17 +197,25 @@
     "/lraKpiTest/assets/sass/lbd/mixins/_vendor-prefixes.scss": "d7d4a30f3409129fd93e89c3f7cd7618cd53f710",
     "/lraKpiTest/assets/sass/light-bootstrap-dashboard.scss": "99b1e731935e7cfd04aeabf25f552f27de45c13b",
     "/lraKpiTest/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/lraKpiTest/fontawesome-webfont.263ad4e5760b3f71.woff2": "97e438cc545714309882fbceadbf344fcaddcec5",
+    "/lraKpiTest/fontawesome-webfont.4d7106362c96d859.svg": "c0522272bbaef2acb3d341912754d6ea2d0ecfc0",
+    "/lraKpiTest/fontawesome-webfont.8a7cb27d142e3e19.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
+    "/lraKpiTest/fontawesome-webfont.be578d115be007c4.ttf": "61d8d967807ef12598d81582fa95b9f600c3ee01",
+    "/lraKpiTest/fontawesome-webfont.cf011583fb81df9f.woff": "28b782240b3e76db824e12c02754a9731a167527",
+    "/lraKpiTest/fontawesome-webfont.da909aa098b0ee2d.svg": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed",
+    "/lraKpiTest/fontawesome-webfont.e9955780856cf8aa.woff2": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c",
+    "/lraKpiTest/fontawesome-webfont.f9f5fef431c65591.woff": "6d7e6a5fc802b13694d8820fc0138037c0977d2e",
     "/lraKpiTest/glyphicons-halflings-regular.009b407a9881be10.ttf": "44bc1850f570972267b169ae18f1cb06b611ffa2",
     "/lraKpiTest/glyphicons-halflings-regular.4ba85deaf3670942.woff": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f",
     "/lraKpiTest/glyphicons-halflings-regular.85f0466cb4ab3a4d.svg": "de51a8494180a6db074af2dee2383f0a363c5b08",
     "/lraKpiTest/glyphicons-halflings-regular.b70781972ce7320b.woff2": "ca35b697d99cae4d1b60f2d60fcd37771987eb07",
-    "/lraKpiTest/index.html": "a08475dc6165cfdc8a8189bfdfe41d94ccaf9048",
-    "/lraKpiTest/main.25f6f5202dc845fa.js": "38ab3abd0039d97fc7c239ea1ab93f58f38b3803",
+    "/lraKpiTest/index.html": "31309a05d7f23ea73278c4216d8093e4a48da979",
+    "/lraKpiTest/main.49dabcb09cdfacef.js": "bbd99f0ae6af5e2d16b1e7901c936ae00171d8d7",
     "/lraKpiTest/manifest.webmanifest": "5007377af41f4553a58e23dc48839602f5288600",
     "/lraKpiTest/polyfills.2d038bc31652c7d2.js": "01df6e4bceb15a9ba0754e66a8a00142cf546270",
     "/lraKpiTest/runtime.f99debab09b4b2c7.js": "44cc2afbfb44b017314faa17d1426809ec489a86",
     "/lraKpiTest/scripts.0fd27278605081db.js": "d78e278c48cce665a168abefa32fcda67b5280e7",
-    "/lraKpiTest/styles.b6022c8766b01f10.css": "147a18eb2ac0ad049c0024e096a9be7fb5f86050"
+    "/lraKpiTest/styles.21048b0908733876.css": "77948d2907116554941cfdf26f2fb7d32437edf8"
   },
   "navigationUrls": [
     {
