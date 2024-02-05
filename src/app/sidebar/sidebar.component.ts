@@ -43,7 +43,7 @@ export class SidebarComponent implements OnInit {
   async onClick(){
     try{
       let resultado = await this.authService.logout();  
-      this.router.navigate(['/login'])
+      this.router.navigateByUrl('https://ingsebastiantorres.github.io/lraKpiTest/#/login')
       console.log("Resultado ", resultado);
 
     }catch(err){
