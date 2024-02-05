@@ -207,3 +207,7 @@ img{
         margin-top:54%;
     }
 }
+
+.fa-google:before {
+    content: "\f1a0" !important;
+  }

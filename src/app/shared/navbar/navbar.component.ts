@@ -1,6 +1,8 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { Router } from '@angular/router';
+import { AuthService } from 'app/services/auth.service';
 
 @Component({
     // moduleId: module.id,
@@ -14,7 +16,7 @@ export class NavbarComponent implements OnInit{
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(location: Location,  private element: ElementRef) {
+    constructor(location: Location,  private element: ElementRef, private auth:AuthService, private router:Router) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -62,5 +64,15 @@ export class NavbarComponent implements OnInit{
           }
       }
       return 'Dashboard';
+    }
+
+    async onClick(){
+        try{
+            let response= this.auth.logout();
+            console.log(response);
+            this.router.navigate(['/login'])
+        }catch(err){
+            console.error(err);
+        }
     }
 }
