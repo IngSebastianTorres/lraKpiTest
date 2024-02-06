@@ -71,6 +71,7 @@ export class NavbarComponent implements OnInit{
             let response= this.auth.logout();
             console.log(response);
             this.router.navigate(['/login'])
+            location.reload();
         }catch(err){
             console.error(err);
         }

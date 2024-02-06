@@ -14,7 +14,6 @@ declare interface TableData {
 })
 export class KpiBatchCoreComponent implements OnInit {
 
-
   public hoursChartType: ChartType;
   public hoursChartData: any;
   public hoursChartOptions: any;
@@ -33,20 +32,20 @@ export class KpiBatchCoreComponent implements OnInit {
   ngOnInit(): void {
     this.hoursChartType = ChartType.Line;
     this.hoursChartData = {
-      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto'],
+      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre','Noviembre','Diciembre'],
       series: [
-        [45, 51, 50, 59, 47, 52, 50, 51, 55],
-       // [55, 55, 55, 55, 57, 57, 57, 57, 57],
+        [45, 51, 50, 59, 47, 52, 50, 51, 55, 60, 53, 58],
+        [55, 55, 55, 55, 57, 57, 57, 57, 57, 61, 52, 53],
        // [23, 113, 67, 108, 190, 239, 307, 308, 439, 410, 410, 509]
       ]
     };
     this.hoursChartOptions = {
       low: 0,
       high: 60,
-      showArea: true,
+      showArea: false,
       height: '245px',
       axisX: {
-        showGrid: false,
+        showGrid: true,
       },
       lineSmooth: Chartist.Interpolation.simple({
         divisor: 3
@@ -65,7 +64,7 @@ export class KpiBatchCoreComponent implements OnInit {
     ];
     this.hoursChartLegendItems = [
       { title: 'KPI REAL', imageClass: 'fa fa-circle text-info' },
-      { title: 'KPI ESTIMADO', imageClass: 'fa fa-circle text-warning' }
+      { title: 'KPI ESTIMADO', imageClass: 'fa fa-circle text-danger' }
     ];  
 
     this.kpiLastDaysCharType = ChartType.Bar;
@@ -96,12 +95,12 @@ export class KpiBatchCoreComponent implements OnInit {
       }]
     ];
     this.kpiLastDaysCharLegendItems = [
-      { title: 'KPI Online', imageClass: 'fa fa-circle text-info' },        
+      { title: 'KPI Online Real', imageClass: 'fa fa-circle text-info' },        
     ];
 
 
     this.tableData2 = {
-      headerRow: [ 'Fecha', 'KPI' ],
+      headerRow: [ 'Fecha', 'KPI Real' ],
       dataRows: [
           ['12-01-2024', '55.0'],
           ['13-01-2024', '56.2'],
@@ -112,8 +111,13 @@ export class KpiBatchCoreComponent implements OnInit {
           ['18-01-2024', '55.7' ]
           
       ]
-  };
+    };
+
+    
 
   }
 
+
 }
+
+

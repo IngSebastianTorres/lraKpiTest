@@ -68,11 +68,65 @@ export class LbdChartComponent implements OnInit, AfterViewInit {
       case ChartType.Pie:
         new Chartist.Pie(`#${this.chartId}`, this.chartData, this.chartOptions, this.chartResponsive);
         break;
+
       case ChartType.Line:
-        new Chartist.Line(`#${this.chartId}`, this.chartData, this.chartOptions, this.chartResponsive);
+        var series = this.chartData.series;
+        new Chartist.Line(`#${this.chartId}`, this.chartData, this.chartOptions, this.chartResponsive).on("draw", function(data) {
+          if (data.type === "point") {
+            var title = "";
+            for (var i = 0; i < series.length; i++)
+              if (i > 0) 
+                title += "<br>KPI Estimado "  + ": " + series[i][data.index];
+              else 
+                title += "KPI Real " + ": " + series[i][data.index];
+           
+            data.element._node.setAttribute("title", title);
+            data.element._node.setAttribute("data-chart-tooltip", "chartLine");
+            
+            // optional grid highlight
+            var grid = document.querySelector<HTMLElement>("#chartLine .ct-horizontal:nth-child(" + (data.index + 1) + ")");
+            data.element._node.addEventListener("mouseenter", function(event) {
+              grid.style.stroke = "rgba(0,0,255,.6)";
+            })
+            data.element._node.addEventListener("mouseleave", function(event) {
+              grid.style.stroke = "rgba(0,0,0,.2)";
+            });
+          }
+        }).on("created", function() {
+          // Initiate Tooltip
+          // CAST TO JQUERY ON JAVASCRIPT
+          ($("#chartLine") as any).tooltip({
+            selector: '[data-chart-tooltip="chartLine"]',
+            container: "body",
+            html: true
+          });
+        });
         break;
+        
       case ChartType.Bar:
-        new Chartist.Bar(`#${this.chartId}`, this.chartData, this.chartOptions, this.chartResponsive);
+        
+        var series = this.chartData.series;
+        new Chartist.Bar(`#${this.chartId}`, this.chartData, this.chartOptions, this.chartResponsive).on("draw", function(data) {
+          if (data.type === "bar") {
+            var title = "";
+            for (var i = 0; i < series.length; i++)
+              if (i > 0) 
+                title += "<br>KPI Estimado "  + ": " + series[i][data.index];
+              else 
+                title += "KPI Real " + ": " + series[i][data.index];
+           
+            data.element._node.setAttribute("title", title);
+            data.element._node.setAttribute("data-chart-tooltip", "chartBar");
+          }
+        }).on("created", function() {
+          // Initiate Tooltip
+          // CAST TO JQUERY ON JAVASCRIPT
+          ($("#chartBar") as any).tooltip({
+            selector: '[data-chart-tooltip="chartBar"]',
+            container: "body",
+            html: true
+          });
+        });
         break;
     }
   }

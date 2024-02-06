@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <lbd-chart style="height: 199px !important;"
+                <lbd-chart id="chartLine" style="height: 199px !important;"
                   [title]="'KPI Online'"
                   [subtitle]="'Media Mensual'"
                   [chartType]="hoursChartType"
@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="card" style="padding-top:2.2%">
                     <div class="header">
                         <h4 class="title">KPI Online</h4>
@@ -78,8 +78,8 @@
                     </div>
                 </div>
            </div>
-           <div class="col-md-6">
-            <lbd-chart
+           <div class="col-md-8">
+            <lbd-chart id="chartBar"
               [title]="'KPI Online'"
               [subtitle]="'Ultimos 7 días'"
               [chartType]="kpiLastDaysCharType"

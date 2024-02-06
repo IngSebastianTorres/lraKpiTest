@@ -33,20 +33,20 @@ export class KpiBatchGlobalComponent implements OnInit {
 
     this.hoursChartType = ChartType.Line;
     this.hoursChartData = {
-      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto'],
+      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre','Noviembre','Diciembre'],
       series: [
-        [49, 55, 52, 54, 47, 53, 59, 51, 53],
-       // [55, 55, 55, 55, 57, 57, 57, 57, 57],
+        [49, 55, 52, 54, 47, 53, 59, 51, 53.59,59,55,57],
+        [55, 55, 55, 55, 57, 57, 57, 57, 57,60,59,58.5],
        // [23, 113, 67, 108, 190, 239, 307, 308, 439, 410, 410, 509]
       ]
     };
     this.hoursChartOptions = {
       low: 0,
       high: 60,
-      showArea: true,
+      showArea: false,
       height: '245px',
       axisX: {
-        showGrid: false,
+        showGrid: true,
       },
       lineSmooth: Chartist.Interpolation.simple({
         divisor: 3
@@ -65,7 +65,7 @@ export class KpiBatchGlobalComponent implements OnInit {
     ];
     this.hoursChartLegendItems = [
       { title: 'KPI REAL', imageClass: 'fa fa-circle text-info' },
-      { title: 'KPI ESTIMADO', imageClass: 'fa fa-circle text-warning' }
+      { title: 'KPI ESTIMADO', imageClass: 'fa fa-circle text-danger' }
     ];  
 
     this.kpiLastDaysCharType = ChartType.Bar;
@@ -96,12 +96,12 @@ export class KpiBatchGlobalComponent implements OnInit {
       }]
     ];
     this.kpiLastDaysCharLegendItems = [
-      { title: 'KPI Online', imageClass: 'fa fa-circle text-info' },        
+      { title: 'KPI Online Real', imageClass: 'fa fa-circle text-info' },        
     ];
 
 
     this.tableData2 = {
-      headerRow: [ 'Fecha', 'KPI' ],
+      headerRow: [ 'Fecha', 'KPI Real' ],
       dataRows: [
           ['12-01-2024', '55.0'],
           ['13-01-2024', '56.2'],
