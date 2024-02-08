@@ -18,7 +18,8 @@ export const ROUTES_NAV: RouteInfo[] = [
     { path: '/estadisticasOnline', title: 'Estadisticas KPI',  icon: 'pe-7s-graph1', class: '' },
     { path: '/summaryReport', title: 'Informe General',  icon: 'pe-7s-graph1', class: ''},
     { path: '/estadisticasBatchGlobal', title: 'Estadisticas KPI',  icon: 'pe-7s-graph1', class: ''},
-    { path: '/estadisticasBatchCore', title: 'Estadisticas KPI',  icon: 'pe-7s-graph1', class: ''}
+    { path: '/estadisticasBatchCore', title: 'Estadisticas KPI',  icon: 'pe-7s-graph1', class: ''},
+    { path: '/apiRestDoc', title: 'Api Services Documentation',  icon: 'pe-7s-graph1', class: ''}
 ];
 
 @Component({

@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { InfouserService } from './services/infouser.service';
+import { ApiRestComponent } from './api-rest/api-rest.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { InfouserService } from './services/infouser.service';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    LoginComponent
+    LoginComponent,
+    ApiRestComponent
   ],
   providers: [InfouserService],
   bootstrap: [AppComponent]
