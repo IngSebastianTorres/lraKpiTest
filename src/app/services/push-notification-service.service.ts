@@ -27,11 +27,5 @@ export class PushNotificationServiceService {
     return await firstValueFrom(this.http.post<any>(this.url+"/save", body, httpOptions ));
   }
 
-/*  saveToken = (token) => {
-    return this.http.post( this.url+"/save", 
-      body:{
-        token
-      }
-    );
-  };*/
+
 }

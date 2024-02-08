@@ -17,6 +17,7 @@ import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { InfouserService } from './services/infouser.service';
 
 @NgModule({
   imports: [
@@ -42,7 +43,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     AdminLayoutComponent,
     LoginComponent
   ],
-  providers: [],
+  providers: [InfouserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
