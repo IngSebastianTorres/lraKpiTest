@@ -46,20 +46,19 @@ export class HomeComponent implements OnInit {
 
       this.hoursChartType = ChartType.Line;
       this.hoursChartData = {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto'],
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre','Noviembre','Diciembre'],
         series: [
-          [50, 57, 60, 54, 49, 55, 53, 58, 53]
-         // [67, 152, 143, 240, 287, 335, 435, 437, 539, 542, 544, 647],
-         // [23, 113, 67, 108, 190, 239, 307, 308, 439, 410, 410, 509]
+          [50, 57, 60, 54, 49, 55, 53, 58, 53, 60,49,55],
+          [50, 57, 60, 49, 45, 57, 52, 59.3, 53, 55,59,55]
         ]
       };
       this.hoursChartOptions = {
         low: 0,
         high: 60,
-        showArea: true,
+        showArea: false,
         height: '245px',
         axisX: {
-          showGrid: false,
+          showGrid: true,
         },
         lineSmooth: Chartist.Interpolation.simple({
           divisor: 3
@@ -78,7 +77,7 @@ export class HomeComponent implements OnInit {
       ];
       this.hoursChartLegendItems = [
         { title: 'KPI REAL', imageClass: 'fa fa-circle text-info' },
-        { title: 'KPI ESTIMADO', imageClass: 'fa fa-circle text-warning' }
+        { title: 'KPI ESTIMADO', imageClass: 'fa fa-circle text-danger' }
       ];
 
       this.kpiLastDaysCharType = ChartType.Bar;
@@ -109,12 +108,12 @@ export class HomeComponent implements OnInit {
         }]
       ];
       this.kpiLastDaysCharLegendItems = [
-        { title: 'KPI Online', imageClass: 'fa fa-circle text-info' },        
+        { title: 'KPI Online Real', imageClass: 'fa fa-circle text-info' },        
       ];
 
 
       this.tableData2 = {
-        headerRow: [ 'Fecha', 'KPI' ],
+        headerRow: [ 'Fecha', 'KPI Real' ],
         dataRows: [
             ['12-01-2024', '55.0'],
             ['13-01-2024', '56.2'],

@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <lbd-chart style="height: 199px !important;"
+                <lbd-chart id="chartLine" style="height: 199px !important;"
                   [title]="'KPI Batch Core'"
                   [subtitle]="'Media Mensual'"
                   [chartType]="hoursChartType"
@@ -23,7 +23,7 @@
                     <div class="col-sm-8">
                         <div class="header">
                             <h4 class="title">KPI Dia actual</h4>
-                            <button type="button" class="btn btn-primary">55.2</button>
+                            <div class="div-indicator">55.2</div>
                         </div>
                     </div>
                     <div class="col-sm-2"> </div>
@@ -35,7 +35,7 @@
                     <div class="col-sm-8"> 
                         <div class="header">
                             <h4 class="title">Ejecuciones ETHER</h4>
-                            <button type="button" class="btn btn-primary">33000</button>
+                            <div class="div-indicator">30000</div>
                         </div>
                     </div>
                     <div class="col-sm-2"> </div>
@@ -47,14 +47,14 @@
                     <div class="col-sm-8"> 
                         <div class="header">
                             <h4 class="title">Ejecuciones HOST</h4>
-                            <button type="button" class="btn btn-primary">90000</button>
+                            <div class="div-indicator">90000</div>
                         </div>
                     </div>
                     <div class="col-sm-2"> </div>
                 </div>
             </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="card" style="padding-top:2.2%">
                     <div class="header">
                         <h4 class="title">KPI Batch Core</h4>
@@ -77,8 +77,8 @@
                     </div>
                 </div>
            </div>
-           <div class="col-md-6">
-            <lbd-chart
+           <div class="col-md-8">
+            <lbd-chart id="chartBar"
               [title]="'KPI Batch Core'"
               [subtitle]="'Ultimos 7 días'"
               [chartType]="kpiLastDaysCharType"

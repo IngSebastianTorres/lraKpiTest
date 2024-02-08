@@ -1,0 +1,213 @@
+.sidebar{
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+        display: block;
+        top: 0;
+        left: 0;
+        background-size: cover;
+        background-position: center center;
+}
+
+@media (max-width:1200px){
+    .h-login{
+        position: absolute;
+        z-index: 99;
+        margin-top: 30%;
+        font-weight: 600;
+        padding-top: 15%;
+    }
+    .loginGoogle{
+        margin-top: 80% !important;
+        color: #fff;
+        background-color: red;
+        border-color: red;
+        border-radius: 30px;
+        font-weight:400;
+    }
+
+}
+
+@media (max-width:992px){
+    .sidebar{
+        position: absolute;
+        z-index: 1;
+        height: 147%;
+        width: 139%;
+        display: block;
+        top: 0;
+        left: 0;
+        background-size: cover;
+        background-position: center center;
+        margin-left: auto;
+    }
+}
+@media (max-width:665px){
+    .sidebar{
+        position: absolute;
+        z-index: 1;
+        height: 180%;
+        width: 180%;
+        display: block;
+        top: 0;
+        left: 0;
+        background-size: cover;
+        background-position: center center;
+        margin-left: auto;
+    }
+}
+@media (max-width:327px){
+    .sidebar{
+        position: absolute;
+        z-index: 1;
+        height: 200%;
+        width: 200%;
+        display: block;
+        top: 0;
+        left: 0;
+        background-size: cover;
+        background-position: center center;
+        margin-left: auto;
+    }
+}
+
+img{
+    position: absolute;
+    z-index: 99;
+    width: 350px;
+    height: 100px;
+}
+.h-login{
+    position: absolute;
+    z-index: 99;
+    margin-top: 30%;
+    font-weight: 600;
+}
+.loginGoogle{
+    margin-top: 50%;
+    color: #fff;
+    background-color: red;
+    border-color: red;
+    border-radius: 30px;
+    font-weight:400;
+}
+
+@media (max-width:991px){
+    .h-login{
+        position: absolute;
+        z-index: 99;
+        margin-top: 3%;
+        font-weight: 600;
+    }
+    .loginGoogle{
+        margin-top:28% !important;
+        color: #fff;
+        background-color: red;
+        border-color: red;
+        border-radius: 30px;
+        font-weight:400;
+        width: 48%;
+    }
+}
+
+@media (max-width:767px){
+    .h-login{
+        position: absolute;
+        z-index: 99;
+        margin-top: 14%;
+        font-weight: 600;
+        margin-left: 35%;
+    }
+    .loginGoogle{
+        margin-top:34% !important;
+        color: #fff;
+        background-color: red;
+        border-color: red;
+        border-radius: 30px;
+        font-weight:400;
+        width: 35%;
+        margin-left: 34%;
+    }
+    .logoLetters{
+        margin-left: 35%;
+        margin-top: 17%;
+    }
+}
+
+@media (max-width:472px){
+    .h-login{
+        position: absolute;
+        z-index: 99;
+        margin-top: 42%;
+        font-weight: 600;
+        margin-left: 35%;
+    }
+    .loginGoogle{
+        margin-top:62% !important;
+        color: #fff;
+        background-color: red;
+        border-color: red;
+        border-radius: 30px;
+        font-weight:400;
+        width: 43%;
+        margin-left: 34%;
+    }
+    .logoLetters{
+        margin-left: 35%;
+        margin-top: 43%;
+    }
+}
+
+@media (max-width:425px){
+    .h-login{
+        position: absolute;
+        z-index: 99;
+        margin-top: 56%;
+        font-weight: 600;
+        margin-left: 27%;
+    }
+    .loginGoogle{
+        margin-top:80% !important;
+        color: #fff;
+        background-color: red;
+        border-color: red;
+        border-radius: 30px;
+        font-weight:400;
+        width: 49%;
+        margin-left: 27%;
+    }
+    .logoLetters{
+        margin-left: 27%;
+        margin-top:54%;
+    }
+}
+
+
+@media (max-width:299px){
+    .h-login{
+        position: absolute;
+        z-index: 99;
+        margin-top: 60%;
+        font-weight: 600;
+        margin-left: 22%;
+    }
+    .loginGoogle{
+        margin-top:92% !important;
+        color: #fff;
+        background-color: red;
+        border-color: red;
+        border-radius: 30px;
+        font-weight:400;
+        width: 49%;
+        margin-left: 22%;
+    }
+    .logoLetters{
+        margin-left: 22%;
+        margin-top:54%;
+    }
+}
+
+.fa-google:before {
+    content: "\f1a0" !important;
+  }

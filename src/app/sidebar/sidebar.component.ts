@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'app/services/auth.service';
+import { Router } from '@angular/router';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -26,7 +28,7 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor() { }
+  constructor(private authService:AuthService, private router:Router) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
@@ -37,4 +39,16 @@ export class SidebarComponent implements OnInit {
       }
       return true;
   };
+
+  async onClick(){
+    try{
+      let resultado = await this.authService.logout();  
+      this.router.navigateByUrl('https://ingsebastiantorres.github.io/lraKpiTest/#/login')
+      location.reload();
+      console.log("Resultado ", resultado);
+
+    }catch(err){
+      console.log("Error de salida")
+    }
+  }
 }
