@@ -34,10 +34,17 @@ export class NavbarComponent implements OnInit,OnDestroy{
     private sidebarVisible: boolean;
     public infoUser:InfoUser;
     subscription:Subscription;
+    
 
     constructor(location: Location,  private element: ElementRef, private auth:AuthService, private router:Router, private infoUserService:InfouserService) {
       this.location = location;
           this.sidebarVisible = false;
+          this.infoUserService.dataObserver.subscribe(data => {
+            this.infoUser = data;
+            localStorage.setItem("infoUserEmail",this.infoUser.email);
+            localStorage.setItem("profilePhoto",this.infoUser.profilePhoto);
+        
+      });
          
     }
 
@@ -45,12 +52,8 @@ export class NavbarComponent implements OnInit,OnDestroy{
       this.listTitles = ROUTES_NAV.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
-      this.infoUserService.dataObserver.subscribe(data => {
-        if(data!=undefined){
-            this.infoUser = data;
-        }
-        
-      });
+      
+      this.infoUser = new InfoUser(localStorage.getItem("infoUserEmail"),localStorage.getItem("profilePhoto"));
       
     }
 
@@ -107,5 +110,7 @@ export class NavbarComponent implements OnInit,OnDestroy{
 
     ngOnDestroy() {
         this.subscription.unsubscribe();
+        localStorage.removeItem('infoUserEmail');
+        localStorage.removeItem('profilePhoto');
     }
 }

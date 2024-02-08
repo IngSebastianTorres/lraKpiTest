@@ -34,9 +34,21 @@
             <ul class="nav navbar-nav navbar-right" id="userNameNavBar">
                 <li>
                     <a href="#userNameNavBar">
+                        <img class="avatar border-gray" src={{this.infoUser.profilePhoto}} style="height: 38px;
+                        width: 45px;
+                        border-radius: 50%;
+                        position: absolute;
+                        margin-top: -20%;
+                        margin-left: -81%;" alt="Your profile Photo"/>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="#userNameNavBar" style="margin-left: 3%;">
                         {{this.infoUser.email}}
                     </a>
                 </li>
+               
                 <li>
                     <a (click)="onClick()">
                         Log out
