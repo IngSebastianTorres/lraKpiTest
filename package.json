@@ -41,6 +41,7 @@
     "googleapis": "66.0.0",
     "jquery": "3.5.1",
     "perfect-scrollbar": "1.5.0",
+    "raml2html": "^7.8.0",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.10.5",
     "tslib": "^2.3.0",
