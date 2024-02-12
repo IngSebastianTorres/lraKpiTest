@@ -52,13 +52,20 @@
                      <div class="panel-group">
                         <div class="panel panel-white resource-modal">
                            <div class="panel-heading">
-                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_kpi_prevmonht_kpi"><span class="parent">/kpi/prevMonht</span>/kpi</a> <span class="methods"><a href="#kpi_prevmonht_kpi_get"><span class="badge badge_get">get</span></a></span></h4>
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_kpi_prevmonht_kpi">
+                                <span class="parent">/kpi/prevMonht</span>/kpi</a> 
+                                <span class="methods" (click)="onClickShowModal('kpi_prevmonht_kpi_get')">
+                                    <a>
+                                        <span class="badge badge_get">get</span>
+                                    </a>
+                                </span>
+                               </h4>
                            </div>
                            <div id="panel_kpi_prevmonht_kpi" class="panel-collapse collapse">
                               <div class="panel-body">
                                  <div class="list-group">
-                                    <div onclick="window.location.href = '#kpi_prevmonht_kpi_get'" class="list-group-item">
-                                       <span class="badge badge_get">get</span>
+                                    <div (click)="onClickShowModal('kpi_prevmonht_kpi_get')" class="list-group-item">
+                                       <a ><span class="badge badge_get">get</span></a>
                                        <div class="method_description">
                                           <p>Kpi mes anterior</p>
                                        </div>
@@ -71,7 +78,7 @@
                               <div class="modal-dialog modal-lg">
                                  <div class="modal-content">
                                     <div class="modal-header">
-                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('kpi_prevmonht_kpi_get')">&times;</button>
                                        <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/kpi/prevMonht</span>/kpi</h4>
                                     </div>
                                     <div class="modal-body">
@@ -133,12 +140,12 @@
                         </div>
                         <div class="panel panel-white resource-modal">
                            <div class="panel-heading">
-                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_kpi_prevmonht_ateneaexecutions"><span class="parent">/kpi/prevMonht</span>/ateneaExecutions</a> <span class="methods"><a href="#kpi_prevmonht_ateneaexecutions_get"><span class="badge badge_get">get</span></a></span></h4>
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_kpi_prevmonht_ateneaexecutions"><span class="parent">/kpi/prevMonht</span>/ateneaExecutions</a> <span class="methods" (click)="onClickShowModal('kpi_prevmonht_ateneaexecutions_get')"><a ><span class="badge badge_get">get</span></a></span></h4>
                            </div>
                            <div id="panel_kpi_prevmonht_ateneaexecutions" class="panel-collapse collapse">
                               <div class="panel-body">
                                  <div class="list-group">
-                                    <div onclick="window.location.href = '#kpi_prevmonht_ateneaexecutions_get'" class="list-group-item">
+                                    <div (click)="onClickShowModal('kpi_prevmonht_ateneaexecutions_get')" class="list-group-item">
                                        <span class="badge badge_get">get</span>
                                        <div class="method_description">
                                           <p>Registro de ejecuciones de Atenea del mes anterior</p>
@@ -152,7 +159,7 @@
                               <div class="modal-dialog modal-lg">
                                  <div class="modal-content">
                                     <div class="modal-header">
-                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('kpi_prevmonht_ateneaexecutions_get')">&times;</button>
                                        <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/kpi/prevMonht</span>/ateneaExecutions</h4>
                                     </div>
                                     <div class="modal-body">
@@ -215,12 +222,15 @@
                         </div>
                         <div class="panel panel-white resource-modal">
                            <div class="panel-heading">
-                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_kpi_prevmonht_channelexecutions"><span class="parent">/kpi/prevMonht</span>/channelExecutions</a> <span class="methods"><a href="#kpi_prevmonht_channelexecutions_get"><span class="badge badge_get">get</span></a></span></h4>
+                              <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" href="#panel_kpi_prevmonht_channelexecutions"><span class="parent">/kpi/prevMonht</span>/channelExecutions</a> 
+                                <span class="methods" (click)="onClickShowModal('kpi_prevmonht_channelexecutions_get')">
+                                    <a><span class="badge badge_get">get</span></a></span></h4>
                            </div>
                            <div id="panel_kpi_prevmonht_channelexecutions" class="panel-collapse collapse">
                               <div class="panel-body">
                                  <div class="list-group">
-                                    <div onclick="window.location.href = '#kpi_prevmonht_channelexecutions_get'" class="list-group-item">
+                                    <div (click)="onClickShowModal('kpi_prevmonht_channelexecutions_get')" class="list-group-item">
                                        <span class="badge badge_get">get</span>
                                        <div class="method_description">
                                           <p>Registro de ejecuciones por canal mes anterior</p>
@@ -234,7 +244,7 @@
                               <div class="modal-dialog modal-lg">
                                  <div class="modal-content">
                                     <div class="modal-header">
-                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('kpi_prevmonht_channelexecutions_get')">&times;</button>
                                        <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/kpi/prevMonht</span>/channelExecutions</h4>
                                     </div>
                                     <div class="modal-body">
@@ -297,12 +307,12 @@
                         </div>
                         <div class="panel panel-white resource-modal">
                            <div class="panel-heading">
-                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_kpi_lastmonht_kpi"><span class="parent">/kpi/lastMonht</span>/kpi</a> <span class="methods"><a href="#kpi_lastmonht_kpi_get"><span class="badge badge_get">get</span></a></span></h4>
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_kpi_lastmonht_kpi"><span class="parent">/kpi/lastMonht</span>/kpi</a> <span class="methods" (click)="onClickShowModal('kpi_lastmonht_kpi_get')"><a><span class="badge badge_get">get</span></a></span></h4>
                            </div>
                            <div id="panel_kpi_lastmonht_kpi" class="panel-collapse collapse">
                               <div class="panel-body">
                                  <div class="list-group">
-                                    <div onclick="window.location.href = '#kpi_lastmonht_kpi_get'" class="list-group-item">
+                                    <div (click)="onClickShowModal('kpi_lastmonht_kpi_get')" class="list-group-item">
                                        <span class="badge badge_get">get</span>
                                        <div class="method_description">
                                           <p>Kpi mes actual</p>
@@ -316,7 +326,7 @@
                               <div class="modal-dialog modal-lg">
                                  <div class="modal-content">
                                     <div class="modal-header">
-                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('kpi_lastmonht_kpi_get')">&times;</button>
                                        <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/kpi/lastMonht</span>/kpi</h4>
                                     </div>
                                     <div class="modal-body">
@@ -378,12 +388,12 @@
                         </div>
                         <div class="panel panel-white resource-modal">
                            <div class="panel-heading">
-                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_kpi_lastmonht_ateneaexecutions"><span class="parent">/kpi/lastMonht</span>/ateneaExecutions</a> <span class="methods"><a href="#kpi_lastmonht_ateneaexecutions_get"><span class="badge badge_get">get</span></a></span></h4>
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_kpi_lastmonht_ateneaexecutions"><span class="parent">/kpi/lastMonht</span>/ateneaExecutions</a> <span class="methods"  (click)="onClickShowModal('kpi_lastmonht_ateneaexecutions_get')"><a ><span class="badge badge_get">get</span></a></span></h4>
                            </div>
                            <div id="panel_kpi_lastmonht_ateneaexecutions" class="panel-collapse collapse">
                               <div class="panel-body">
                                  <div class="list-group">
-                                    <div onclick="window.location.href = '#kpi_lastmonht_ateneaexecutions_get'" class="list-group-item">
+                                    <div (click)="onClickShowModal('kpi_lastmonht_ateneaexecutions_get')" class="list-group-item">
                                        <span class="badge badge_get">get</span>
                                        <div class="method_description">
                                           <p>Registro de ejecuciones de Atenea del ultimo mes</p>
@@ -397,7 +407,7 @@
                               <div class="modal-dialog modal-lg">
                                  <div class="modal-content">
                                     <div class="modal-header">
-                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('kpi_lastmonht_ateneaexecutions_get')">&times;</button>
                                        <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/kpi/lastMonht</span>/ateneaExecutions</h4>
                                     </div>
                                     <div class="modal-body">
@@ -460,12 +470,12 @@
                         </div>
                         <div class="panel panel-white resource-modal">
                            <div class="panel-heading">
-                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_kpi_lastmonht_channelexecutions"><span class="parent">/kpi/lastMonht</span>/channelExecutions</a> <span class="methods"><a href="#kpi_lastmonht_channelexecutions_get"><span class="badge badge_get">get</span></a></span></h4>
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_kpi_lastmonht_channelexecutions"><span class="parent">/kpi/lastMonht</span>/channelExecutions</a> <span class="methods" (click)="onClickShowModal('kpi_lastmonht_channelexecutions_get')"><a><span class="badge badge_get">get</span></a></span></h4>
                            </div>
                            <div id="panel_kpi_lastmonht_channelexecutions" class="panel-collapse collapse">
                               <div class="panel-body">
                                  <div class="list-group">
-                                    <div onclick="window.location.href = '#kpi_lastmonht_channelexecutions_get'" class="list-group-item">
+                                    <div (click)="onClickShowModal('kpi_lastmonht_channelexecutions_get')" class="list-group-item">
                                        <span class="badge badge_get">get</span>
                                        <div class="method_description">
                                           <p>Registro de ejecuciones por canal del ultimos mes</p>
@@ -479,7 +489,7 @@
                               <div class="modal-dialog modal-lg">
                                  <div class="modal-content">
                                     <div class="modal-header">
-                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('kpi_lastmonht_channelexecutions_get')">&times;</button>
                                        <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/kpi/lastMonht</span>/channelExecutions</h4>
                                     </div>
                                     <div class="modal-body">
@@ -551,12 +561,12 @@
                      <div class="panel-group">
                         <div class="panel panel-white resource-modal">
                            <div class="panel-heading">
-                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_top_trx"><span class="parent">/top</span>/trx</a> <span class="methods"><a href="#top_trx_get"><span class="badge badge_get">get</span></a></span></h4>
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_top_trx"><span class="parent">/top</span>/trx</a> <span class="methods" (click)="onClickShowModal('top_trx_get')"><a><span class="badge badge_get">get</span></a></span></h4>
                            </div>
                            <div id="panel_top_trx" class="panel-collapse collapse">
                               <div class="panel-body">
                                  <div class="list-group">
-                                    <div onclick="window.location.href = '#top_trx_get'" class="list-group-item">
+                                    <div (click)="onClickShowModal('top_trx_get')" class="list-group-item">
                                        <span class="badge badge_get">get</span>
                                        <div class="method_description">
                                           <p>Top Transacciones</p>
@@ -570,7 +580,7 @@
                               <div class="modal-dialog modal-lg">
                                  <div class="modal-content">
                                     <div class="modal-header">
-                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('top_trx_get')">&times;</button>
                                        <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/top</span>/trx</h4>
                                     </div>
                                     <div class="modal-body">
@@ -633,12 +643,12 @@
                         </div>
                         <div class="panel panel-white resource-modal">
                            <div class="panel-heading">
-                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_top_trxlastesixmoth"><span class="parent">/top</span>/trxLasteSixMoth</a> <span class="methods"><a href="#top_trxlastesixmoth_get"><span class="badge badge_get">get</span></a></span></h4>
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_top_trxlastesixmoth"><span class="parent">/top</span>/trxLasteSixMoth</a> <span class="methods" (click)="onClickShowModal('top_trxlastesixmoth_get')"><a ><span class="badge badge_get">get</span></a></span></h4>
                            </div>
                            <div id="panel_top_trxlastesixmoth" class="panel-collapse collapse">
                               <div class="panel-body">
                                  <div class="list-group">
-                                    <div onclick="window.location.href = '#top_trxlastesixmoth_get'" class="list-group-item">
+                                    <div (click)="onClickShowModal('top_trxlastesixmoth_get')" class="list-group-item">
                                        <span class="badge badge_get">get</span>
                                        <div class="method_description">
                                           <p>Top Transacciones 6 meses</p>
@@ -652,7 +662,7 @@
                               <div class="modal-dialog modal-lg">
                                  <div class="modal-content">
                                     <div class="modal-header">
-                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('top_trxlastesixmoth_get')">&times;</button>
                                        <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/top</span>/trxLasteSixMoth</h4>
                                     </div>
                                     <div class="modal-body">
@@ -728,12 +738,12 @@
                      <div class="panel-group">
                         <div class="panel panel-white resource-modal">
                            <div class="panel-heading">
-                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_executionsdate"><span class="parent"></span>/executionsDate</a> <span class="methods"><a href="#executionsdate_get"><span class="badge badge_get">get</span></a></span></h4>
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_executionsdate"><span class="parent"></span>/executionsDate</a> <span class="methods" (click)="onClickShowModal('executionsdate_get')"><a><span class="badge badge_get">get</span></a></span></h4>
                            </div>
                            <div id="panel_executionsdate" class="panel-collapse collapse">
                               <div class="panel-body">
                                  <div class="list-group">
-                                    <div onclick="window.location.href = '#executionsdate_get'" class="list-group-item">
+                                    <div (click)="onClickShowModal('executionsdate_get')" class="list-group-item">
                                        <span class="badge badge_get">get</span>
                                        <div class="method_description">
                                           <p>Fecha de ejecuciones</p>
@@ -747,7 +757,7 @@
                               <div class="modal-dialog modal-lg">
                                  <div class="modal-content">
                                     <div class="modal-header">
-                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('executionsdate_get')">&times;</button>
                                        <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/executionsDate</h4>
                                     </div>
                                     <div class="modal-body">
@@ -818,12 +828,12 @@
                      <div class="panel-group">
                         <div class="panel panel-white resource-modal">
                            <div class="panel-heading">
-                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_auth_securitytoken"><span class="parent">/auth</span>/securityToken</a> <span class="methods"><a href="#auth_securitytoken_post"><span class="badge badge_post">post</span></a></span></h4>
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_auth_securitytoken"><span class="parent">/auth</span>/securityToken</a> <span class="methods" (click)="onClickShowModal('auth_securitytoken_post')"><a><span class="badge badge_post">post</span></a></span></h4>
                            </div>
                            <div id="panel_auth_securitytoken" class="panel-collapse collapse">
                               <div class="panel-body">
                                  <div class="list-group">
-                                    <div onclick="window.location.href = '#auth_securitytoken_post'" class="list-group-item">
+                                    <div (click)="onClickShowModal('auth_securitytoken_post')"  class="list-group-item">
                                        <span class="badge badge_post">post</span>
                                        <div class="method_description">
                                           <p>Fecha de ejecuciones</p>
@@ -837,7 +847,7 @@
                               <div class="modal-dialog modal-lg">
                                  <div class="modal-content">
                                     <div class="modal-header">
-                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('auth_securitytoken_post')">&times;</button>
                                        <h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/auth</span>/securityToken</h4>
                                     </div>
                                     <div class="modal-body">
@@ -914,4 +924,6 @@
             </div>
          </div>
       </div>
+
+      <div class="modal-backdrop fade in" *ngIf=this.renderModalBackdrop></div>
 </body>

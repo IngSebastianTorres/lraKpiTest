@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1707502101346,
+  "timestamp": 1707746088247,
   "index": "/lraKpiTest/index.html",
   "assetGroups": [
     {
@@ -13,12 +13,12 @@
       "urls": [
         "/lraKpiTest/favicon.ico",
         "/lraKpiTest/index.html",
-        "/lraKpiTest/main.bdfecb7ed5893721.js",
+        "/lraKpiTest/main.80c1d9df14a06589.js",
         "/lraKpiTest/manifest.webmanifest",
         "/lraKpiTest/polyfills.2d038bc31652c7d2.js",
         "/lraKpiTest/runtime.f99debab09b4b2c7.js",
-        "/lraKpiTest/scripts.0fd27278605081db.js",
-        "/lraKpiTest/styles.21048b0908733876.css"
+        "/lraKpiTest/scripts.2ad36b8ff5503cbf.js",
+        "/lraKpiTest/styles.1f1c004d36e0a40d.css"
       ],
       "patterns": []
     },
@@ -209,13 +209,13 @@
     "/lraKpiTest/glyphicons-halflings-regular.4ba85deaf3670942.woff": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f",
     "/lraKpiTest/glyphicons-halflings-regular.85f0466cb4ab3a4d.svg": "de51a8494180a6db074af2dee2383f0a363c5b08",
     "/lraKpiTest/glyphicons-halflings-regular.b70781972ce7320b.woff2": "ca35b697d99cae4d1b60f2d60fcd37771987eb07",
-    "/lraKpiTest/index.html": "bb81ea036098bfcce3c47ef35d3a6d5157a6a3bb",
-    "/lraKpiTest/main.bdfecb7ed5893721.js": "0ebdf8fde40a81f472764eef9249d23a07d357fc",
+    "/lraKpiTest/index.html": "d9a7d61326e5d058d4059f88d5960f2af1a40f44",
+    "/lraKpiTest/main.80c1d9df14a06589.js": "7e6fb5f9894bc533428cac4d105bc427e06d4b98",
     "/lraKpiTest/manifest.webmanifest": "5007377af41f4553a58e23dc48839602f5288600",
     "/lraKpiTest/polyfills.2d038bc31652c7d2.js": "01df6e4bceb15a9ba0754e66a8a00142cf546270",
     "/lraKpiTest/runtime.f99debab09b4b2c7.js": "44cc2afbfb44b017314faa17d1426809ec489a86",
-    "/lraKpiTest/scripts.0fd27278605081db.js": "d78e278c48cce665a168abefa32fcda67b5280e7",
-    "/lraKpiTest/styles.21048b0908733876.css": "77948d2907116554941cfdf26f2fb7d32437edf8"
+    "/lraKpiTest/scripts.2ad36b8ff5503cbf.js": "219f7d25605d0eec9986b13ea42eaf838fc9ddf7",
+    "/lraKpiTest/styles.1f1c004d36e0a40d.css": "fefc530f28406a70c0d1fe5056ae4cd595bfaffd"
   },
   "navigationUrls": [
     {
