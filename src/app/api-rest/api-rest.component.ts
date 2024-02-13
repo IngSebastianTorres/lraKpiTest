@@ -27,7 +27,6 @@ export class ApiRestComponent implements OnInit {
     document.getElementById(id).style.overflowY= 'auto';
     document.getElementById('app-main-body').style.overflowY='hidden';
     document.getElementById('main-panel-application').className='openModalNoScrolling';
-
     this.renderModalBackdrop=true;
   }
 
@@ -36,7 +35,6 @@ export class ApiRestComponent implements OnInit {
     document.getElementById(id).style.display='none';
     document.getElementById('app-main-body').style.overflowY='auto';
     document.getElementById('main-panel-application').className='main-panel ps ps--active-y';
-
     this.renderModalBackdrop=false;
   }
   

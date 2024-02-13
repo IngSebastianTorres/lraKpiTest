@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
     try {
      let response= await this.authService.loginWithGoogle();
      var isBBVAEmail= response.user.email.search("^[\\w-\\.]+@(bbva)+(.com)") != -1 ? true : false;
-     console.log(response);
      if(isBBVAEmail){
      
       this.email=response.user.email;
@@ -35,8 +34,8 @@ export class LoginComponent implements OnInit {
       this.infoUser = new InfoUser(this.email, this.profilePhotoUrl);
       
       Swal.fire({
-        title: '¡Bienvenido!',
-        text: 'LRA Colombia',
+        title: '¡Bienvenid@!',
+        text: response.user.displayName,
         icon: 'success',
         confirmButtonText: 'Ir'
       }).then(()=>{

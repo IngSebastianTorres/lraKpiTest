@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
 import * as Chartist from 'chartist';
+import { KpiOnlineService } from 'app/services/kpi-online.service';
+import { KpiCurrentDay } from 'app/model/kpi-current-day';
+import { KpiYear } from 'app/model/kpi-year';
 
 declare interface TableData {
   headerRow: string[];
@@ -14,9 +17,8 @@ declare interface TableData {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    public emailChartType: ChartType;
-    public emailChartData: any;
-    public emailChartLegendItems: LegendItem[];
+    
+    
 
     public hoursChartType: ChartType;
     public hoursChartData: any;
@@ -30,26 +32,58 @@ export class HomeComponent implements OnInit {
     public kpiLastDaysCharResponsive: any[];
     public kpiLastDaysCharLegendItems: LegendItem[];
     public tableData2: TableData;
-  constructor() { }
 
-  ngOnInit() {
-      this.emailChartType = ChartType.Pie;
-      this.emailChartData = {
-        labels: ['62%', '32%', '6%'],
-        series: [62, 32, 6]
-      };
-      this.emailChartLegendItems = [
-        { title: 'Open', imageClass: 'fa fa-circle text-info' },
-        { title: 'Bounce', imageClass: 'fa fa-circle text-danger' },
-        { title: 'Unsubscribe', imageClass: 'fa fa-circle text-warning' }
-      ];
+    /** Variables Current day KPI ONLINE */
+    public currentDayKpi:number;
+    public historicHostExecutions:number;
+    public historicEtherExecutions:number;
 
+    public kpiCUrrent:KpiCurrentDay[]; 
+    public kpiYear:KpiYear[]; 
+    seriesFromBackendReal:number[] =[];
+    seriesFromBackendEstimado:number[] =[];
+  constructor(private kpiOnlineService:KpiOnlineService) { 
+    
+  }
+
+  async ngOnInit() {
+      this.getKpiCurrentDayData();
+      
+      /** Llamada al servicio de KPI Anual */
+      this.kpiYear= await this.kpiOnlineService.getKpiYear();
+        for (var i=0; i<this.kpiYear.length; i++){
+          this.seriesFromBackendReal.push(this.kpiYear[i].kpireal);
+          this.seriesFromBackendEstimado.push(this.kpiYear[i].kpiestimado );
+        }
+      this.generateLineGraphic();  
+      this.generateBarGraphic();
+      this.generateTable();
+    }
+
+
+    public async getKpiCurrentDayData(){
+      try{
+        this.kpiCUrrent=await this.kpiOnlineService.getCurrentDayKpi();
+        this.currentDayKpi = this.kpiCUrrent[0].hist_kpiReal*100;
+        //Aproximación del KPI 
+        this.currentDayKpi=Math.round(this.currentDayKpi*100)/100
+        this.historicHostExecutions = this.kpiCUrrent[0].hist_EjecHost;
+        this.historicEtherExecutions = this.kpiCUrrent[0].hist_EjecEther;
+        console.log(this.kpiCUrrent);
+      }catch(error){
+        console.error(error);
+      }
+    }
+
+
+     generateLineGraphic():void{
       this.hoursChartType = ChartType.Line;
+      
       this.hoursChartData = {
         labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre','Noviembre','Diciembre'],
         series: [
-          [50, 57, 60, 54, 49, 55, 53, 58, 53, 60,49,55],
-          [50, 57, 60, 49, 45, 57, 52, 59.3, 53, 55,59,55]
+          this.seriesFromBackendReal, // real
+          this.seriesFromBackendEstimado
         ]
       };
       this.hoursChartOptions = {
@@ -79,7 +113,9 @@ export class HomeComponent implements OnInit {
         { title: 'KPI REAL', imageClass: 'fa fa-circle text-info' },
         { title: 'KPI ESTIMADO', imageClass: 'fa fa-circle text-danger' }
       ];
+    }
 
+    generateBarGraphic():void{
       this.kpiLastDaysCharType = ChartType.Bar;
       this.kpiLastDaysCharData = {
         labels: ['12-01-2024', '13-01-2024', '14-01-2024', '15-01-2024', '16-01-2024','17-01-2024', '18-01-2024'],
@@ -110,8 +146,9 @@ export class HomeComponent implements OnInit {
       this.kpiLastDaysCharLegendItems = [
         { title: 'KPI Online Real', imageClass: 'fa fa-circle text-info' },        
       ];
+    }
 
-
+    generateTable():void{
       this.tableData2 = {
         headerRow: [ 'Fecha', 'KPI Real' ],
         dataRows: [
@@ -124,8 +161,7 @@ export class HomeComponent implements OnInit {
             ['18-01-2024', '55.7' ]
             
         ]
-    };
-
+      };
     }
 
 }

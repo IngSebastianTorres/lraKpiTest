@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
 import * as Chartist from 'chartist';
+import { SecurityTokenService } from 'app/services/security-token.service';
 
 declare interface TableData {
   headerRow: string[];
@@ -27,9 +28,21 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
   public kpiLastDaysCharLegendItems: LegendItem[];
   public tableData2: TableData;
 
-  constructor() { }
+  constructor(private securityToken:SecurityTokenService) { }
+
+  async generateTokenToServices(){
+    var email = {email:'juancarlos.coronado@bbva.com'}
+    try {
+        let response = await this.securityToken.generateToken(email);
+        localStorage.setItem('tokenServices',response.token);
+        console.log(response);
+    }catch (err){
+        console.log(err);
+    }
+  }
 
   ngOnInit(): void {
+    this.generateTokenToServices();
     this.hoursChartType = ChartType.Line;
     this.hoursChartData = {
       labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto'],

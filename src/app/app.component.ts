@@ -4,6 +4,7 @@ import { SwPush } from '@angular/service-worker';
 import { PushNotificationServiceService } from './services/push-notification-service.service';
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,6 +18,7 @@ export class AppComponent implements OnInit {
     constructor(public location: Location, private swPush:SwPush, private pushNotificationService:PushNotificationServiceService) {
       this.subscribeNotifications();
     }
+
 
 
     async subscribeNotifications (){
@@ -36,15 +38,7 @@ export class AppComponent implements OnInit {
 
     }
     
-  /*  subscribeNotifications():any{
-      this.swPush.requestSubscription({
-        serverPublicKey:this.VAPID_PUBLIC_KEY
-      }).then(sub => {
-         this.pushNotificationService.saveToken(token).subscribe(()=>{
-
-         })
-      })
-    }*/
+ 
 
     ngOnInit(){
     }
