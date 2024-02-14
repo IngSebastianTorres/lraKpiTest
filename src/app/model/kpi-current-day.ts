@@ -1,12 +1,14 @@
+import { KpiCore } from "./kpi-core";
+import { KpiGlobal } from "./kpi-global";
+import { KpiOnline } from "./kpi-online";
+
 export class KpiCurrentDay {
 
-
-    public hist_date:string;
-    public hist_EjecEther:number;
-    public hist_EjecHost:number;
-    public hist_kpiEstimado:number;
-    public hist_kpiReal:number;
-
+    public date: string;
+    public kpi_global:KpiGlobal;
+    public kpi_core:KpiCore;
+    public kpi_online:KpiOnline;
+    
     public constructor(){
 
     }

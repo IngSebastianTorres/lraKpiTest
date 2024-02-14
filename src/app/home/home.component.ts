@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
 import * as Chartist from 'chartist';
-import { KpiOnlineService } from 'app/services/kpi-online.service';
+import { KpiService } from 'app/services/kpi.service';
 import { KpiCurrentDay } from 'app/model/kpi-current-day';
-import { KpiYear } from 'app/model/kpi-year';
+
 
 declare interface TableData {
   headerRow: string[];
@@ -39,10 +39,12 @@ export class HomeComponent implements OnInit {
     public historicEtherExecutions:number;
 
     public kpiCUrrent:KpiCurrentDay[]; 
-    public kpiYear:KpiYear[]; 
+    public kpiYear:any[]; 
     seriesFromBackendReal:number[] =[];
     seriesFromBackendEstimado:number[] =[];
-  constructor(private kpiOnlineService:KpiOnlineService) { 
+    dateKpi:string;
+
+  constructor(private kpiOnlineService:KpiService) { 
     
   }
 
@@ -64,11 +66,12 @@ export class HomeComponent implements OnInit {
     public async getKpiCurrentDayData(){
       try{
         this.kpiCUrrent=await this.kpiOnlineService.getCurrentDayKpi();
-        this.currentDayKpi = this.kpiCUrrent[0].hist_kpiReal*100;
+        this.currentDayKpi = this.kpiCUrrent[0].kpi_online.hist_kpiReal*100;
         //Aproximación del KPI 
         this.currentDayKpi=Math.round(this.currentDayKpi*100)/100
-        this.historicHostExecutions = this.kpiCUrrent[0].hist_EjecHost;
-        this.historicEtherExecutions = this.kpiCUrrent[0].hist_EjecEther;
+        this.historicHostExecutions = this.kpiCUrrent[0].kpi_online.hist_EjecHost;
+        this.historicEtherExecutions = this.kpiCUrrent[0].kpi_online.hist_EjecEther;
+        this.dateKpi= this.kpiCUrrent[0].date;
         console.log(this.kpiCUrrent);
       }catch(error){
         console.error(error);

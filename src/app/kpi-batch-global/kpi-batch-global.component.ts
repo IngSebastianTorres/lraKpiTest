@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
 import * as Chartist from 'chartist';
+import { KpiCurrentDay } from 'app/model/kpi-current-day';
+import { KpiService } from 'app/services/kpi.service';
 
 declare interface TableData {
   headerRow: string[];
@@ -27,10 +29,18 @@ export class KpiBatchGlobalComponent implements OnInit {
   public kpiLastDaysCharLegendItems: LegendItem[];
   public tableData2: TableData;
 
-  constructor() { }
+  public kpiCUrrent:KpiCurrentDay[]; 
+  public currentDayKpi:number;
+  public historicHostExecutions:number;
+  public historicEtherExecutions:number;
+  dateKpi:string;
+
+  constructor(private kpiBatchService:KpiService) { }
+
 
   ngOnInit(): void {
 
+    this.getKpiCurrentDayData();
     this.hoursChartType = ChartType.Line;
     this.hoursChartData = {
       labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre','Noviembre','Diciembre'],
@@ -114,6 +124,22 @@ export class KpiBatchGlobalComponent implements OnInit {
       ]
   };
 
+  }
+
+
+  public async getKpiCurrentDayData(){
+    try{
+      this.kpiCUrrent=await this.kpiBatchService.getCurrentDayKpi();
+      this.currentDayKpi = this.kpiCUrrent[0].kpi_global.hist_kpiReal*100;
+      //Aproximación del KPI 
+      this.currentDayKpi=Math.round(this.currentDayKpi*100)/100
+      this.historicHostExecutions = this.kpiCUrrent[0].kpi_global.hist_EjecHost;
+      this.historicEtherExecutions = this.kpiCUrrent[0].kpi_global.hist_EjecEther;
+      this.dateKpi= this.kpiCUrrent[0].date;
+
+    }catch(error){
+      console.error(error);
+    }
   }
 
 }

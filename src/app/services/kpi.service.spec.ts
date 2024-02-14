@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { KpiBatchService } from './kpi-batch.service';
+import { KpiService } from './kpi.service';
 
-describe('KpiBatchService', () => {
-  let service: KpiBatchService;
+describe('KpiOnlineService', () => {
+  let service: KpiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(KpiBatchService);
+    service = TestBed.inject(KpiService);
   });
 
   it('should be created', () => {

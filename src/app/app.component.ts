@@ -4,7 +4,7 @@ import { SwPush } from '@angular/service-worker';
 import { PushNotificationServiceService } from './services/push-notification-service.service';
 import { SecurityTokenService } from './services/security-token.service';
 
-const miliSecondsToRefreshToken=120000;
+//const miliSecondsToRefreshToken=120000;
 
 @Component({
   selector: 'app-root',
@@ -40,13 +40,11 @@ export class AppComponent implements OnInit {
 
     }
     
- 
-
     ngOnInit(){
-      var isAuthenticated = localStorage.getItem('isAuthenticated');
+      /*var isAuthenticated = localStorage.getItem('isAuthenticated');
       if(isAuthenticated=='true'){
          const id= setTimeout(this.generateTokenToServices,miliSecondsToRefreshToken);
-      }
+      }*/
     }
 
     isMap(path){

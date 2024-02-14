@@ -8,12 +8,14 @@ import { KpiYear } from 'app/model/kpi-year';
 @Injectable({
   providedIn: 'root'
 })
-export class KpiOnlineService {
+export class KpiService {
 
   private baseUrl:string;
+  private baseUrlLocalJson:string;
 
   constructor(private httpClient:HttpClient) {
     this.baseUrl= "http://devosfernando.com:38900/api/1/";
+    this.baseUrlLocalJson="https://ingsebastiantorres.github.io/lraKpiTest/dataKPIGeneral.json";
   }
 
 
@@ -25,7 +27,7 @@ export class KpiOnlineService {
       }) 
     }  
     let response: HttpBackendResponse = new HttpBackendResponse(); 
-    response = await firstValueFrom(this.httpClient.get<HttpBackendResponse>(this.baseUrl+"kpi/prevMonht/kpi", headers));
+    response = await firstValueFrom(this.httpClient.get<HttpBackendResponse>(this.baseUrlLocalJson, headers));
     if(response.status==200){
       return response.response;
     } else {

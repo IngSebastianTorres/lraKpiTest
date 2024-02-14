@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       }).then(()=>{
         this.router.navigate(['/summaryReport']) 
         this.infoUserService.setUserInfo(this.infoUser);
-        localStorage.setItem('isAuthenticated','true');
+        //localStorage.setItem('isAuthenticated','true');
       }).catch(error=> {
          console.error(error)
       });
