@@ -4,6 +4,9 @@ import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
 import * as Chartist from 'chartist';
 import { KpiService } from 'app/services/kpi.service';
 import { KpiCurrentDay } from 'app/model/kpi-current-day';
+import { HttpBackendResponse } from 'app/model/http-backend-response';
+import { KpiYear } from 'app/model/kpi-year';
+import { KpiMonths } from 'app/model/kpi-months';
 
 
 declare interface TableData {
@@ -38,39 +41,123 @@ export class HomeComponent implements OnInit {
     public historicHostExecutions:number;
     public historicEtherExecutions:number;
 
+    public httpResponse:HttpBackendResponse;
     public kpiCUrrent:KpiCurrentDay[]; 
     public kpiYear:any[]; 
+    public KpiYearObject:KpiYear;
+    public kpiMonth:KpiMonths;
     seriesFromBackendReal:number[] =[];
     seriesFromBackendEstimado:number[] =[];
     dateKpi:string;
+    public monthsFromYear=new Map<number, string>();
 
   constructor(private kpiOnlineService:KpiService) { 
-    
+      this.monthsFromYear.set(1,"enero");
+      this.monthsFromYear.set(2,"febrero");
+      this.monthsFromYear.set(3,"marzo");
+      this.monthsFromYear.set(4,"abril");
+      this.monthsFromYear.set(5,"mayo");
+      this.monthsFromYear.set(6,"junio");
+      this.monthsFromYear.set(7,"julio");
+      this.monthsFromYear.set(8,"agosto");
+      this.monthsFromYear.set(9,"septiembre");
+      this.monthsFromYear.set(10,"octubre");
+      this.monthsFromYear.set(11,"noviembre");
+      this.monthsFromYear.set(12,"diciembre");
   }
 
   async ngOnInit() {
       this.getKpiCurrentDayData();
       
       /** Llamada al servicio de KPI Anual */
-      this.kpiYear= await this.kpiOnlineService.getKpiYear();
-        for (var i=0; i<this.kpiYear.length; i++){
-          this.seriesFromBackendReal.push(this.kpiYear[i].kpireal);
-          this.seriesFromBackendEstimado.push(this.kpiYear[i].kpiestimado );
+      this.httpResponse = await this.kpiOnlineService.getCurrentDayKpi();
+      this.KpiYearObject= this.httpResponse.response;
+      this.kpiMonth = this.KpiYearObject[0];
+      
+      for (let m of this.monthsFromYear.values()){
+        switch (m){
+          case 'enero':
+            this.kpiCUrrent = this.kpiMonth.enero;
+            this.setSeriesPerMonth();
+            break;
+          case 'febrero':  
+            this.kpiCUrrent = this.kpiMonth.febrero;
+            this.setSeriesPerMonth();
+            break;
+          case 'marzo':
+            this.kpiCUrrent = this.kpiMonth.marzo;
+            this.setSeriesPerMonth();
+            break;
+          case 'abril':
+            this.kpiCUrrent = this.kpiMonth.abril;
+            this.setSeriesPerMonth();
+            break;
+          case 'mayo':
+            this.kpiCUrrent = this.kpiMonth.mayo;
+            this.setSeriesPerMonth();
+            break;
+          case 'junio':
+            this.kpiCUrrent = this.kpiMonth.junio;
+            this.setSeriesPerMonth();
+            break;
+          case 'julio':
+            this.kpiCUrrent = this.kpiMonth.julio;
+            this.setSeriesPerMonth();
+            break;
+          case 'agosto':
+            this.kpiCUrrent = this.kpiMonth.agosto;
+            this.setSeriesPerMonth();
+            break;
+          case 'septiembre':
+            this.kpiCUrrent = this.kpiMonth.septiembre;
+            this.setSeriesPerMonth();
+            break;
+          case 'octubre':
+            this.kpiCUrrent = this.kpiMonth.octubre;
+            this.setSeriesPerMonth();
+            break;
+          case 'noviembre':
+            this.kpiCUrrent = this.kpiMonth.noviembre;
+            this.setSeriesPerMonth();
+            break;
+          case 'diciembre':
+            this.kpiCUrrent = this.kpiMonth.diciembre;
+            this.setSeriesPerMonth();
+            break;
+
         }
+       
+      }
+        
       this.generateLineGraphic();  
       this.generateBarGraphic();
       this.generateTable();
     }
 
+    public setSeriesPerMonth(){
+      for (var i=0; i<this.kpiCUrrent.length; i++){
+        if( i == this.kpiCUrrent.length-1){
+            var realKpiValue = this.kpiCUrrent[i].kpi_online.hist_kpiReal*100;
+            var estimatedKpiValue = this.kpiCUrrent[i].kpi_online.hist_kpiEstimado*100;
+            this.seriesFromBackendReal.push(Math.round(realKpiValue*100)/100);
+            this.seriesFromBackendEstimado.push(Math.round(estimatedKpiValue*100)/100 ); 
+        }
+      }
+    }
+
 
     public async getKpiCurrentDayData(){
       try{
-        this.kpiCUrrent=await this.kpiOnlineService.getCurrentDayKpi();
-        this.currentDayKpi = this.kpiCUrrent[0].kpi_online.hist_kpiReal*100;
+        this.httpResponse=await this.kpiOnlineService.getCurrentDayKpi();
+        this.KpiYearObject= this.httpResponse.response;
+        this.kpiMonth= this.KpiYearObject[0];
+        this.kpiCUrrent= this.kpiMonth.febrero;
+        
+        this.currentDayKpi = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_online.hist_kpiReal*100;
         //Aproximación del KPI 
         this.currentDayKpi=Math.round(this.currentDayKpi*100)/100
-        this.historicHostExecutions = this.kpiCUrrent[0].kpi_online.hist_EjecHost;
-        this.historicEtherExecutions = this.kpiCUrrent[0].kpi_online.hist_EjecEther;
+        this.historicHostExecutions = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_online.hist_EjecHost;
+        this.historicEtherExecutions = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_online.hist_EjecEther;
         this.dateKpi= this.kpiCUrrent[0].date;
         console.log(this.kpiCUrrent);
       }catch(error){

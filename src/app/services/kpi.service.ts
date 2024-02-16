@@ -15,11 +15,11 @@ export class KpiService {
 
   constructor(private httpClient:HttpClient) {
     this.baseUrl= "http://devosfernando.com:38900/api/1/";
-    this.baseUrlLocalJson="https://ingsebastiantorres.github.io/lraKpiTest/dataKPIGeneral.json";
+    this.baseUrlLocalJson="http://localhost:4200/dataKPIGeneral.json";
   }
 
 
-   async getCurrentDayKpi():Promise<KpiCurrentDay[]>{
+   async getCurrentDayKpi():Promise<HttpBackendResponse>{
     const headers = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json; charset=UTF-8',
@@ -29,7 +29,7 @@ export class KpiService {
     let response: HttpBackendResponse = new HttpBackendResponse(); 
     response = await firstValueFrom(this.httpClient.get<HttpBackendResponse>(this.baseUrlLocalJson, headers));
     if(response.status==200){
-      return response.response;
+      return response;
     } else {
       Swal.fire({
         title: 'Error',
@@ -42,6 +42,7 @@ export class KpiService {
     }
   }
 
+  /*
   async getKpiYear():Promise<KpiYear[]>{
     const headers = {
       headers: new HttpHeaders({
@@ -64,5 +65,5 @@ export class KpiService {
       })
     }
     
-  }
+  }*/
 }

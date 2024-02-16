@@ -3,6 +3,9 @@ import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
 import * as Chartist from 'chartist';
 import { KpiCurrentDay } from 'app/model/kpi-current-day';
 import { KpiService } from 'app/services/kpi.service';
+import { HttpBackendResponse } from 'app/model/http-backend-response';
+import { KpiYear } from 'app/model/kpi-year';
+import { KpiMonths } from 'app/model/kpi-months';
 
 declare interface TableData {
   headerRow: string[];
@@ -34,6 +37,10 @@ export class KpiBatchCoreComponent implements OnInit {
   public historicHostExecutions:number;
   public historicEtherExecutions:number;
   dateKpi:string;
+  public httpBackend:HttpBackendResponse;
+  public kpiYear:KpiYear;
+  public kpiMonth:KpiMonths;
+
   constructor(private kpiBatchService:KpiService) { }
 
   ngOnInit(): void {
@@ -128,13 +135,19 @@ export class KpiBatchCoreComponent implements OnInit {
 
   public async getKpiCurrentDayData(){
     try{
+
+      this.httpBackend= await this.kpiBatchService.getCurrentDayKpi();
+      this.kpiYear= this.httpBackend.response;
+      this.kpiCUrrent = this.kpiYear[0];
+      this.kpiMonth= this.kpiYear[0];
+      this.kpiCUrrent= this.kpiMonth.febrero;
       
-      this.kpiCUrrent=await this.kpiBatchService.getCurrentDayKpi();
-      this.currentDayKpi = this.kpiCUrrent[0].kpi_core.hist_kpiReal*100;
+      this.currentDayKpi = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_core.hist_kpiReal*100;
       //Aproximación del KPI 
       this.currentDayKpi=Math.round(this.currentDayKpi*100)/100
-      this.historicHostExecutions = this.kpiCUrrent[0].kpi_core.hist_EjecHost;
-      this.historicEtherExecutions = this.kpiCUrrent[0].kpi_core.hist_EjecEther;
+      //Se trae valor de ultima posición entendiendo que sera el mas reciente calculado
+      this.historicHostExecutions = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_core.hist_EjecHost;
+      this.historicEtherExecutions = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_core.hist_EjecEther;
       this.dateKpi= this.kpiCUrrent[0].date;
     }catch(error){
       console.error(error);
