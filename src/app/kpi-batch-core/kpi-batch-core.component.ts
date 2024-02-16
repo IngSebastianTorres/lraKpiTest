@@ -40,49 +40,124 @@ export class KpiBatchCoreComponent implements OnInit {
   public httpBackend:HttpBackendResponse;
   public kpiYear:KpiYear;
   public kpiMonth:KpiMonths;
+  public monthsFromYear=new Map<number, string>();
+  public KpiYearObject:KpiYear;
+  seriesFromBackendReal:number[] =[];
+  seriesFromBackendEstimado:number[] =[];
 
-  constructor(private kpiBatchService:KpiService) { }
+  public httpResponse:HttpBackendResponse;
 
-  ngOnInit(): void {
+  constructor(private kpiBatchService:KpiService) {
+    this.monthsFromYear.set(1,"enero");
+    this.monthsFromYear.set(2,"febrero");
+    this.monthsFromYear.set(3,"marzo");
+    this.monthsFromYear.set(4,"abril");
+    this.monthsFromYear.set(5,"mayo");
+    this.monthsFromYear.set(6,"junio");
+    this.monthsFromYear.set(7,"julio");
+    this.monthsFromYear.set(8,"agosto");
+    this.monthsFromYear.set(9,"septiembre");
+    this.monthsFromYear.set(10,"octubre");
+    this.monthsFromYear.set(11,"noviembre");
+    this.monthsFromYear.set(12,"diciembre");
+   }
+
+   async ngOnInit() {
 
     this.getKpiCurrentDayData();
-    this.hoursChartType = ChartType.Line;
-    this.hoursChartData = {
-      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre','Noviembre','Diciembre'],
-      series: [
-        [45, 51, 50, 59, 47, 52, 50, 51, 55, 60, 53, 58],
-        [55, 55, 55, 55, 57, 57, 57, 57, 57, 61, 52, 53],
-       // [23, 113, 67, 108, 190, 239, 307, 308, 439, 410, 410, 509]
+    
+    this.httpResponse = await this.kpiBatchService.getCurrentDayKpi();
+    this.KpiYearObject= this.httpResponse.response;
+    this.kpiMonth = this.KpiYearObject[0];
+    for (let m of this.monthsFromYear.values()){
+      switch (m){
+        case 'enero':
+          this.kpiCUrrent = this.kpiMonth.enero;
+          this.setSeriesPerMonth();
+          break;
+        case 'febrero':  
+          this.kpiCUrrent = this.kpiMonth.febrero;
+          this.setSeriesPerMonth();
+          break;
+        case 'marzo':
+          this.kpiCUrrent = this.kpiMonth.marzo;
+          this.setSeriesPerMonth();
+          break;
+        case 'abril':
+          this.kpiCUrrent = this.kpiMonth.abril;
+          this.setSeriesPerMonth();
+          break;
+        case 'mayo':
+          this.kpiCUrrent = this.kpiMonth.mayo;
+          this.setSeriesPerMonth();
+          break;
+        case 'junio':
+          this.kpiCUrrent = this.kpiMonth.junio;
+          this.setSeriesPerMonth();
+          break;
+        case 'julio':
+          this.kpiCUrrent = this.kpiMonth.julio;
+          this.setSeriesPerMonth();
+          break;
+        case 'agosto':
+          this.kpiCUrrent = this.kpiMonth.agosto;
+          this.setSeriesPerMonth();
+          break;
+        case 'septiembre':
+          this.kpiCUrrent = this.kpiMonth.septiembre;
+          this.setSeriesPerMonth();
+          break;
+        case 'octubre':
+          this.kpiCUrrent = this.kpiMonth.octubre;
+          this.setSeriesPerMonth();
+          break;
+        case 'noviembre':
+          this.kpiCUrrent = this.kpiMonth.noviembre;
+          this.setSeriesPerMonth();
+          break;
+        case 'diciembre':
+          this.kpiCUrrent = this.kpiMonth.diciembre;
+          this.setSeriesPerMonth();
+          break;
+
+      }
+     
+    }
+
+    this.generateLineGraphic(); 
+    this.generateBarGraphic();    
+    this.generateTable();
+  }
+
+  public setSeriesPerMonth(){
+    for (var i=0; i<this.kpiCUrrent.length; i++){
+      if( i == this.kpiCUrrent.length-1){
+          var realKpiValue = this.kpiCUrrent[i].kpi_core.hist_kpiReal*100;
+          var estimatedKpiValue = this.kpiCUrrent[i].kpi_core.hist_kpiEstimado*100;
+          this.seriesFromBackendReal.push(Math.round(realKpiValue*100)/100 != 0 ? Math.round(realKpiValue*100)/100 : null  );
+          this.seriesFromBackendEstimado.push(Math.round(estimatedKpiValue*100)/100 != 0 ? Math.round(estimatedKpiValue*100)/100 : null   ); 
+      }
+    }
+  }
+
+
+  generateTable():void{
+    this.tableData2 = {
+      headerRow: [ 'Fecha', 'KPI Real' ],
+      dataRows: [
+          ['12-01-2024', '55.0'],
+          ['13-01-2024', '56.2'],
+          ['14-01-2024', '51.2'],
+          ['15-01-2024', '49.8'],
+          ['16-01-2024', '52.7' ],
+          ['17-01-2024', '54.2'],
+          ['18-01-2024', '55.7' ]
+          
       ]
     };
-    this.hoursChartOptions = {
-      low: 0,
-      high: 60,
-      showArea: false,
-      height: '245px',
-      axisX: {
-        showGrid: true,
-      },
-      lineSmooth: Chartist.Interpolation.simple({
-        divisor: 3
-      }),
-      showLine: true,
-      showPoint: true
-    };
-    this.hoursChartResponsive = [
-      ['screen and (max-width: 640px)', {
-        axisX: {
-          labelInterpolationFnc: function (value) {
-            return value[0];
-          }
-        }
-      }]
-    ];
-    this.hoursChartLegendItems = [
-      { title: 'KPI REAL', imageClass: 'fa fa-circle text-info' },
-      { title: 'KPI ESTIMADO', imageClass: 'fa fa-circle text-danger' }
-    ];  
+  }
 
+  generateBarGraphic():void{
     this.kpiLastDaysCharType = ChartType.Bar;
     this.kpiLastDaysCharData = {
       labels: ['12-01-2024', '13-01-2024', '14-01-2024', '15-01-2024', '16-01-2024','17-01-2024', '18-01-2024'],
@@ -113,29 +188,49 @@ export class KpiBatchCoreComponent implements OnInit {
     this.kpiLastDaysCharLegendItems = [
       { title: 'KPI Online Real', imageClass: 'fa fa-circle text-info' },        
     ];
-
-
-    this.tableData2 = {
-      headerRow: [ 'Fecha', 'KPI Real' ],
-      dataRows: [
-          ['12-01-2024', '55.0'],
-          ['13-01-2024', '56.2'],
-          ['14-01-2024', '51.2'],
-          ['15-01-2024', '49.8'],
-          ['16-01-2024', '52.7' ],
-          ['17-01-2024', '54.2'],
-          ['18-01-2024', '55.7' ]
-          
+  }
+  generateLineGraphic():void{
+    this.hoursChartType = ChartType.Line;
+    this.hoursChartData = {
+      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre','Noviembre','Diciembre'],
+      series: [
+        this.seriesFromBackendReal,
+        this.seriesFromBackendEstimado
+       // [23, 113, 67, 108, 190, 239, 307, 308, 439, 410, 410, 509]
       ]
     };
-
-    
-
+    this.hoursChartOptions = {
+      low: 0,
+      high: 60,
+      showArea: false,
+      height: '245px',
+      axisX: {
+        showGrid: true,
+      },
+      lineSmooth: Chartist.Interpolation.simple({
+        divisor: 3
+      }),
+      showLine: true,
+      showPoint: true
+    };
+    this.hoursChartResponsive = [
+      ['screen and (max-width: 640px)', {
+        axisX: {
+          labelInterpolationFnc: function (value) {
+            return value[0];
+          }
+        }
+      }]
+    ];
+    this.hoursChartLegendItems = [
+      { title: 'KPI REAL', imageClass: 'fa fa-circle text-info' },
+      { title: 'KPI ESTIMADO', imageClass: 'fa fa-circle text-danger' }
+    ];  
   }
+
 
   public async getKpiCurrentDayData(){
     try{
-
       this.httpBackend= await this.kpiBatchService.getCurrentDayKpi();
       this.kpiYear= this.httpBackend.response;
       this.kpiCUrrent = this.kpiYear[0];

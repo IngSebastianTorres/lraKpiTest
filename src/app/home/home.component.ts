@@ -139,8 +139,8 @@ export class HomeComponent implements OnInit {
         if( i == this.kpiCUrrent.length-1){
             var realKpiValue = this.kpiCUrrent[i].kpi_online.hist_kpiReal*100;
             var estimatedKpiValue = this.kpiCUrrent[i].kpi_online.hist_kpiEstimado*100;
-            this.seriesFromBackendReal.push(Math.round(realKpiValue*100)/100);
-            this.seriesFromBackendEstimado.push(Math.round(estimatedKpiValue*100)/100 ); 
+            this.seriesFromBackendReal.push(Math.round(realKpiValue*100)/100 != 0 ? Math.round(realKpiValue*100)/100 : null  );
+            this.seriesFromBackendEstimado.push(Math.round(estimatedKpiValue*100)/100 != 0 ? Math.round(estimatedKpiValue*100)/100 : null  ); 
         }
       }
     }
