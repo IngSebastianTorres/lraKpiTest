@@ -22,8 +22,7 @@ export class KpiService {
    async getCurrentDayKpi():Promise<HttpBackendResponse>{
     const headers = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization': localStorage.getItem('tokenServices')
+        'Content-Type': 'application/json; charset=UTF-8'
       }) 
     }  
     let response: HttpBackendResponse = new HttpBackendResponse(); 

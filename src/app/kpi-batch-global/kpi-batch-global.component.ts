@@ -44,6 +44,7 @@ export class KpiBatchGlobalComponent implements OnInit {
   public monthsFromYear=new Map<number, string>();
   seriesFromBackendReal:number[] =[];
   seriesFromBackendEstimado:number[] =[];
+  public lastKpiExecutions: KpiCurrentDay[] =[];
 
   constructor(private kpiBatchService:KpiService) {
     this.monthsFromYear.set(1,"enero");
@@ -60,9 +61,7 @@ export class KpiBatchGlobalComponent implements OnInit {
     this.monthsFromYear.set(12,"diciembre");
    }
 
-
   async ngOnInit() {
-
     this.getKpiCurrentDayData();
      /** Llamada al servicio de KPI Anual */
      this.httpResponse = await this.kpiBatchService.getCurrentDayKpi();
@@ -135,11 +134,17 @@ export class KpiBatchGlobalComponent implements OnInit {
   public setSeriesPerMonth(){
     for (var i=0; i<this.kpiCUrrent.length; i++){
       if( i == this.kpiCUrrent.length-1){
-          var realKpiValue = this.kpiCUrrent[i].kpi_online.hist_kpiReal*100;
-          var estimatedKpiValue = this.kpiCUrrent[i].kpi_online.hist_kpiEstimado*100;
-          
+          var realKpiValue = this.kpiCUrrent[i].kpi_global.hist_kpiReal*100;
+          var estimatedKpiValue = this.kpiCUrrent[i].kpi_global.hist_kpiEstimado*100;
+           // Llenado de Series de grafica Lineal
           this.seriesFromBackendReal.push(Math.round(realKpiValue*100)/100 != 0 ? Math.round(realKpiValue*100)/100 : null  );
           this.seriesFromBackendEstimado.push(Math.round(estimatedKpiValue*100)/100 != 0 ? Math.round(estimatedKpiValue*100)/100 : null ); 
+          //Llenado de series de grafica Barras
+          this.kpiCUrrent[i].kpi_global.hist_kpiReal=this.kpiCUrrent[i].kpi_global.hist_kpiReal*100
+          this.lastKpiExecutions.push(this.kpiCUrrent[i]);
+      } else {
+        this.kpiCUrrent[i].kpi_global.hist_kpiReal=this.kpiCUrrent[i].kpi_global.hist_kpiReal*100
+        this.lastKpiExecutions.push(this.kpiCUrrent[i]);
       }
     }
   }
@@ -148,13 +153,13 @@ export class KpiBatchGlobalComponent implements OnInit {
     this.tableData2 = {
       headerRow: [ 'Fecha', 'KPI Real' ],
       dataRows: [
-          ['12-01-2024', '55.0'],
-          ['13-01-2024', '56.2'],
-          ['14-01-2024', '51.2'],
-          ['15-01-2024', '49.8'],
-          ['16-01-2024', '52.7' ],
-          ['17-01-2024', '54.2'],
-          ['18-01-2024', '55.7' ]
+        [this.lastKpiExecutions[this.lastKpiExecutions.length-7].date, (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-7].kpi_global.hist_kpiReal*100)/100).toString()],
+        [this.lastKpiExecutions[this.lastKpiExecutions.length-6].date, (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-6].kpi_global.hist_kpiReal*100)/100).toString()],
+        [this.lastKpiExecutions[this.lastKpiExecutions.length-5].date, (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-5].kpi_global.hist_kpiReal*100)/100).toString()],
+        [this.lastKpiExecutions[this.lastKpiExecutions.length-4].date, (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-4].kpi_global.hist_kpiReal*100)/100).toString()],
+        [this.lastKpiExecutions[this.lastKpiExecutions.length-3].date, (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-3].kpi_global.hist_kpiReal*100)/100).toString()],
+        [this.lastKpiExecutions[this.lastKpiExecutions.length-2].date, (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-2].kpi_global.hist_kpiReal*100)/100).toString()],
+        [this.lastKpiExecutions[this.lastKpiExecutions.length-1].date,  (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-1].kpi_global.hist_kpiReal*100)/100).toString()]
           
       ]
      };
@@ -163,9 +168,17 @@ export class KpiBatchGlobalComponent implements OnInit {
   generateBarGraphic():void{
     this.kpiLastDaysCharType = ChartType.Bar;
     this.kpiLastDaysCharData = {
-      labels: ['12-01-2024', '13-01-2024', '14-01-2024', '15-01-2024', '16-01-2024','17-01-2024', '18-01-2024'],
+      labels: [this.lastKpiExecutions[this.lastKpiExecutions.length-7].date,  this.lastKpiExecutions[this.lastKpiExecutions.length-6].date,  this.lastKpiExecutions[this.lastKpiExecutions.length-5].date,  
+      this.lastKpiExecutions[this.lastKpiExecutions.length-4].date,  this.lastKpiExecutions[this.lastKpiExecutions.length-3].date,
+      this.lastKpiExecutions[this.lastKpiExecutions.length-2].date, this.lastKpiExecutions[this.lastKpiExecutions.length-1].date],
       series: [
-        [55.0, 56.2, 51.2, 49.8, 52.7, 54.2, 55.7]
+        [ Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-7].kpi_global.hist_kpiReal*100)/100, 
+        Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-6].kpi_global.hist_kpiReal*100)/100,
+        Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-5].kpi_global.hist_kpiReal*100)/100,  
+        Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-4].kpi_global.hist_kpiReal*100)/100,  
+        Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-3].kpi_global.hist_kpiReal*100)/100, 
+        Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-2].kpi_global.hist_kpiReal*100)/100,  
+        Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-1].kpi_global.hist_kpiReal*100)/100]
       ]
     };
     this.kpiLastDaysCharOptions = {
@@ -245,7 +258,7 @@ export class KpiBatchGlobalComponent implements OnInit {
       this.currentDayKpi=Math.round(this.currentDayKpi*100)/100
       this.historicHostExecutions = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_EjecHost;
       this.historicEtherExecutions = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_EjecEther;
-      this.dateKpi= this.kpiCUrrent[0].date;
+      this.dateKpi= this.kpiCUrrent[this.kpiCUrrent.length-1].date;
 
     }catch(error){
       console.error(error);
