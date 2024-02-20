@@ -51,6 +51,8 @@ export class HomeComponent implements OnInit {
     dateKpi:string;
     public monthsFromYear=new Map<number, string>();
     public lastKpiExecutions: KpiCurrentDay[] =[];
+    public currentDate = new Date();
+
 
   constructor(private kpiOnlineService:KpiService) { 
       this.monthsFromYear.set(1,"enero");
@@ -163,8 +165,7 @@ export class HomeComponent implements OnInit {
         this.httpResponse=await this.kpiOnlineService.getCurrentDayKpi();
         this.KpiYearObject= this.httpResponse.response;
         this.kpiMonth= this.KpiYearObject[0];
-        this.kpiCUrrent= this.kpiMonth.febrero;
-        
+        this.setCurrentMonth();      
         this.currentDayKpi = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_online.hist_kpiReal*100;
         //Aproximación del KPI 
         this.currentDayKpi=Math.round(this.currentDayKpi*100)/100
@@ -175,6 +176,50 @@ export class HomeComponent implements OnInit {
       }catch(error){
         console.error(error);
       }
+    }
+
+    public setCurrentMonth(){
+    
+      let month = this.currentDate.getMonth();
+      
+      switch (month){
+        case 0:
+          this.kpiCUrrent= this.kpiMonth.enero;
+          break;
+        case 1:
+          this.kpiCUrrent=this.kpiMonth.febrero;
+          break;
+        case 2:
+          this.kpiCUrrent=this.kpiMonth.marzo;
+          break;
+        case 3:
+          this.kpiCUrrent=this.kpiMonth.abril;
+          break;
+        case 4:
+          this.kpiCUrrent=this.kpiMonth.mayo;
+          break;
+        case 5:
+          this.kpiCUrrent=this.kpiMonth.junio;
+          break;
+        case 6:
+          this.kpiCUrrent=this.kpiMonth.julio;
+          break;
+        case 7:
+          this.kpiCUrrent=this.kpiMonth.agosto;
+          break;
+        case 8:
+          this.kpiCUrrent=this.kpiMonth.septiembre;
+          break;
+        case 9:
+          this.kpiCUrrent=this.kpiMonth.octubre;
+          break;
+        case 10:
+          this.kpiCUrrent=this.kpiMonth.noviembre;
+          break;
+        case 11: 
+          this.kpiCUrrent=this.kpiMonth.diciembre;
+      }
+      
     }
 
 

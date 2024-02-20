@@ -45,6 +45,8 @@ export class KpiBatchCoreComponent implements OnInit {
   seriesFromBackendReal:number[] =[];
   seriesFromBackendEstimado:number[] =[];
   public lastKpiExecutions: KpiCurrentDay[] =[];
+  public currentDate = new Date();
+
 
   public httpResponse:HttpBackendResponse;
 
@@ -122,9 +124,7 @@ export class KpiBatchCoreComponent implements OnInit {
           break;
 
       }
-     
     }
-
     this.generateLineGraphic(); 
     this.generateBarGraphic();    
     this.generateTable();
@@ -145,6 +145,50 @@ export class KpiBatchCoreComponent implements OnInit {
         this.lastKpiExecutions.push(this.kpiCUrrent[i]);
       }
     }
+  }
+
+  public setCurrentMonth(){
+    
+    let month = this.currentDate.getMonth();
+    
+    switch (month){
+      case 0:
+        this.kpiCUrrent= this.kpiMonth.enero;
+        break;
+      case 1:
+        this.kpiCUrrent=this.kpiMonth.febrero;
+        break;
+      case 2:
+        this.kpiCUrrent=this.kpiMonth.marzo;
+        break;
+      case 3:
+        this.kpiCUrrent=this.kpiMonth.abril;
+        break;
+      case 4:
+        this.kpiCUrrent=this.kpiMonth.mayo;
+        break;
+      case 5:
+        this.kpiCUrrent=this.kpiMonth.junio;
+        break;
+      case 6:
+        this.kpiCUrrent=this.kpiMonth.julio;
+        break;
+      case 7:
+        this.kpiCUrrent=this.kpiMonth.agosto;
+        break;
+      case 8:
+        this.kpiCUrrent=this.kpiMonth.septiembre;
+        break;
+      case 9:
+        this.kpiCUrrent=this.kpiMonth.octubre;
+        break;
+      case 10:
+        this.kpiCUrrent=this.kpiMonth.noviembre;
+        break;
+      case 11: 
+        this.kpiCUrrent=this.kpiMonth.diciembre;
+    }
+    
   }
 
 
@@ -249,7 +293,7 @@ export class KpiBatchCoreComponent implements OnInit {
       this.kpiYear= this.httpBackend.response;
       this.kpiCUrrent = this.kpiYear[0];
       this.kpiMonth= this.kpiYear[0];
-      this.kpiCUrrent= this.kpiMonth.febrero;
+      this.setCurrentMonth();
       
       this.currentDayKpi = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_core.hist_kpiReal*100;
       //Aproximación del KPI 

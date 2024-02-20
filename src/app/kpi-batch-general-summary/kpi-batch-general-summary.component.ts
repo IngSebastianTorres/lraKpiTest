@@ -40,6 +40,17 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
   public httpResponse:HttpBackendResponse;
   public monthsFromYear=new Map<number, string>();
   public kpiCUrrent:KpiCurrentDay[]; 
+  dateKpi:string;
+  public httpBackendResponse:HttpBackendResponse;
+  public realKpiOnline:number;
+  public realKpiGlobal:number;
+  public realKpiBatch:number;
+  public estimatedKpiOnline:number;
+  public estimatedKpiGlobal:number;
+  public estimatedKpiBatch:number;
+  public historicHostExecutions:number;
+  public historicEtherExecutions:number;
+  public currentDate = new Date();
 
   constructor(private securityToken:SecurityTokenService, private kpiService:KpiService) { 
     this.monthsFromYear.set(1,"enero");
@@ -56,6 +67,40 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
     this.monthsFromYear.set(12,"diciembre");
   }
 
+  public async getKpiCurrentDayData(){
+   
+    try{
+      this.httpBackendResponse= await this.kpiService.getCurrentDayKpi();
+      this.kpiYear= this.httpBackendResponse.response;
+      this.kpiMonth= this.kpiYear[0];
+      this.setCurrentMonth();
+      this.realKpiOnline = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_online.hist_kpiReal*100;
+      this.realKpiGlobal = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_kpiReal*100;
+      this.realKpiBatch = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_core.hist_kpiReal*100;
+
+      this.estimatedKpiOnline = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_online.hist_kpiEstimado*100;
+      this.estimatedKpiGlobal = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_kpiEstimado*100;
+      this.estimatedKpiBatch = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_core.hist_kpiEstimado*100;
+
+      //Aproximación del KPI 
+      this.realKpiOnline=Math.round(this.realKpiOnline*100)/100
+      this.realKpiGlobal=Math.round(this.realKpiGlobal*100)/100
+      this.realKpiBatch=Math.round(this.realKpiBatch*100)/100
+
+      this.estimatedKpiOnline=Math.round(this.estimatedKpiOnline*100)/100
+      this.estimatedKpiGlobal=Math.round(this.estimatedKpiGlobal*100)/100
+      this.estimatedKpiBatch=Math.round(this.estimatedKpiBatch*100)/100
+
+
+      this.historicHostExecutions = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_EjecHost;
+      this.historicEtherExecutions = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_EjecEther;
+      this.dateKpi= this.kpiCUrrent[this.kpiCUrrent.length-1].date;
+
+    }catch(error){
+      console.error(error);
+    }
+  }
+
   async generateTokenToServices(){
     var email = {email:'juancarlos.coronado@bbva.com'}
     try {
@@ -67,7 +112,52 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
     }
   }
 
+  public setCurrentMonth(){
+    
+    let month = this.currentDate.getMonth();
+    
+    switch (month){
+      case 0:
+        this.kpiCUrrent= this.kpiMonth.enero;
+        break;
+      case 1:
+        this.kpiCUrrent=this.kpiMonth.febrero;
+        break;
+      case 2:
+        this.kpiCUrrent=this.kpiMonth.marzo;
+        break;
+      case 3:
+        this.kpiCUrrent=this.kpiMonth.abril;
+        break;
+      case 4:
+        this.kpiCUrrent=this.kpiMonth.mayo;
+        break;
+      case 5:
+        this.kpiCUrrent=this.kpiMonth.junio;
+        break;
+      case 6:
+        this.kpiCUrrent=this.kpiMonth.julio;
+        break;
+      case 7:
+        this.kpiCUrrent=this.kpiMonth.agosto;
+        break;
+      case 8:
+        this.kpiCUrrent=this.kpiMonth.septiembre;
+        break;
+      case 9:
+        this.kpiCUrrent=this.kpiMonth.octubre;
+        break;
+      case 10:
+        this.kpiCUrrent=this.kpiMonth.noviembre;
+        break;
+      case 11: 
+        this.kpiCUrrent=this.kpiMonth.diciembre;
+    }
+    
+  }
+
   async ngOnInit() {
+    this.getKpiCurrentDayData();
     this.generateTokenToServices();
     this.httpResponse = await this.kpiService.getCurrentDayKpi();
     this.kpiYear= this.httpResponse.response;
