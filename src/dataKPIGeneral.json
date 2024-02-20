@@ -75,19 +75,19 @@
             "hist_EjecEther": 49010000,
             "hist_EjecHost": 29041603,
             "hist_kpiEstimado": 0.4375,
-            "hist_kpiReal": 0.4375
+            "hist_kpiReal": 0
           },
           "kpi_core": {
             "hist_EjecEther": 59010000,
             "hist_EjecHost": 79041603,
             "hist_kpiEstimado": 0.4375,
-            "hist_kpiReal": 0.5875
+            "hist_kpiReal": 0
           },
           "kpi_online": {
             "hist_EjecEther": 39010000,
             "hist_EjecHost": 89041603,
             "hist_kpiEstimado": 0.4375,
-            "hist_kpiReal": 0.5075
+            "hist_kpiReal": 0
           }
         },
         {
@@ -96,19 +96,19 @@
             "hist_EjecEther": 99010000,
             "hist_EjecHost": 59041603,
             "hist_kpiEstimado": 0.5775,
-            "hist_kpiReal": 0.5175
+            "hist_kpiReal": 0
           },
           "kpi_core": {
             "hist_EjecEther": 99010000,
             "hist_EjecHost": 39041603,
             "hist_kpiEstimado": 0.5175,
-            "hist_kpiReal": 0.4975
+            "hist_kpiReal": 0
           },
           "kpi_online": {
             "hist_EjecEther": 29010000,
             "hist_EjecHost": 39041603,
             "hist_kpiEstimado": 0.5075,
-            "hist_kpiReal": 0.5375
+            "hist_kpiReal": 0
           }
         },
         {
@@ -117,19 +117,19 @@
             "hist_EjecEther": 3550000,
             "hist_EjecHost": 6666666,
             "hist_kpiEstimado": 0.55,
-            "hist_kpiReal": 0.49
+            "hist_kpiReal": 0
           },
           "kpi_core": {
             "hist_EjecEther": 29011111,
             "hist_EjecHost": 38222222,
             "hist_kpiEstimado": 0.6000,
-            "hist_kpiReal": 0.5548
+            "hist_kpiReal": 0
           },
           "kpi_online": {
             "hist_EjecEther": 29010001,
             "hist_EjecHost": 38265034,
             "hist_kpiEstimado": 0.5348,
-            "hist_kpiReal": 0.5948
+            "hist_kpiReal": 0
           }
         }
       ],
