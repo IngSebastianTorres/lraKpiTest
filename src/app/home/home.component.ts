@@ -5,7 +5,7 @@ import * as Chartist from 'chartist';
 import { KpiService } from 'app/services/kpi.service';
 import { KpiCurrentDay } from 'app/model/kpi-current-day';
 import { HttpBackendResponse } from 'app/model/http-backend-response';
-import { KpiYear } from 'app/model/kpi-year';
+import { KpiMonthFromYear } from 'app/model/kpi-month-from-year';
 import { KpiMonths } from 'app/model/kpi-months';
 
 
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
     public httpResponse:HttpBackendResponse;
     public kpiCUrrent:KpiCurrentDay[]; 
     public kpiYear:any[]; 
-    public KpiYearObject:KpiYear;
+    public KpiYearObject:KpiMonthFromYear;
     public kpiMonth:KpiMonths;
     seriesFromBackendReal:number[] =[];
     seriesFromBackendEstimado:number[] =[];
@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
       
       /** Llamada al servicio de KPI Anual */
       this.httpResponse = await this.kpiOnlineService.getCurrentDayKpi();
-      this.KpiYearObject= this.httpResponse.response;
+      //this.KpiYearObject= this.httpResponse.response;
       this.kpiMonth = this.KpiYearObject[0];
       
       for (let m of this.monthsFromYear.values()){
@@ -163,7 +163,8 @@ export class HomeComponent implements OnInit {
     public async getKpiCurrentDayData(){
       try{
         this.httpResponse=await this.kpiOnlineService.getCurrentDayKpi();
-        this.KpiYearObject= this.httpResponse.response;
+        
+        //this.KpiYearObject= this.httpResponse.response;
         this.kpiMonth= this.KpiYearObject[0];
         this.setCurrentMonth();      
         this.currentDayKpi = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_online.hist_kpiReal*100;

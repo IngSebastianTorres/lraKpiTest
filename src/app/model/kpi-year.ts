@@ -1,8 +1,12 @@
-import { KpiCurrentDay } from "./kpi-current-day";
+import { KpiMonths } from "./kpi-months";
 
 export class KpiYear {
 
-    public month:KpiCurrentDay[];
+    public kpi_annual:KpiMonths;
+    public year:number;
 
-    constructor(){}
+    constructor(){
+
+    }
+
 }

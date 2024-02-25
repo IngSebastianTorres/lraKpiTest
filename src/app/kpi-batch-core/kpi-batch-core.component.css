@@ -5,7 +5,7 @@
 
 .div-indicator{
     padding: 6px 36px 6px 20px;
-    background-color:blue;
+    background-color:#004481;
     color: white;
     font-size: xxx-large;
     margin-top: 8%;
@@ -25,7 +25,7 @@
     }
     .div-indicator{
         padding: 6px 36px 6px 20px;
-        background-color:blue;
+        background-color:#004481;
         color: white;
         font-size: xx-large;
         margin-top: 15%;
@@ -37,7 +37,7 @@
 @media(max-width:1065px){
     .div-indicator{
         padding: 6px 36px 6px 20px;
-        background-color:blue;
+        background-color:#004481;
         color: white;
         font-size: x-large;
         margin-top: 15%;
@@ -49,7 +49,7 @@
 @media(max-width:991px){
     .div-indicator{
         padding: 6px 36px 6px 20px;
-        background-color:blue;
+        background-color:#004481;
         color: white;
         font-size: xxx-large;
         margin-top: 15%;
@@ -61,7 +61,7 @@
 @media(max-width:367px){
     .div-indicator{
         padding: 6px 36px 6px 20px;
-        background-color:blue;
+        background-color:#004481;
         color: white;
         font-size: xx-large;
         margin-top: 15%;
@@ -73,7 +73,7 @@
 @media(max-width:265px){
     .div-indicator{
         padding: 6px 36px 6px 20px;
-        background-color:blue;
+        background-color:#004481;
         color: white;
         font-size: small;
         margin-top: 15%;

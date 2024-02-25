@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'; // IMportacion de http client , no todo el httpclientmodule porque no necesito toda la utileria de todo el modulo
 import { firstValueFrom } from 'rxjs';
-import { KpiCurrentDay } from 'app/model/kpi-current-day';
+
 import { HttpBackendResponse } from 'app/model/http-backend-response';
 import Swal from 'sweetalert2';
-import { KpiYear } from 'app/model/kpi-year';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +15,7 @@ export class KpiService {
 
   constructor(private httpClient:HttpClient) {
     this.baseUrl= "http://devosfernando.com:38900/api/1/";
-    this.baseUrlLocalJson="https://ingsebastiantorres.github.io/lraKpiTest/dataKPIGeneral.json";
+    this.baseUrlLocalJson="http://localhost:4200/dataKPIGeneral.json";
   }
 
 

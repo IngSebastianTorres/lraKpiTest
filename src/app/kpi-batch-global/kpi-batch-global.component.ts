@@ -4,7 +4,7 @@ import * as Chartist from 'chartist';
 import { KpiCurrentDay } from 'app/model/kpi-current-day';
 import { KpiService } from 'app/services/kpi.service';
 import { HttpBackendResponse } from 'app/model/http-backend-response';
-import { KpiYear } from 'app/model/kpi-year';
+import { KpiMonthFromYear } from 'app/model/kpi-month-from-year';
 import { KpiMonths } from 'app/model/kpi-months';
 
 declare interface TableData {
@@ -38,7 +38,7 @@ export class KpiBatchGlobalComponent implements OnInit {
   public historicEtherExecutions:number;
   dateKpi:string;
   public httpBackend:HttpBackendResponse;
-  public kpiYear:KpiYear;
+  public kpiYear:KpiMonthFromYear;
   public kpiMonth:KpiMonths;
   public httpResponse:HttpBackendResponse;
   public monthsFromYear=new Map<number, string>();
@@ -67,7 +67,7 @@ export class KpiBatchGlobalComponent implements OnInit {
     this.getKpiCurrentDayData();
      /** Llamada al servicio de KPI Anual */
      this.httpResponse = await this.kpiBatchService.getCurrentDayKpi();
-     this.kpiYear= this.httpResponse.response;
+     //this.kpiYear= this.httpResponse.response;
      this.kpiMonth = this.kpiYear[0];
      
      for (let m of this.monthsFromYear.values()){
@@ -253,7 +253,7 @@ export class KpiBatchGlobalComponent implements OnInit {
    
     try{
       this.httpBackend= await this.kpiBatchService.getCurrentDayKpi();
-      this.kpiYear= this.httpBackend.response;
+      //this.kpiYear= this.httpBackend.response;
       this.kpiMonth= this.kpiYear[0];
       this.setCurrentMonth();
       this.currentDayKpi = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_kpiReal*100;

@@ -227,7 +227,7 @@
     }
 
     &[data-color="blue"]:after{
-        @include icon-gradient($new-dark-blue, $blue-color-bottom);
+        @include icon-gradient($new-dark-blue, $blue-color-bottom 50%);
     }
     &[data-color="azure"]:after{
         @include icon-gradient($new-blue, $azure-color-bottom);
