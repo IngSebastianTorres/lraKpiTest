@@ -45,7 +45,10 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
   public httpResponse:HttpBackendResponse;
   public monthsFromYear=new Map<number, string>();
   public kpiCUrrent:KpiCurrentDay[]; 
-  dateKpi:string;
+  dateRealKpiOnline:string;
+  dateRealKpiCore:string;
+  dateRealKpiBatch:string;
+  dateEstimatedKpi:string;
   public httpBackendResponse:HttpBackendResponse;
   public realKpiOnline:number;
   public realKpiGlobal:number;
@@ -86,28 +89,15 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
 
       //Establecer el mes actual
       this.setCurrentMonth();
-      this.realKpiOnline = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_online.hist_kpiReal*100;
-      this.realKpiGlobal = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_kpiReal*100;
-      this.realKpiBatch = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_core.hist_kpiReal*100;
-
-      this.estimatedKpiOnline = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_online.hist_kpiEstimado*100;
-      this.estimatedKpiGlobal = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_kpiEstimado*100;
-      this.estimatedKpiBatch = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_core.hist_kpiEstimado*100;
-
+     
       //Aproximación del KPI 
       this.realKpiOnline=Math.round(this.realKpiOnline*100)/100
       this.realKpiGlobal=Math.round(this.realKpiGlobal*100)/100
       this.realKpiBatch=Math.round(this.realKpiBatch*100)/100
 
-      this.estimatedKpiOnline=Math.round(this.estimatedKpiOnline*100)/100
-      this.estimatedKpiGlobal=Math.round(this.estimatedKpiGlobal*100)/100
-      this.estimatedKpiBatch=Math.round(this.estimatedKpiBatch*100)/100
-
 
       this.historicHostExecutions = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_EjecHost;
       this.historicEtherExecutions = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_EjecEther;
-      this.dateKpi= this.kpiCUrrent[this.kpiCUrrent.length-1].date;
-
     }catch(error){
       console.error(error);
     }
@@ -125,47 +115,98 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
   }
 
   public setCurrentMonth(){
-    
+    var currentMonthHaveRealKPICore=false;
+    var currentMonthHaveRealKPIGlobal=false;
+    var currentMonthHaveRealKPIOnline=false;
     let month = this.currentDate.getMonth();
-    
-    switch (month){
-      case 0:
-        this.kpiCUrrent= this.kpiMonth.enero;
-        break;
-      case 1:
-        this.kpiCUrrent=this.kpiMonth.febrero;
-        break;
-      case 2:
-        this.kpiCUrrent=this.kpiMonth.marzo;
-        break;
-      case 3:
-        this.kpiCUrrent=this.kpiMonth.abril;
-        break;
-      case 4:
-        this.kpiCUrrent=this.kpiMonth.mayo;
-        break;
-      case 5:
-        this.kpiCUrrent=this.kpiMonth.junio;
-        break;
-      case 6:
-        this.kpiCUrrent=this.kpiMonth.julio;
-        break;
-      case 7:
-        this.kpiCUrrent=this.kpiMonth.agosto;
-        break;
-      case 8:
-        this.kpiCUrrent=this.kpiMonth.septiembre;
-        break;
-      case 9:
-        this.kpiCUrrent=this.kpiMonth.octubre;
-        break;
-      case 10:
-        this.kpiCUrrent=this.kpiMonth.noviembre;
-        break;
-      case 11: 
-        this.kpiCUrrent=this.kpiMonth.diciembre;
-    }
-    
+    do{
+      switch (month){
+        case 0:
+          this.kpiCUrrent= this.kpiMonth.enero;
+          break;
+        case 1:
+          this.kpiCUrrent=this.kpiMonth.febrero;
+          break;
+        case 2:
+          this.kpiCUrrent=this.kpiMonth.marzo;
+          break;
+        case 3:
+          this.kpiCUrrent=this.kpiMonth.abril;
+          break;
+        case 4:
+          this.kpiCUrrent=this.kpiMonth.mayo;
+          break;
+        case 5:
+          this.kpiCUrrent=this.kpiMonth.junio;
+          break;
+        case 6:
+          this.kpiCUrrent=this.kpiMonth.julio;
+          break;
+        case 7:
+          this.kpiCUrrent=this.kpiMonth.agosto;
+          break;
+        case 8:
+          this.kpiCUrrent=this.kpiMonth.septiembre;
+          break;
+        case 9:
+          this.kpiCUrrent=this.kpiMonth.octubre;
+          break;
+        case 10:
+          this.kpiCUrrent=this.kpiMonth.noviembre;
+          break;
+        case 11: 
+          this.kpiCUrrent=this.kpiMonth.diciembre;
+      }
+      if(this.dateEstimatedKpi==null){
+        this.dateEstimatedKpi = this.kpiCUrrent[this.kpiCUrrent.length-1].date;
+      }
+      
+      // Se mantiene kpi estimado mas reciente en la ultima posición de la data
+      if(this.estimatedKpiBatch == null ){
+        this.estimatedKpiBatch = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_core.hist_kpiEstimado*100;
+        this.estimatedKpiBatch=Math.round(this.estimatedKpiBatch*100)/100
+      } if (this.estimatedKpiOnline==null){
+        this.estimatedKpiOnline = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_online.hist_kpiEstimado*100;
+        this.estimatedKpiOnline=Math.round(this.estimatedKpiOnline*100)/100
+      } if (this.estimatedKpiGlobal==null){
+        this.estimatedKpiGlobal = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_kpiEstimado*100;
+        this.estimatedKpiGlobal=Math.round(this.estimatedKpiGlobal*100)/100
+      }
+     
+      let i=this.kpiCUrrent.length-1;
+      while (i>=0){
+        if(this.kpiCUrrent[i].kpi_core.hist_kpiReal > 0){
+          // Establecer los valores del KPI
+          if(!currentMonthHaveRealKPICore){ 
+            currentMonthHaveRealKPICore=true;
+            this.dateRealKpiCore= this.kpiCUrrent[i].date; 
+            this.realKpiBatch = this.kpiCUrrent[i].kpi_core.hist_kpiReal*100;
+          }
+        } 
+        if(this.kpiCUrrent[i].kpi_online.hist_kpiReal > 0){
+          if(!currentMonthHaveRealKPIOnline){
+            currentMonthHaveRealKPIOnline=true;
+            this.dateRealKpiOnline= this.kpiCUrrent[i].date;
+            this.realKpiOnline = this.kpiCUrrent[i].kpi_online.hist_kpiReal*100;
+          }
+        }
+        if(this.kpiCUrrent[i].kpi_global.hist_kpiReal > 0){
+          if(!currentMonthHaveRealKPIGlobal){
+            currentMonthHaveRealKPIGlobal=true;
+            this.dateRealKpiBatch= this.kpiCUrrent[i].date;  
+            this.realKpiGlobal = this.kpiCUrrent[i].kpi_global.hist_kpiReal*100;
+          }
+        }
+        i--;
+      }
+      // Si el mes es enero, no se buscara KPI Del año anterior, unicamente de los meses posteriores a Enero se aplica esta logica */
+       if(month>0){
+         month--;
+       } else if(month==0) {
+         break;
+       }
+    } while (this.realKpiBatch==undefined || this.realKpiGlobal == undefined || this.realKpiOnline == undefined);
+
   }
 
   async ngOnInit() {
@@ -176,7 +217,7 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
     this.setCurrentYear();
     this.kpiMonth = this.kpiYearModel.kpi_annual;
     
-    switch (this.currentDate.getMonth()){
+    switch (this.currentDate.getMonth()+1){
       case 1:
         this.setSeriesPerMonth(this.kpiMonth.enero,null);
         break;

@@ -7,7 +7,6 @@
                         
                         <div class="col-sm-8" style="margin-top: 2rem;">
                             <h4 class="title title-summary">KPI Online </h4>
-                            <p class="category">{{this.dateKpi}}</p>
                         </div>
                         <div class="col-sm-4"></div>
                     
@@ -15,12 +14,14 @@
                         <div class="col-sm-5">
                             <div class="header">
                                 <h4 class="title"> Real </h4>
+                                <p class="category">{{this.dateRealKpiOnline}}</p>
                                 <div class="div-indicator " [ngClass]="{redindicator:(this.realKpiOnline<estimatedKpiOnline-5),greenindicator:(this.realKpiOnline>=estimatedKpiOnline)}"><p class="num">{{this.realKpiOnline}}</p></div>
                             </div>
                         </div>
                         <div class="col-sm-5">
                             <div class="header">
                                 <h4 class="title"> Estimado</h4>
+                                <p class="category">{{this.dateEstimatedKpi}}</p>
                                 <div class="div-indicator" style="background-color: #277A3E; border-color: #277A3E;"><p class="num">{{this.estimatedKpiOnline}}</p></div>
                             </div>
                         </div>
@@ -32,19 +33,20 @@
                 <div class="card card-indicator">
                     <div class="col-sm-9" style="margin-top: 2rem;">
                         <h4 class="title title-summary">KPI Batch Core </h4>
-                        <p class="category">{{this.dateKpi}}</p>
                     </div>
                     <div class="col-sm-3"></div>
                     <div class="col-sm-1"></div>    
                         <div class="col-sm-5">
                             <div class="header">
                                 <h4 class="title"> Real </h4>
+                                <p class="category">{{this.dateRealKpiCore}}</p>
                                 <div class="div-indicator" [ngClass]="{redindicator:(this.realKpiBatch<estimatedKpiBatch-5),greenindicator:(this.realKpiBatch>=estimatedKpiBatch)}"><p class="num">{{this.realKpiBatch}}</p></div>
                             </div>
                         </div>
                         <div class="col-sm-5">
                             <div class="header">
                                 <h4 class="title"> Estimado</h4>
+                                <p class="category">{{this.dateEstimatedKpi}}</p>
                                 <div class="div-indicator" style="background-color: #277A3E; border-color: #277A3E;"><p class="num">{{this.estimatedKpiBatch}}</p></div>
                             </div>
                         </div>
@@ -58,19 +60,20 @@
             <div class="card card-indicator">
                 <div class="col-sm-9" style="margin-top: 2rem;">
                     <h4 class="title title-summary">KPI Batch Global </h4>
-                    <p class="category">{{this.dateKpi}}</p>
                 </div>
                 <div class="col-sm-3"></div>
                 <div class="col-sm-1"></div>    
                     <div class="col-sm-5">
                         <div class="header">
                             <h4 class="title"> Real </h4>
+                            <p class="category">{{this.dateRealKpiBatch}}</p>
                             <div class="div-indicator" [ngClass]="{redindicator:(this.realKpiGlobal<estimatedKpiGlobal-5),greenindicator:(this.realKpiGlobal>=estimatedKpiGlobal)}" ><p class="num">{{this.realKpiGlobal}}</p></div>
                         </div>
                     </div>
                     <div class="col-sm-5">
                         <div class="header">
                             <h4 class="title"> Estimado</h4>
+                            <p class="category">{{this.dateEstimatedKpi}}</p>
                             <div class="div-indicator" style="background-color: #277A3E; border-color: #277A3E;"><p class="num">{{this.estimatedKpiGlobal}}</p></div>
                         </div>
                     </div>
