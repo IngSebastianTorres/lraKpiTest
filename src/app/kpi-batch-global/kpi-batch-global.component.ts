@@ -6,6 +6,8 @@ import { KpiService } from 'app/services/kpi.service';
 import { HttpBackendResponse } from 'app/model/http-backend-response';
 import { KpiMonthFromYear } from 'app/model/kpi-month-from-year';
 import { KpiMonths } from 'app/model/kpi-months';
+import { kpis } from 'app/model/kpis';
+import { KpiYear } from 'app/model/kpi-year';
 
 declare interface TableData {
   headerRow: string[];
@@ -36,17 +38,21 @@ export class KpiBatchGlobalComponent implements OnInit {
   public currentDayKpi:number;
   public historicHostExecutions:number;
   public historicEtherExecutions:number;
-  dateKpi:string;
+  
   public httpBackend:HttpBackendResponse;
   public kpiYear:KpiMonthFromYear;
   public kpiMonth:KpiMonths;
-  public httpResponse:HttpBackendResponse;
+  
   public monthsFromYear=new Map<number, string>();
   seriesFromBackendReal:number[] =[];
   seriesFromBackendEstimado:number[] =[];
   public lastKpiExecutions: KpiCurrentDay[] =[];
   public currentDate = new Date();
-
+  public kpis:kpis;
+  public kpiYearModel:KpiYear;
+  dateEstimatedKpi:string;
+  dateRealKpiGlobal:string;
+  public estimatedKpiGlobal:number;
 
   constructor(private kpiBatchService:KpiService) {
     this.monthsFromYear.set(1,"enero");
@@ -66,74 +72,113 @@ export class KpiBatchGlobalComponent implements OnInit {
   async ngOnInit() {
     this.getKpiCurrentDayData();
      /** Llamada al servicio de KPI Anual */
-     this.httpResponse = await this.kpiBatchService.getCurrentDayKpi();
-     //this.kpiYear= this.httpResponse.response;
-     this.kpiMonth = this.kpiYear[0];
+     this.httpBackend = await this.kpiBatchService.getCurrentDayKpi();
+     this.kpis=this.httpBackend.response;
+     this.setCurrentYear();
+     this.kpiMonth = this.kpiYearModel.kpi_annual;
      
+      // Logica para pintar grafica con ultimo valor calculado del KPI de cada mes
      for (let m of this.monthsFromYear.values()){
        switch (m){
          case 'enero':
            this.kpiCUrrent = this.kpiMonth.enero;
-           this.setSeriesPerMonth();
+           this.setSeriesPerMonthToPrintCharts();
            break;
          case 'febrero':  
            this.kpiCUrrent = this.kpiMonth.febrero;
-           this.setSeriesPerMonth();
+           this.setSeriesPerMonthToPrintCharts();
            break;
          case 'marzo':
            this.kpiCUrrent = this.kpiMonth.marzo;
-           this.setSeriesPerMonth();
+           this.setSeriesPerMonthToPrintCharts();
            break;
          case 'abril':
            this.kpiCUrrent = this.kpiMonth.abril;
-           this.setSeriesPerMonth();
+           this.setSeriesPerMonthToPrintCharts();
            break;
          case 'mayo':
            this.kpiCUrrent = this.kpiMonth.mayo;
-           this.setSeriesPerMonth();
+           this.setSeriesPerMonthToPrintCharts();
            break;
          case 'junio':
            this.kpiCUrrent = this.kpiMonth.junio;
-           this.setSeriesPerMonth();
+           this.setSeriesPerMonthToPrintCharts();
            break;
          case 'julio':
            this.kpiCUrrent = this.kpiMonth.julio;
-           this.setSeriesPerMonth();
+           this.setSeriesPerMonthToPrintCharts();
            break;
          case 'agosto':
            this.kpiCUrrent = this.kpiMonth.agosto;
-           this.setSeriesPerMonth();
+           this.setSeriesPerMonthToPrintCharts();
            break;
          case 'septiembre':
            this.kpiCUrrent = this.kpiMonth.septiembre;
-           this.setSeriesPerMonth();
+           this.setSeriesPerMonthToPrintCharts();
            break;
          case 'octubre':
            this.kpiCUrrent = this.kpiMonth.octubre;
-           this.setSeriesPerMonth();
+           this.setSeriesPerMonthToPrintCharts();
            break;
          case 'noviembre':
            this.kpiCUrrent = this.kpiMonth.noviembre;
-           this.setSeriesPerMonth();
+           this.setSeriesPerMonthToPrintCharts();
            break;
          case 'diciembre':
            this.kpiCUrrent = this.kpiMonth.diciembre;
-           this.setSeriesPerMonth();
+           this.setSeriesPerMonthToPrintCharts();
            break;
 
        }
 
       }
-    this.generateLineGraphic();    
+      switch (this.currentDate.getMonth()+1){
+        case 1:
+          this.setSeriesPerMonthToTable(this.kpiMonth.enero,null);
+          break;
+        case 2:  
+          this.setSeriesPerMonthToTable(this.kpiMonth.febrero,this.kpiMonth.enero);
+          break;
+        case 3:
+          this.setSeriesPerMonthToTable(this.kpiMonth.marzo,this.kpiMonth.febrero);
+          break;
+        case 4:
+          this.setSeriesPerMonthToTable(this.kpiMonth.abril,this.kpiMonth.marzo);
+          break;
+        case 5:
+          this.setSeriesPerMonthToTable(this.kpiMonth.mayo,this.kpiMonth.abril);
+          break;
+        case 6:
+          this.setSeriesPerMonthToTable(this.kpiMonth.junio,this.kpiMonth.mayo);
+          break;
+        case 7:
+          this.setSeriesPerMonthToTable(this.kpiMonth.julio,this.kpiMonth.junio);
+          break;
+        case 8:
+          this.setSeriesPerMonthToTable(this.kpiMonth.agosto,this.kpiMonth.julio);
+          break;
+        case 9:
+          this.setSeriesPerMonthToTable(this.kpiMonth.septiembre,this.kpiMonth.agosto);
+          break;
+        case 10:
+          this.setSeriesPerMonthToTable(this.kpiMonth.octubre,this.kpiMonth.septiembre);
+          break;
+        case 11:
+          this.setSeriesPerMonthToTable(this.kpiMonth.noviembre,this.kpiMonth.octubre);
+          break;
+        case 12:
+          this.setSeriesPerMonthToTable(this.kpiMonth.diciembre,this.kpiMonth.noviembre);
+          break;
+      }  
+    this.generateLineGraphic();  
+    this.generateTable();  
     this.generateBarGraphic();
-    this.generateTable();
-
-   
 
   }
 
   
-  public setSeriesPerMonth(){
+  
+  public setSeriesPerMonthToPrintCharts(){
     for (var i=0; i<this.kpiCUrrent.length; i++){
       if( i == this.kpiCUrrent.length-1){
           var realKpiValue = this.kpiCUrrent[i].kpi_global.hist_kpiReal*100;
@@ -141,13 +186,7 @@ export class KpiBatchGlobalComponent implements OnInit {
            // Llenado de Series de grafica Lineal
           this.seriesFromBackendReal.push(Math.round(realKpiValue*100)/100 != 0 ? Math.round(realKpiValue*100)/100 : null  );
           this.seriesFromBackendEstimado.push(Math.round(estimatedKpiValue*100)/100 != 0 ? Math.round(estimatedKpiValue*100)/100 : null ); 
-          //Llenado de series de grafica Barras
-          this.kpiCUrrent[i].kpi_global.hist_kpiReal=this.kpiCUrrent[i].kpi_global.hist_kpiReal*100
-          this.lastKpiExecutions.push(this.kpiCUrrent[i]);
-      } else {
-        this.kpiCUrrent[i].kpi_global.hist_kpiReal=this.kpiCUrrent[i].kpi_global.hist_kpiReal*100
-        this.lastKpiExecutions.push(this.kpiCUrrent[i]);
-      }
+      } 
     }
   }
 
@@ -155,13 +194,26 @@ export class KpiBatchGlobalComponent implements OnInit {
     this.tableData2 = {
       headerRow: [ 'Fecha', 'KPI Real' ],
       dataRows: [
-        [this.lastKpiExecutions[this.lastKpiExecutions.length-7].date, (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-7].kpi_global.hist_kpiReal*100)/100).toString()],
-        [this.lastKpiExecutions[this.lastKpiExecutions.length-6].date, (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-6].kpi_global.hist_kpiReal*100)/100).toString()],
-        [this.lastKpiExecutions[this.lastKpiExecutions.length-5].date, (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-5].kpi_global.hist_kpiReal*100)/100).toString()],
-        [this.lastKpiExecutions[this.lastKpiExecutions.length-4].date, (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-4].kpi_global.hist_kpiReal*100)/100).toString()],
-        [this.lastKpiExecutions[this.lastKpiExecutions.length-3].date, (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-3].kpi_global.hist_kpiReal*100)/100).toString()],
-        [this.lastKpiExecutions[this.lastKpiExecutions.length-2].date, (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-2].kpi_global.hist_kpiReal*100)/100).toString()],
-        [this.lastKpiExecutions[this.lastKpiExecutions.length-1].date,  (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-1].kpi_global.hist_kpiReal*100)/100).toString()]
+        [this.lastKpiExecutions[this.lastKpiExecutions.length-7] != undefined ? this.lastKpiExecutions[this.lastKpiExecutions.length-7].date : 'No Available Data', 
+         this.lastKpiExecutions[this.lastKpiExecutions.length-7] != undefined ? (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-7].kpi_global.hist_kpiReal*100)/100).toString() : '0'],
+      
+        [this.lastKpiExecutions[this.lastKpiExecutions.length-6] != undefined ? this.lastKpiExecutions[this.lastKpiExecutions.length-6].date : 'No Available Data', 
+         this.lastKpiExecutions[this.lastKpiExecutions.length-6]!= undefined ? (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-6].kpi_global.hist_kpiReal*100)/100).toString():'0'],
+        
+        [this.lastKpiExecutions[this.lastKpiExecutions.length-5] !=undefined ? this.lastKpiExecutions[this.lastKpiExecutions.length-5].date : 'No Available Data' ,
+         this.lastKpiExecutions[this.lastKpiExecutions.length-5] !=undefined ? (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-5].kpi_global.hist_kpiReal*100)/100).toString():'0'],
+  
+        [this.lastKpiExecutions[this.lastKpiExecutions.length-4] != undefined ? this.lastKpiExecutions[this.lastKpiExecutions.length-4].date :'No Available Data',
+         this.lastKpiExecutions[this.lastKpiExecutions.length-4] != undefined ? (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-4].kpi_global.hist_kpiReal*100)/100).toString():'0'],
+        
+        [this.lastKpiExecutions[this.lastKpiExecutions.length-3] != undefined ? this.lastKpiExecutions[this.lastKpiExecutions.length-3].date: 'No Available Data', 
+        this.lastKpiExecutions[this.lastKpiExecutions.length-3] !=undefined ? (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-3].kpi_global.hist_kpiReal*100)/100).toString():'0'],
+       
+        [this.lastKpiExecutions[this.lastKpiExecutions.length-2] != undefined ? this.lastKpiExecutions[this.lastKpiExecutions.length-2].date : 'No Available Data',
+         this.lastKpiExecutions[this.lastKpiExecutions.length-2] != undefined ? (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-2].kpi_global.hist_kpiReal*100)/100).toString():'0'],
+        
+        [this.lastKpiExecutions[this.lastKpiExecutions.length-1] != undefined ? this.lastKpiExecutions[this.lastKpiExecutions.length-1].date :'No Available Data',
+         this.lastKpiExecutions[this.lastKpiExecutions.length-1]!= undefined ? (Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-1].kpi_global.hist_kpiReal*100)/100).toString(): '0']
           
       ]
      };
@@ -169,20 +221,28 @@ export class KpiBatchGlobalComponent implements OnInit {
 
   generateBarGraphic():void{
     this.kpiLastDaysCharType = ChartType.Bar;
+    this.lastKpiExecutions.reverse();
     this.kpiLastDaysCharData = {
-      labels: [this.lastKpiExecutions[this.lastKpiExecutions.length-7].date,  this.lastKpiExecutions[this.lastKpiExecutions.length-6].date,  this.lastKpiExecutions[this.lastKpiExecutions.length-5].date,  
-      this.lastKpiExecutions[this.lastKpiExecutions.length-4].date,  this.lastKpiExecutions[this.lastKpiExecutions.length-3].date,
-      this.lastKpiExecutions[this.lastKpiExecutions.length-2].date, this.lastKpiExecutions[this.lastKpiExecutions.length-1].date],
-      series: [
-        [ Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-7].kpi_global.hist_kpiReal*100)/100, 
-        Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-6].kpi_global.hist_kpiReal*100)/100,
-        Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-5].kpi_global.hist_kpiReal*100)/100,  
-        Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-4].kpi_global.hist_kpiReal*100)/100,  
-        Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-3].kpi_global.hist_kpiReal*100)/100, 
-        Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-2].kpi_global.hist_kpiReal*100)/100,  
-        Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-1].kpi_global.hist_kpiReal*100)/100]
-      ]
-    };
+      labels: 
+      [this.lastKpiExecutions[this.lastKpiExecutions.length-7] != undefined ? this.lastKpiExecutions[this.lastKpiExecutions.length-7].date : "No Available Data",  
+      this.lastKpiExecutions[this.lastKpiExecutions.length-6] != undefined ? this.lastKpiExecutions[this.lastKpiExecutions.length-6].date : "No Available Data", 
+      this.lastKpiExecutions[this.lastKpiExecutions.length-5] != undefined ? this.lastKpiExecutions[this.lastKpiExecutions.length-5].date : "No Available Data",  
+      this.lastKpiExecutions[this.lastKpiExecutions.length-4] != undefined ? this.lastKpiExecutions[this.lastKpiExecutions.length-4].date : "No Available Data",
+      this.lastKpiExecutions[this.lastKpiExecutions.length-3] != undefined ? this.lastKpiExecutions[this.lastKpiExecutions.length-3].date : "No Available Data",
+      this.lastKpiExecutions[this.lastKpiExecutions.length-2] != undefined ? this.lastKpiExecutions[this.lastKpiExecutions.length-2].date : "No Available Data",
+      this.lastKpiExecutions[this.lastKpiExecutions.length-1] != undefined ? this.lastKpiExecutions[this.lastKpiExecutions.length-1].date : "No Available Data"],
+      series:[ 
+            [
+             this.lastKpiExecutions[this.lastKpiExecutions.length-7] != undefined ? Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-7].kpi_global.hist_kpiReal*100)/100: 0, 
+             this.lastKpiExecutions[this.lastKpiExecutions.length-6] != undefined ? Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-6].kpi_global.hist_kpiReal*100)/100: 0,
+             this.lastKpiExecutions[this.lastKpiExecutions.length-5] != undefined ? Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-5].kpi_global.hist_kpiReal*100)/100: 0,  
+             this.lastKpiExecutions[this.lastKpiExecutions.length-4] != undefined ? Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-4].kpi_global.hist_kpiReal*100)/100: 0,  
+             this.lastKpiExecutions[this.lastKpiExecutions.length-3] != undefined ? Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-3].kpi_global.hist_kpiReal*100)/100: 0, 
+             this.lastKpiExecutions[this.lastKpiExecutions.length-2] != undefined ? Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-2].kpi_global.hist_kpiReal*100)/100: 0,  
+             this.lastKpiExecutions[this.lastKpiExecutions.length-1] != undefined ? Math.round(this.lastKpiExecutions[this.lastKpiExecutions.length-1].kpi_global.hist_kpiReal*100)/100: 0
+            ]
+       ]
+      };
     this.kpiLastDaysCharOptions = {
       low:0,
       high:60,
@@ -253,63 +313,238 @@ export class KpiBatchGlobalComponent implements OnInit {
    
     try{
       this.httpBackend= await this.kpiBatchService.getCurrentDayKpi();
-      //this.kpiYear= this.httpBackend.response;
-      this.kpiMonth= this.kpiYear[0];
+      
+      this.kpis= this.httpBackend.response;
+       //Establecer año actual
+      this.setCurrentYear();
+      this.kpiMonth=this.kpiYearModel.kpi_annual;
+      // Establecer el mes actual
       this.setCurrentMonth();
-      this.currentDayKpi = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_kpiReal*100;
       //Aproximación del KPI 
       this.currentDayKpi=Math.round(this.currentDayKpi*100)/100
-      this.historicHostExecutions = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_EjecHost;
-      this.historicEtherExecutions = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_EjecEther;
-      this.dateKpi= this.kpiCUrrent[this.kpiCUrrent.length-1].date;
-
     }catch(error){
       console.error(error);
     }
   }
 
-  public setCurrentMonth(){
-    
-    let month = this.currentDate.getMonth();
-    
-    switch (month){
-      case 0:
-        this.kpiCUrrent= this.kpiMonth.enero;
-        break;
-      case 1:
-        this.kpiCUrrent=this.kpiMonth.febrero;
-        break;
-      case 2:
-        this.kpiCUrrent=this.kpiMonth.marzo;
-        break;
-      case 3:
-        this.kpiCUrrent=this.kpiMonth.abril;
-        break;
-      case 4:
-        this.kpiCUrrent=this.kpiMonth.mayo;
-        break;
-      case 5:
-        this.kpiCUrrent=this.kpiMonth.junio;
-        break;
-      case 6:
-        this.kpiCUrrent=this.kpiMonth.julio;
-        break;
-      case 7:
-        this.kpiCUrrent=this.kpiMonth.agosto;
-        break;
-      case 8:
-        this.kpiCUrrent=this.kpiMonth.septiembre;
-        break;
-      case 9:
-        this.kpiCUrrent=this.kpiMonth.octubre;
-        break;
-      case 10:
-        this.kpiCUrrent=this.kpiMonth.noviembre;
-        break;
-      case 11: 
-        this.kpiCUrrent=this.kpiMonth.diciembre;
+  public setCurrentYear(){
+    let year = this.currentDate.getFullYear();
+    for (let j=0; j<this.kpis.data.length; j++){
+      if(this.kpis.data[j].year==year){
+        this.kpiYearModel = this.kpis.data[j];    
+      }
     }
-    
   }
+  
+  public setCurrentMonth(){
+    var currentMonthHaveRealKPIGlobal=false;
+    let month = this.currentDate.getMonth();
+      do{
+        switch (month){
+          case 0:
+            this.kpiCUrrent= this.kpiMonth.enero;
+            break;
+          case 1:
+            this.kpiCUrrent=this.kpiMonth.febrero;
+            break;
+          case 2:
+            this.kpiCUrrent=this.kpiMonth.marzo;
+            break;
+          case 3:
+            this.kpiCUrrent=this.kpiMonth.abril;
+            break;
+          case 4:
+            this.kpiCUrrent=this.kpiMonth.mayo;
+            break;
+          case 5:
+            this.kpiCUrrent=this.kpiMonth.junio;
+            break;
+          case 6:
+            this.kpiCUrrent=this.kpiMonth.julio;
+            break;
+          case 7:
+            this.kpiCUrrent=this.kpiMonth.agosto;
+            break;
+          case 8:
+            this.kpiCUrrent=this.kpiMonth.septiembre;
+            break;
+          case 9:
+            this.kpiCUrrent=this.kpiMonth.octubre;
+            break;
+          case 10:
+            this.kpiCUrrent=this.kpiMonth.noviembre;
+            break;
+          case 11: 
+            this.kpiCUrrent=this.kpiMonth.diciembre;
+        }
+        if(this.dateEstimatedKpi==null){
+          this.dateEstimatedKpi = this.kpiCUrrent[this.kpiCUrrent.length-1].date;
+        }
+        
+        // Se mantiene kpi estimado mas reciente en la ultima posición de la data
+        if (this.estimatedKpiGlobal==null){
+          this.estimatedKpiGlobal = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_kpiEstimado*100;
+          this.estimatedKpiGlobal=Math.round(this.estimatedKpiGlobal*100)/100
+        }    
 
+        let i=this.kpiCUrrent.length-1;
+        while (i>=0){ 
+          if(this.kpiCUrrent[i].kpi_global.hist_kpiReal > 0){
+            if(!currentMonthHaveRealKPIGlobal){
+              currentMonthHaveRealKPIGlobal=true;
+              this.dateRealKpiGlobal= this.kpiCUrrent[i].date;
+              this.currentDayKpi = this.kpiCUrrent[i].kpi_global.hist_kpiReal*100;
+              this.historicHostExecutions = this.kpiCUrrent[i].kpi_global.hist_EjecHost;
+              this.historicEtherExecutions = this.kpiCUrrent[i].kpi_global.hist_EjecEther;
+            }
+          }
+          i--;
+        }
+
+         // Si el mes es enero, no se buscara KPI Del año anterior, unicamente de los meses posteriores a Enero se aplica esta logica */
+       if(month>0){
+        month--;
+        } else if(month==0) {
+          break;
+        }
+    } while(this.currentDayKpi == undefined)
+  }
+  
+
+
+  public setSeriesPerMonthToTable(kpiCurrentMonth:KpiCurrentDay[], kpiLastMonth:KpiCurrentDay[]){
+    
+    if(kpiCurrentMonth!=null ){
+      // Diferenciación del mes de enero para aplicar logica de ultimos 7 dias del KPI Real
+      // El metodo getMonth() trae los meses de enero a diciembre desde 0 hasta 11
+      if(this.currentDate.getMonth()!=0){
+        if(kpiCurrentMonth.length<=7){
+          if(kpiCurrentMonth.length==7){
+            for (var i=0; i<kpiCurrentMonth.length; i++){
+              //Llenado de valores para tablas
+              kpiCurrentMonth[i].kpi_global.hist_kpiReal=kpiCurrentMonth[i].kpi_global.hist_kpiReal*100
+              this.lastKpiExecutions.push(kpiCurrentMonth[i]);    
+            }
+            this.lastKpiExecutions.reverse();
+          } else if(kpiCurrentMonth.length==6){
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-1]);
+            this.lastKpiExecutions.reverse();
+            for (var i=0; i<kpiCurrentMonth.length; i++){
+              //Llenado de valores para tablas
+            
+              kpiCurrentMonth[i].kpi_global.hist_kpiReal=kpiCurrentMonth[i].kpi_global.hist_kpiReal*100
+              this.lastKpiExecutions.push(kpiCurrentMonth[i]);    
+            }
+            this.lastKpiExecutions.reverse();
+          } else if(kpiCurrentMonth.length==5){
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-1]);
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-2]);
+            this.lastKpiExecutions.reverse();
+            for (var i=0; i<kpiCurrentMonth.length; i++){
+              //Llenado de valores para tablas
+              kpiCurrentMonth[i].kpi_global.hist_kpiReal=kpiCurrentMonth[i].kpi_global.hist_kpiReal*100
+              this.lastKpiExecutions.push(kpiCurrentMonth[i]);    
+            } 
+            this.lastKpiExecutions.reverse();
+
+          } else if(kpiCurrentMonth.length==4){
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-1]);
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-2]);
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-3]);
+            this.lastKpiExecutions.reverse();
+            for (var i=0; i<kpiCurrentMonth.length; i++){
+              //Llenado de valores para tablas
+              kpiCurrentMonth[i].kpi_global.hist_kpiReal=kpiCurrentMonth[i].kpi_global.hist_kpiReal*100
+              this.lastKpiExecutions.push(kpiCurrentMonth[i]);    
+            } 
+            this.lastKpiExecutions.reverse();
+
+          } else if(kpiCurrentMonth.length==3){
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-1]);
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-2]);
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-3]);
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-4]);
+            this.lastKpiExecutions.reverse();
+            for (var i=0; i<kpiCurrentMonth.length; i++){
+              //Llenado de valores para tablas
+              kpiCurrentMonth[i].kpi_global.hist_kpiReal=kpiCurrentMonth[i].kpi_global.hist_kpiReal*100
+              this.lastKpiExecutions.push(kpiCurrentMonth[i]);    
+            } 
+            this.lastKpiExecutions.reverse();
+          
+          } else if(kpiCurrentMonth.length==2){
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-1]);
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-2]);
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-3]);
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-4]);
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-5]);
+            this.lastKpiExecutions.reverse();
+            for (var i=0; i<kpiCurrentMonth.length; i++){
+              //Llenado de valores para tablas
+              kpiCurrentMonth[i].kpi_global.hist_kpiReal=kpiCurrentMonth[i].kpi_global.hist_kpiReal*100
+              this.lastKpiExecutions.push(kpiCurrentMonth[i]);    
+            } 
+            this.lastKpiExecutions.reverse();
+           
+          } else if(kpiCurrentMonth.length==1){
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-1]);
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-2]);
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-3]);
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-4]);
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-5]);
+            this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-6]);
+            this.lastKpiExecutions.reverse();
+            for (var i=0; i<kpiCurrentMonth.length; i++){
+              //Llenado de valores para tablas
+              kpiCurrentMonth[i].kpi_global.hist_kpiReal=kpiCurrentMonth[i].kpi_global.hist_kpiReal*100
+              this.lastKpiExecutions.push(kpiCurrentMonth[i]);    
+            } 
+            this.lastKpiExecutions.reverse();
+           
+          } 
+        } else {
+          let limitIterationDays=kpiCurrentMonth.length-8;
+          for (var i=kpiCurrentMonth.length-1; i>limitIterationDays; i--){
+            //Llenado de valores para tablas cuando el array es mayor a los ultimos 7 dias del mes actual consultado
+          
+            kpiCurrentMonth[i].kpi_global.hist_kpiReal=kpiCurrentMonth[i].kpi_global.hist_kpiReal*100
+            this.lastKpiExecutions.push(kpiCurrentMonth[i]);    
+          }
+          
+        }
+      } else {
+        //Llenado de Enero a principios de cada año, cuando no se toma data de meses anteriores
+        let limitIterationDays:number;
+        switch(kpiCurrentMonth.length){
+          case 6:
+            limitIterationDays=kpiCurrentMonth.length-6;
+            break;
+          case 5:
+            limitIterationDays=kpiCurrentMonth.length-5;
+            break;
+          case 4:
+            limitIterationDays=kpiCurrentMonth.length-4;
+            break;
+          case 3:
+            limitIterationDays=kpiCurrentMonth.length-3;
+            break;  
+          case 2:
+            limitIterationDays=kpiCurrentMonth.length-2;
+            break;
+          case 1:
+            limitIterationDays=kpiCurrentMonth.length-1;
+            break;
+          default:
+            limitIterationDays=kpiCurrentMonth.length-7;
+            break;                  
+        }
+        
+        for (var i=kpiCurrentMonth.length-1; i>=limitIterationDays; i--){
+          //Llenado de valores para tablas
+          kpiCurrentMonth[i].kpi_global.hist_kpiReal=kpiCurrentMonth[i].kpi_global.hist_kpiReal*100
+          this.lastKpiExecutions.push(kpiCurrentMonth[i]);    
+        }
+      }
+    } 
+  }
 }

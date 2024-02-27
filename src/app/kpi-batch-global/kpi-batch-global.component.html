@@ -22,8 +22,8 @@
                     <div class="col-sm-2"> </div>
                     <div class="col-sm-8">
                         <div class="header">
-                            <h4 class="title">KPI Dia actual</h4>
-                            <p class="category">{{this.dateKpi}}</p>
+                            <h4 class="title">KPI Global Mas Reciente</h4>
+                            <p class="category">{{this.dateRealKpiGlobal}}</p>
                             <div class="div-indicator">{{this.currentDayKpi}}</div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                     <div class="col-sm-8"> 
                         <div class="header">
                             <h4 class="title">Ejecuciones ETHER</h4>
-                            <p class="category">{{this.dateKpi}}</p>
+                            <p class="category">{{this.dateRealKpiGlobal}}</p>
                             <div class="div-indicator">{{this.historicEtherExecutions}}</div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                     <div class="col-sm-8"> 
                         <div class="header">
                             <h4 class="title">Ejecuciones HOST</h4>
-                            <p class="category">{{this.dateKpi}}</p>
+                            <p class="category">{{this.dateRealKpiGlobal}}</p>
                             <div class="div-indicator">{{this.historicHostExecutions}}</div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
            </div>
            <div class="col-md-8">
                 <lbd-chart id="chartBar"
-                [title]="'KPI Batch Global'"
+                [title]="'KPI Global'"
                 [subtitle]="'Ultimos 7 días'"
                 [chartType]="kpiLastDaysCharType"
                 [chartData]="kpiLastDaysCharData"

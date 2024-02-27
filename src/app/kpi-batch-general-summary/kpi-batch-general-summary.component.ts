@@ -96,8 +96,6 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
       this.realKpiBatch=Math.round(this.realKpiBatch*100)/100
 
 
-      this.historicHostExecutions = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_EjecHost;
-      this.historicEtherExecutions = this.kpiCUrrent[this.kpiCUrrent.length-1].kpi_global.hist_EjecEther;
     }catch(error){
       console.error(error);
     }
@@ -265,7 +263,8 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
     console.log("month ",this.currentDate.getMonth());
     if(kpiCurrentMonth!=null ){
       // Diferenciación del mes de enero para aplicar logica de ultimos 7 dias del KPI Real
-      if(this.currentDate.getMonth()!=1){
+      // El metodo getMonth() trae los meses de enero a diciembre desde 0 hasta 11
+      if(this.currentDate.getMonth()!=0){
         if(kpiCurrentMonth.length<=7){
           if(kpiCurrentMonth.length==7){
             for (var i=0; i<kpiCurrentMonth.length; i++){

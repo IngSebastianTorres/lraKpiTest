@@ -15,7 +15,7 @@ export class KpiService {
 
   constructor(private httpClient:HttpClient) {
     this.baseUrl= "http://devosfernando.com:38900/api/1/";
-    this.baseUrlLocalJson="http://localhost:4200/dataKPIGeneral.json";
+    this.baseUrlLocalJson="https://ingsebastiantorres.github.io/lraKpiTest/dataKPIGeneral.json";
   }
 
 
