@@ -2450,7 +2450,7 @@
                 "hist_EjecEther": 66666666,
                 "hist_EjecHost": 33333333,
                 "hist_kpiEstimado": 0.20,
-                "hist_kpiReal": 0.1487
+                "hist_kpiReal": 0.1
               },
               "kpi_core": {
                 "hist_EjecEther": 7777777,
