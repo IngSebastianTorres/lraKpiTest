@@ -41,28 +41,5 @@ export class KpiService {
     }
   }
 
-  /*
-  async getKpiYear():Promise<KpiYear[]>{
-    const headers = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization': localStorage.getItem('tokenServices')
-      }) 
-    }  
-    let response: HttpBackendResponse = new HttpBackendResponse(); 
-    response = await firstValueFrom(this.httpClient.get<HttpBackendResponse>(this.baseUrl+"kpi/year", headers));
-    if(response.status==200){
-      return response.response;
-    } else {
-      Swal.fire({
-        title: 'Error',
-        text: 'Falla consultando el KPI mensual',
-        icon: 'error',
-        confirmButtonText: 'OK'
-      }).then(() => {
-         return null;
-      })
-    }
-    
-  }*/
+
 }

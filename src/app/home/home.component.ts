@@ -45,10 +45,15 @@ export class HomeComponent implements OnInit {
 
     public httpResponse:HttpBackendResponse;
     public kpiCUrrent:KpiCurrentDay[]; 
+    public kpiCurrentFromLastYear:KpiCurrentDay[]; 
     public kpiYear:any[]; 
     public KpiYearObject:KpiMonthFromYear;
     public kpiMonth:KpiMonths;
+
+
+    public kpiMonthFromLastYear:KpiMonths;
     seriesFromBackendReal:number[] =[];
+    seriesFromBackendLastPastYear:number[]=[];
     seriesFromBackendEstimado:number[] =[];
     dateEstimatedKpi:string;
     dateRealKpiOnline:string;
@@ -57,7 +62,7 @@ export class HomeComponent implements OnInit {
     public currentDate = new Date();
     public kpis:kpis;
     public kpiYearModel:KpiYear;
-    
+    public kpiYearModelLastYear:KpiYear;
     public estimatedKpiOnline:number;
     
   constructor(private kpiOnlineService:KpiService) { 
@@ -75,70 +80,90 @@ export class HomeComponent implements OnInit {
       this.monthsFromYear.set(12,"diciembre");
   }
 
+  calculateMonthsDataCurrentYear(m:string){
+    // Llenado de los ultimos dias del KPI 
+    switch (m){
+      case 'enero':
+        this.kpiCUrrent = this.kpiMonth.enero;
+        this.kpiCurrentFromLastYear = this.kpiMonthFromLastYear.enero;
+        this.setSeriesPerMonthToPrintCharts();
+        break;
+      case 'febrero':  
+        this.kpiCUrrent = this.kpiMonth.febrero;
+        this.kpiCurrentFromLastYear = this.kpiMonthFromLastYear.febrero;
+        this.setSeriesPerMonthToPrintCharts();
+        break;
+      case 'marzo':
+        this.kpiCUrrent = this.kpiMonth.marzo;
+        this.kpiCurrentFromLastYear = this.kpiMonthFromLastYear.marzo;
+        this.setSeriesPerMonthToPrintCharts();
+        break;
+      case 'abril':
+        this.kpiCUrrent = this.kpiMonth.abril;
+        this.kpiCurrentFromLastYear = this.kpiMonthFromLastYear.abril;
+        this.setSeriesPerMonthToPrintCharts();
+        break;
+      case 'mayo':
+        this.kpiCUrrent = this.kpiMonth.mayo;
+        this.kpiCurrentFromLastYear = this.kpiMonthFromLastYear.mayo;
+        this.setSeriesPerMonthToPrintCharts();
+        break;
+      case 'junio':
+        this.kpiCUrrent = this.kpiMonth.junio;
+        this.kpiCurrentFromLastYear = this.kpiMonthFromLastYear.junio;
+        this.setSeriesPerMonthToPrintCharts();
+        break;
+      case 'julio':
+        this.kpiCUrrent = this.kpiMonth.julio;
+        this.kpiCurrentFromLastYear = this.kpiMonthFromLastYear.julio;
+        this.setSeriesPerMonthToPrintCharts();
+        break;
+      case 'agosto':
+        this.kpiCUrrent = this.kpiMonth.agosto;
+        this.kpiCurrentFromLastYear = this.kpiMonthFromLastYear.agosto;
+        this.setSeriesPerMonthToPrintCharts();
+        break;
+      case 'septiembre':
+        this.kpiCUrrent = this.kpiMonth.septiembre;
+        this.kpiCurrentFromLastYear = this.kpiMonthFromLastYear.septiembre;
+        this.setSeriesPerMonthToPrintCharts();
+        break;
+      case 'octubre':
+        this.kpiCUrrent = this.kpiMonth.octubre;
+        this.kpiCurrentFromLastYear = this.kpiMonthFromLastYear.octubre;
+        this.setSeriesPerMonthToPrintCharts();
+        break;
+      case 'noviembre':
+        this.kpiCUrrent = this.kpiMonth.noviembre;
+        this.kpiCurrentFromLastYear = this.kpiMonthFromLastYear.noviembre;
+        this.setSeriesPerMonthToPrintCharts();
+        break;
+      case 'diciembre':
+        this.kpiCUrrent = this.kpiMonth.diciembre;
+        this.kpiCurrentFromLastYear = this.kpiMonthFromLastYear.diciembre;
+        this.setSeriesPerMonthToPrintCharts();
+        break;
+
+    }
+  }
+
   async ngOnInit() {
+      // Metodo que llama los valores mas recientes disponibles del KPI
       this.getKpiCurrentDayData();
       
       /** Llamada al servicio de KPI Anual */
       this.httpResponse = await this.kpiOnlineService.getCurrentDayKpi();
       this.kpis= this.httpResponse.response;
-      this.setCurrentYear();
+      //Ultimo año anterior
+      let lastYear = this.currentDate.getFullYear()-1;
+      this.setCurrentYear(lastYear);
       this.kpiMonth = this.kpiYearModel.kpi_annual;
-      
+      this.kpiMonthFromLastYear = this.kpiYearModelLastYear.kpi_annual;
       // Logica para pintar grafica con ultimo valor calculado del KPI de cada mes
       for (let m of this.monthsFromYear.values()){
-        switch (m){
-          case 'enero':
-            this.kpiCUrrent = this.kpiMonth.enero;
-            this.setSeriesPerMonthToPrintCharts();
-            break;
-          case 'febrero':  
-            this.kpiCUrrent = this.kpiMonth.febrero;
-            this.setSeriesPerMonthToPrintCharts();
-            break;
-          case 'marzo':
-            this.kpiCUrrent = this.kpiMonth.marzo;
-            this.setSeriesPerMonthToPrintCharts();
-            break;
-          case 'abril':
-            this.kpiCUrrent = this.kpiMonth.abril;
-            this.setSeriesPerMonthToPrintCharts();
-            break;
-          case 'mayo':
-            this.kpiCUrrent = this.kpiMonth.mayo;
-            this.setSeriesPerMonthToPrintCharts();
-            break;
-          case 'junio':
-            this.kpiCUrrent = this.kpiMonth.junio;
-            this.setSeriesPerMonthToPrintCharts();
-            break;
-          case 'julio':
-            this.kpiCUrrent = this.kpiMonth.julio;
-            this.setSeriesPerMonthToPrintCharts();
-            break;
-          case 'agosto':
-            this.kpiCUrrent = this.kpiMonth.agosto;
-            this.setSeriesPerMonthToPrintCharts();
-            break;
-          case 'septiembre':
-            this.kpiCUrrent = this.kpiMonth.septiembre;
-            this.setSeriesPerMonthToPrintCharts();
-            break;
-          case 'octubre':
-            this.kpiCUrrent = this.kpiMonth.octubre;
-            this.setSeriesPerMonthToPrintCharts();
-            break;
-          case 'noviembre':
-            this.kpiCUrrent = this.kpiMonth.noviembre;
-            this.setSeriesPerMonthToPrintCharts();
-            break;
-          case 'diciembre':
-            this.kpiCUrrent = this.kpiMonth.diciembre;
-            this.setSeriesPerMonthToPrintCharts();
-            break;
+        this.calculateMonthsDataCurrentYear(m);
+      }
 
-        }
-       // Llenado de los ultimos dias del KPI 
-      }  
       switch (this.currentDate.getMonth()+1){
         case 1:
           this.setSeriesPerMonthToTable(this.kpiMonth.enero,null);
@@ -190,9 +215,11 @@ export class HomeComponent implements OnInit {
         if( i == this.kpiCUrrent.length-1){
             var realKpiValue = this.kpiCUrrent[i].kpi_online.hist_kpiReal*100;
             var estimatedKpiValue = this.kpiCUrrent[i].kpi_online.hist_kpiEstimado*100;
+            var realKpiFromLastYear = this.kpiCurrentFromLastYear[i].kpi_online.hist_kpiReal*100;
             // Llenado de Series de grafica Lineal
             this.seriesFromBackendReal.push(Math.round(realKpiValue*100)/100 != 0 ? Math.round(realKpiValue*100)/100 : null  );
             this.seriesFromBackendEstimado.push(Math.round(estimatedKpiValue*100)/100 != 0 ? Math.round(estimatedKpiValue*100)/100 : null  ); 
+            this.seriesFromBackendLastPastYear.push(Math.round(realKpiFromLastYear*100)/100 != 0 ? Math.round(realKpiFromLastYear*100)/100 : null  );
         } 
         
       }
@@ -202,10 +229,10 @@ export class HomeComponent implements OnInit {
     public async getKpiCurrentDayData(){
       try{
       this.httpResponse= await this.kpiOnlineService.getCurrentDayKpi();
-        
+
       this.kpis= this.httpResponse.response;
       //Establecer año actual
-      this.setCurrentYear();
+      this.setCurrentYear(0);
       this.kpiMonth=this.kpiYearModel.kpi_annual;
       //Establecer el mes actual
       this.setCurrentMonth();
@@ -216,13 +243,20 @@ export class HomeComponent implements OnInit {
         console.error(error);
       }
     }
+  
 
-
-    public setCurrentYear(){
+    public setCurrentYear(lastYear?:number){
       let year = this.currentDate.getFullYear();
       for (let j=0; j<this.kpis.data.length; j++){
         if(this.kpis.data[j].year==year){
           this.kpiYearModel = this.kpis.data[j];    
+        }
+      } 
+      if(lastYear!=0){
+        for (let j=0; j<this.kpis.data.length; j++){
+          if(this.kpis.data[j].year==lastYear){
+            this.kpiYearModelLastYear = this.kpis.data[j];    
+          }
         }
       }
     }
@@ -309,14 +343,15 @@ export class HomeComponent implements OnInit {
       this.hoursChartData = {
         labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre','Noviembre','Diciembre'],
         series: [
-          this.seriesFromBackendReal, // real
-          this.seriesFromBackendEstimado
+          this.seriesFromBackendLastPastYear,
+          this.seriesFromBackendEstimado,
+          this.seriesFromBackendReal // real
         ]
       };
       this.hoursChartOptions = {
         low: 0,
         high: 60,
-        showArea: false,
+        showArea:  true,
         height: '245px',
         axisX: {
           showGrid: true,
@@ -336,10 +371,14 @@ export class HomeComponent implements OnInit {
           }
         }]
       ];
+      var yearLeyend=this.currentDate.getFullYear()-1;
       this.hoursChartLegendItems = [
         { title: 'KPI REAL', imageClass: 'fa fa-circle text-info' },
-        { title: 'KPI ESTIMADO', imageClass: 'fa fa-circle text-danger' }
+        { title: 'KPI ESTIMADO', imageClass: 'fa fa-circle text-danger' },
+        { title: 'KPI REAL AÑO '+yearLeyend.toString(), imageClass:'fa fa-circle text-warning'}
       ];
+
+      
     }
 
     generateBarGraphic():void{      
