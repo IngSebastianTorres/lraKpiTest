@@ -20,7 +20,8 @@
               "src/assets",
               "src/favicon.ico",
               "src/manifest.webmanifest",
-              "src/dataKPIGeneral.json"
+              "src/dataKPIGeneral.json",
+              "src/dataKPIGeneralProd.json"
             ],
             "styles": [
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
