@@ -15,7 +15,7 @@
                             <div class="header">
                                 <h4 class="title"> Real </h4>
                                 <p class="category">{{this.dateRealKpiOnline}}</p>
-                                <div class="div-indicator " [ngClass]="{redindicator:(this.realKpiOnline<estimatedKpiOnline-5),greenindicator:(this.realKpiOnline>=estimatedKpiOnline)}"><p class="num">{{this.realKpiOnline}}</p></div>
+                                <div class="div-indicator " [ngClass]="{redindicator:(this.realKpiOnline<estimatedKpiOnline-5 || this.realKpiOnline==0),greenindicator:(this.realKpiOnline>=estimatedKpiOnline)}"><p class="num">{{this.realKpiOnline}}</p></div>
                             </div>
                         </div>
                         <div class="col-sm-5">
@@ -40,7 +40,7 @@
                             <div class="header">
                                 <h4 class="title"> Real </h4>
                                 <p class="category">{{this.dateRealKpiCore}}</p>
-                                <div class="div-indicator" [ngClass]="{redindicator:(this.realKpiBatch<estimatedKpiBatch-5),greenindicator:(this.realKpiBatch>=estimatedKpiBatch)}"><p class="num">{{this.realKpiBatch}}</p></div>
+                                <div class="div-indicator" [ngClass]="{redindicator:(this.realKpiBatch<estimatedKpiBatch-5 || this.realKpiBatch==0),greenindicator:(this.realKpiBatch>=estimatedKpiBatch)}"><p class="num">{{this.realKpiBatch}}</p></div>
                             </div>
                         </div>
                         <div class="col-sm-5">
@@ -67,7 +67,7 @@
                         <div class="header">
                             <h4 class="title"> Real </h4>
                             <p class="category">{{this.dateRealKpiBatch}}</p>
-                            <div class="div-indicator" [ngClass]="{redindicator:(this.realKpiGlobal<estimatedKpiGlobal-5),greenindicator:(this.realKpiGlobal>=estimatedKpiGlobal)}" ><p class="num">{{this.realKpiGlobal}}</p></div>
+                            <div class="div-indicator" [ngClass]="{redindicator:(this.realKpiGlobal<estimatedKpiGlobal-5 || this.realKpiGlobal ==0),greenindicator:(this.realKpiGlobal>=estimatedKpiGlobal)}" ><p class="num">{{this.realKpiGlobal}}</p></div>
                         </div>
                     </div>
                     <div class="col-sm-5">

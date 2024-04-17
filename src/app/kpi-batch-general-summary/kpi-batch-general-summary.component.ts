@@ -50,9 +50,9 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
   dateRealKpiBatch:string;
   dateEstimatedKpi:string;
   public httpBackendResponse:HttpBackendResponse;
-  public realKpiOnline:number;
-  public realKpiGlobal:number;
-  public realKpiBatch:number;
+  public realKpiOnline:number=0;
+  public realKpiGlobal:number=0;
+  public realKpiBatch:number=0;
   public estimatedKpiOnline:number;
   public estimatedKpiGlobal:number;
   public estimatedKpiBatch:number;
@@ -75,6 +75,23 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
     this.monthsFromYear.set(10,"octubre");
     this.monthsFromYear.set(11,"noviembre");
     this.monthsFromYear.set(12,"diciembre");
+    let day:any;
+    let month:any;
+    let year:any;
+
+    day= this.currentDate.toLocaleDateString().substring(0,2);
+    day= parseInt(day);
+    day=day-1;
+    if(this.currentDate.toLocaleDateString().length == 9){
+      month = this.currentDate.toLocaleDateString().substring(3,4);
+      year = this.currentDate.toLocaleDateString().substring(5);
+    } else {
+      month = this.currentDate.toLocaleDateString().substring(4,5);
+      year = this.currentDate.toLocaleDateString().substring(6);
+    }
+    this.dateRealKpiCore=month+"/"+day+"/"+year
+    this.dateRealKpiBatch=month+"/"+day+"/"+year
+    this.dateRealKpiOnline=month+"/"+day+"/"+year
   }
 
   public async getKpiCurrentDayData(){

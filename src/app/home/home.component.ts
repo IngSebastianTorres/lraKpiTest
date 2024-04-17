@@ -215,13 +215,17 @@ export class HomeComponent implements OnInit {
         if( i == this.kpiCUrrent.length-1){
             var realKpiValue = this.kpiCUrrent[i].kpi_online.hist_kpiReal*100;
             var estimatedKpiValue = this.kpiCUrrent[i].kpi_online.hist_kpiEstimado*100;
-            var realKpiFromLastYear = this.kpiCurrentFromLastYear[i].kpi_online.hist_kpiReal*100;
             // Llenado de Series de grafica Lineal
             this.seriesFromBackendReal.push(Math.round(realKpiValue*100)/100 != 0 ? Math.round(realKpiValue*100)/100 : null  );
-            this.seriesFromBackendEstimado.push(Math.round(estimatedKpiValue*100)/100 != 0 ? Math.round(estimatedKpiValue*100)/100 : null  ); 
-            this.seriesFromBackendLastPastYear.push(Math.round(realKpiFromLastYear*100)/100 != 0 ? Math.round(realKpiFromLastYear*100)/100 : null  );
+            this.seriesFromBackendEstimado.push(Math.round(estimatedKpiValue*100)/100 != 0 ? Math.round(estimatedKpiValue*100)/100 : null  );  
         } 
-        
+      }
+      for (var i=0; i<this.kpiCurrentFromLastYear.length; i++){
+        if( i == this.kpiCurrentFromLastYear.length-1){
+          var realKpiFromLastYear = this.kpiCurrentFromLastYear[i].kpi_online.hist_kpiReal*100;
+          this.seriesFromBackendLastPastYear.push(Math.round(realKpiFromLastYear*100)/100 != 0 ? Math.round(realKpiFromLastYear*100)/100 : null  );
+        }
+     
       }
     }
 

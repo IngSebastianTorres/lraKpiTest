@@ -35,9 +35,9 @@ export class KpiBatchGlobalComponent implements OnInit {
   public tableData2: TableData;
 
   public kpiCUrrent:KpiCurrentDay[]; 
-  public currentDayKpi:number;
-  public historicHostExecutions:number;
-  public historicEtherExecutions:number;
+  public currentDayKpi:number = 0;
+  public historicHostExecutions:number=0;
+  public historicEtherExecutions:number=0;
   
   public httpBackend:HttpBackendResponse;
   public kpiYear:KpiMonthFromYear;
@@ -72,6 +72,21 @@ export class KpiBatchGlobalComponent implements OnInit {
     this.monthsFromYear.set(10,"octubre");
     this.monthsFromYear.set(11,"noviembre");
     this.monthsFromYear.set(12,"diciembre");
+    let day:any;
+    let month:any;
+    let year:any;
+
+    day= this.currentDate.toLocaleDateString().substring(0,2);
+    day= parseInt(day);
+    day=day-1;
+    if(this.currentDate.toLocaleDateString().length == 9){
+      month = this.currentDate.toLocaleDateString().substring(3,4);
+      year = this.currentDate.toLocaleDateString().substring(5);
+    } else {
+      month = this.currentDate.toLocaleDateString().substring(4,5);
+      year = this.currentDate.toLocaleDateString().substring(6);
+    }
+    this.dateRealKpiGlobal=month+"/"+day+"/"+year;
    }
 
   async ngOnInit() {
@@ -205,13 +220,17 @@ export class KpiBatchGlobalComponent implements OnInit {
       if( i == this.kpiCUrrent.length-1){
         var realKpiValue = this.kpiCUrrent[i].kpi_global.hist_kpiReal*100;
         var estimatedKpiValue = this.kpiCUrrent[i].kpi_global.hist_kpiEstimado*100;
-        var realKpiFromLastYear = this.kpiCurrentFromLastYear[i].kpi_global.hist_kpiReal*100;
 
         this.seriesFromBackendReal.push(Math.round(realKpiValue*100)/100 != 0 ? Math.round(realKpiValue*100)/100 : null  );
         this.seriesFromBackendEstimado.push(Math.round(estimatedKpiValue*100)/100 != 0 ? Math.round(estimatedKpiValue*100)/100 : null   ); 
-        this.seriesFromBackendLastPastYear.push(Math.round(realKpiFromLastYear*100)/100 != 0 ? Math.round(realKpiFromLastYear*100)/100 : null  );
 
       } 
+    }
+    for(var i=0; i<this.kpiCurrentFromLastYear.length; i++){
+      if( i == this.kpiCurrentFromLastYear.length-1){
+        var realKpiFromLastYear = this.kpiCurrentFromLastYear[i].kpi_global.hist_kpiReal*100;
+        this.seriesFromBackendLastPastYear.push(Math.round(realKpiFromLastYear*100)/100 != 0 ? Math.round(realKpiFromLastYear*100)/100 : null  );
+      }
     }
   }
 
