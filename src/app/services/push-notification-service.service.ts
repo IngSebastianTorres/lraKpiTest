@@ -10,7 +10,7 @@ import { firstValueFrom } from 'rxjs';
 })
 export class PushNotificationServiceService {
 
-  public url ='https://890a-186-170-219-205.ngrok-free.app';
+  public url ='https://b0e6-191-104-164-248.ngrok-free.app';
 
   constructor( private http:HttpClient) { 
 
