@@ -10,7 +10,7 @@ import { firstValueFrom } from 'rxjs';
 })
 export class PushNotificationServiceService {
 
-  public url ='https://b0e6-191-104-164-248.ngrok-free.app';
+  public url ='https://4c9c-191-104-172-42.ngrok-free.app';
 
   constructor( private http:HttpClient) { 
 
@@ -24,7 +24,7 @@ export class PushNotificationServiceService {
         'Content-Type': 'application/json; charset=UTF-8'
       })
     }
-    return await firstValueFrom(this.http.post<any>(this.url+"/save", body, httpOptions ));
+    return await firstValueFrom(this.http.post<any>(this.url+"/save/", body, httpOptions ));
   }
 
 

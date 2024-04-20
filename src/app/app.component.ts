@@ -15,15 +15,28 @@ export class AppComponent implements OnInit {
 
    
     public readonly VAPID_PUBLIC_KEY= 'BH97zDze6zTrxxcPzjzT8NQpQD8jNuvK_r9xy04vjzgEkfmMsYjUOo9xbMznD1MXc3BzO32JXvDPwhucI_COtJU';
+    public readonly VAPID_PUBLIC_KEY_FLASK='BDImINlqddxHT1W9sRDQ2g-ZsdDTNlxgEvHWok87JZNqyh9TYItCOx8N7Y91rbcHKk5a5xaibZJyIgRNiCUgAiw';
     resultSubscription:any;
 
     constructor(public securityToken:SecurityTokenService,public location: Location, private swPush:SwPush, private pushNotificationService:PushNotificationServiceService) {
-      this.subscribeNotifications();
+      this.subscribePushNotifications();
     }
 
+    async subscribePushNotifications(){
+      try {
+        const sub = await this.swPush.requestSubscription({serverPublicKey:this.VAPID_PUBLIC_KEY_FLASK});
+        let token = JSON.stringify(sub);
+        
+        let result = await this.pushNotificationService.saveToken(token);
+        
+        console.log("TOKEN ", token);
+      
+      }catch(err){
+        console.error("Error on subscribe notifications ", err);
+      }
+    }
 
-
-    async subscribeNotifications (){
+    /*async subscribeNotifications (){
       
       try{
         
@@ -38,13 +51,9 @@ export class AppComponent implements OnInit {
           console.error("Error on subscribe notifications ", err);
       }
 
-    }
+    }*/
     
     ngOnInit(){
-      /*var isAuthenticated = localStorage.getItem('isAuthenticated');
-      if(isAuthenticated=='true'){
-         const id= setTimeout(this.generateTokenToServices,miliSecondsToRefreshToken);
-      }*/
     }
 
     isMap(path){
