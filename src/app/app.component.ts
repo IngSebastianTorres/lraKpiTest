@@ -14,7 +14,7 @@ import { SecurityTokenService } from './services/security-token.service';
 export class AppComponent implements OnInit {
 
    
-    public readonly VAPID_PUBLIC_KEY= 'BH97zDze6zTrxxcPzjzT8NQpQD8jNuvK_r9xy04vjzgEkfmMsYjUOo9xbMznD1MXc3BzO32JXvDPwhucI_COtJU';
+    //public readonly VAPID_PUBLIC_KEY= 'BH97zDze6zTrxxcPzjzT8NQpQD8jNuvK_r9xy04vjzgEkfmMsYjUOo9xbMznD1MXc3BzO32JXvDPwhucI_COtJU';
     public readonly VAPID_PUBLIC_KEY_FLASK='BDImINlqddxHT1W9sRDQ2g-ZsdDTNlxgEvHWok87JZNqyh9TYItCOx8N7Y91rbcHKk5a5xaibZJyIgRNiCUgAiw';
     resultSubscription:any;
 
@@ -30,6 +30,7 @@ export class AppComponent implements OnInit {
         let result = await this.pushNotificationService.saveToken(token);
         
         console.log("TOKEN ", token);
+        console.log("RESULT ", result);
       
       }catch(err){
         console.error("Error on subscribe notifications ", err);
