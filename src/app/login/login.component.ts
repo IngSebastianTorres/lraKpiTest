@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       const regularExpression = /[}]$/g
 
       let bodyToSend= token.replace(regularExpression,',"userId":'+this.email+" }")
-      console.log(token)
+      console.log(bodyToSend)
       let body = JSON.parse(token);
       console.log(body)
       let result = await this.pushNotificationService.verifyToken(token);
