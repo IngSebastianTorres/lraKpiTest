@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1713901313370,
+  "timestamp": 1713902545734,
   "index": "/lraKpiTest/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/lraKpiTest/favicon.ico",
         "/lraKpiTest/index.html",
-        "/lraKpiTest/main.eb3b9b4ed612372a.js",
+        "/lraKpiTest/main.6f2861cab732bce2.js",
         "/lraKpiTest/manifest.webmanifest",
         "/lraKpiTest/polyfills.2d038bc31652c7d2.js",
         "/lraKpiTest/runtime.f99debab09b4b2c7.js",
@@ -221,8 +221,8 @@
     "/lraKpiTest/glyphicons-halflings-regular.4ba85deaf3670942.woff": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f",
     "/lraKpiTest/glyphicons-halflings-regular.85f0466cb4ab3a4d.svg": "de51a8494180a6db074af2dee2383f0a363c5b08",
     "/lraKpiTest/glyphicons-halflings-regular.b70781972ce7320b.woff2": "ca35b697d99cae4d1b60f2d60fcd37771987eb07",
-    "/lraKpiTest/index.html": "1a22688ea2c6e6c9c25c2f5396d19ca0d9579c00",
-    "/lraKpiTest/main.eb3b9b4ed612372a.js": "96cc224f7a9bb07833fe12a6a18b0b63cf9c570d",
+    "/lraKpiTest/index.html": "e360f606eb620676d435a9d5625f76ad21812f8f",
+    "/lraKpiTest/main.6f2861cab732bce2.js": "c944d60af51d96ab039af408cc2c0d993c375751",
     "/lraKpiTest/manifest.webmanifest": "5007377af41f4553a58e23dc48839602f5288600",
     "/lraKpiTest/polyfills.2d038bc31652c7d2.js": "01df6e4bceb15a9ba0754e66a8a00142cf546270",
     "/lraKpiTest/runtime.f99debab09b4b2c7.js": "44cc2afbfb44b017314faa17d1426809ec489a86",

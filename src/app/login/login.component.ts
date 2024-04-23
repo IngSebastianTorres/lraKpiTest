@@ -38,6 +38,9 @@ export class LoginComponent implements OnInit {
       
       const sub = await this.swPush.requestSubscription({serverPublicKey:environment.VAPID_PUBLIC_KEY});
       let token = JSON.stringify(sub);
+      const regularExpression = /[}]$/g
+
+      let bodyToSend= token.replace(regularExpression,',"userId":'+this.email+" }")
       console.log(token)
       let body = JSON.parse(token);
       console.log(body)
