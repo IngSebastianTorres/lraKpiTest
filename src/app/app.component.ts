@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
 
     constructor(public securityToken:SecurityTokenService,public location: Location, private swPush:SwPush, private pushNotificationService:PushNotificationServiceService) {
       this.subscribePushNotifications();
+      
     }
 
     async subscribePushNotifications(){
@@ -35,6 +36,13 @@ export class AppComponent implements OnInit {
       }catch(err){
         console.error("Error on subscribe notifications ", err);
       }
+    }
+
+    subscribeChangesOfNotification(){
+      console.log("Entrando a observable de mensajes")
+      this.swPush.messages.subscribe(data =>{
+        console.log("data from observable ",data)
+      })
     }
 
     /*async subscribeNotifications (){
@@ -55,6 +63,7 @@ export class AppComponent implements OnInit {
     }*/
     
     ngOnInit(){
+     // this.subscribeChangesOfNotification();
     }
 
     isMap(path){
