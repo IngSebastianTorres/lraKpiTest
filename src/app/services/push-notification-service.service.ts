@@ -27,5 +27,14 @@ export class PushNotificationServiceService {
     return await firstValueFrom(this.http.post<any>(this.url+"/save/", body, httpOptions ));
   }
 
+  async verifyToken(token):Promise<any>{
+    let body = { token }
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json; charset=UTF-8'
+      })
+    }
+    return null;
+  }
 
 }

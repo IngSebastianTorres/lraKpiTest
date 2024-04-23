@@ -12,5 +12,6 @@ export const environment = {
     authDomain: 'lra-auth.firebaseapp.com',
     messagingSenderId: '621004275901',
   },
-  production: false
+  production: false,
+  VAPID_PUBLIC_KEY:'BDImINlqddxHT1W9sRDQ2g-ZsdDTNlxgEvHWok87JZNqyh9TYItCOx8N7Y91rbcHKk5a5xaibZJyIgRNiCUgAiw'
 };

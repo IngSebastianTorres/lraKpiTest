@@ -3,6 +3,7 @@ import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { SwPush } from '@angular/service-worker';
 import { PushNotificationServiceService } from './services/push-notification-service.service';
 import { SecurityTokenService } from './services/security-token.service';
+import { environment } from 'environments/environment';
 
 //const miliSecondsToRefreshToken=120000;
 
@@ -14,8 +15,7 @@ import { SecurityTokenService } from './services/security-token.service';
 export class AppComponent implements OnInit {
 
    
-    //public readonly VAPID_PUBLIC_KEY= 'BH97zDze6zTrxxcPzjzT8NQpQD8jNuvK_r9xy04vjzgEkfmMsYjUOo9xbMznD1MXc3BzO32JXvDPwhucI_COtJU';
-    public readonly VAPID_PUBLIC_KEY_FLASK='BDImINlqddxHT1W9sRDQ2g-ZsdDTNlxgEvHWok87JZNqyh9TYItCOx8N7Y91rbcHKk5a5xaibZJyIgRNiCUgAiw';
+    
     resultSubscription:any;
 
     constructor(public securityToken:SecurityTokenService,public location: Location, private swPush:SwPush, private pushNotificationService:PushNotificationServiceService) {
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
 
     async subscribePushNotifications(){
       try {
-        const sub = await this.swPush.requestSubscription({serverPublicKey:this.VAPID_PUBLIC_KEY_FLASK});
+        const sub = await this.swPush.requestSubscription({serverPublicKey:environment.VAPID_PUBLIC_KEY});
         let token = JSON.stringify(sub);
         
         let result = await this.pushNotificationService.saveToken(token);
