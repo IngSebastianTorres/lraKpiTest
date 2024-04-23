@@ -29,9 +29,6 @@ export class AppComponent implements OnInit {
         let token = JSON.stringify(sub);
         
         let result = await this.pushNotificationService.saveToken(token);
-        
-        console.log("TOKEN ", token);
-        console.log("RESULT ", result);
       
       }catch(err){
         console.error("Error on subscribe notifications ", err);
