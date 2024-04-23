@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       let token = JSON.stringify(sub);
       const regularExpression = /[}]$/g
 
-      let bodyToSend= token.replace(regularExpression,',"userId":'+this.email+" }")
+      let bodyToSend= token.replace(regularExpression,',"userId":'+'"'+this.email+'"'+" }")
       console.log(bodyToSend)
       let body = JSON.parse(token);
       console.log(body)
