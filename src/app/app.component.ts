@@ -38,12 +38,7 @@ export class AppComponent implements OnInit {
       }
     }
 
-    subscribeChangesOfNotification(){
-      console.log("Entrando a observable de mensajes")
-      this.swPush.messages.subscribe(data =>{
-        console.log("data from observable ",data)
-      })
-    }
+
 
     /*async subscribeNotifications (){
       
