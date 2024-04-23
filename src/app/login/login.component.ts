@@ -4,9 +4,6 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
 import { InfouserService } from 'app/services/infouser.service';
 import { InfoUser } from 'app/model/info-user';
-import { SwPush } from '@angular/service-worker';
-import { environment } from 'environments/environment';
-import { PushNotificationServiceService } from 'app/services/push-notification-service.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +16,7 @@ export class LoginComponent implements OnInit {
   public profilePhotoUrl:string;
   infoUser:InfoUser;
 
-  constructor(private authService:AuthService , private router:Router, private infoUserService:InfouserService,private swPush:SwPush , private pushNotificationService:PushNotificationServiceService) { }
+  constructor(private authService:AuthService , private router:Router, private infoUserService:InfouserService ) { }
 
   ngOnInit(): void {
     
@@ -36,17 +33,6 @@ export class LoginComponent implements OnInit {
       this.profilePhotoUrl=response.user.photoURL
       this.infoUser = new InfoUser(this.email, this.profilePhotoUrl);
       
-      const sub = await this.swPush.requestSubscription({serverPublicKey:environment.VAPID_PUBLIC_KEY});
-      let token = JSON.stringify(sub);
-      const regularExpression = /[}]$/g
-
-      let bodyToSend= token.replace(regularExpression,',"userId":'+'"'+this.email+'"'+" }")
-      console.log(bodyToSend)
-      let body = JSON.parse(token);
-      console.log(body)
-      let result = await this.pushNotificationService.verifyToken(token);
-      result = 
-
       Swal.fire({
         title: '¡Bienvenid@!',
         text: response.user.displayName,
