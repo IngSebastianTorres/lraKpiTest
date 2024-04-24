@@ -8275,10 +8275,10 @@
                 "hist_kpiReal": 0.0
               },
               "kpi_global": {
-                "hist_EjecEther": 0,
-                "hist_EjecHost": 0,
-                "hist_kpiEstimado": 0.0,
-                "hist_kpiReal": 0.0
+                "hist_EjecEther": 77777777,
+                "hist_EjecHost": 55555555,
+                "hist_kpiEstimado": 0.30,
+                "hist_kpiReal": 0.32
               },
               "kpi_online": {
                 "hist_EjecEther": 868526249.0,
@@ -8296,10 +8296,10 @@
                 "hist_kpiReal": 0.0
               },
               "kpi_global": {
-                "hist_EjecEther": 0,
-                "hist_EjecHost": 0,
-                "hist_kpiEstimado": 0.0,
-                "hist_kpiReal": 0.0
+                "hist_EjecEther": 77777777,
+                "hist_EjecHost": 55555555,
+                "hist_kpiEstimado": 0.30,
+                "hist_kpiReal": 0.32
               },
               "kpi_online": {
                 "hist_EjecEther": 908831447.0,
