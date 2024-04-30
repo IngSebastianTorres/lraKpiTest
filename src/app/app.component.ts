@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
       try {
         const sub = await this.swPush.requestSubscription({serverPublicKey:environment.VAPID_PUBLIC_KEY});
         let token = JSON.stringify(sub);
-        
+        console.log(token)
         let result = await this.pushNotificationService.saveToken(token);
       
       }catch(err){
