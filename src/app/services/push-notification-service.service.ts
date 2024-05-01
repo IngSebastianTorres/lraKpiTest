@@ -10,7 +10,7 @@ import { firstValueFrom } from 'rxjs';
 })
 export class PushNotificationServiceService {
 
-  public url ='http://ec2-3-92-58-39.compute-1.amazonaws.com:80';
+  public url ='http://ec2-3-92-58-39.compute-1.amazonaws.com:443';
 
   constructor( private http:HttpClient) { 
 
