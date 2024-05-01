@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 import { LoginComponent } from './login/login.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
