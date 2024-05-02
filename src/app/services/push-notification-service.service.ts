@@ -10,7 +10,7 @@ import { firstValueFrom } from 'rxjs';
 })
 export class PushNotificationServiceService {
 
-  public url ='https://ec2-3-92-58-39.compute-1.amazonaws.com:443';
+  public url ='https://marmoset-select-barnacle.ngrok-free.app';
 
   constructor( private http:HttpClient) { 
 
