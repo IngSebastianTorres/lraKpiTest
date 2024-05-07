@@ -294,6 +294,8 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
             }
             this.lastKpiExecutions.reverse();
           } else if(kpiCurrentMonth.length==6){
+            // Format KPI last value of last month To percent
+            kpiLastMonth[kpiLastMonth.length-1].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-1].kpi_online.hist_kpiReal*100
             this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-1]);
             this.lastKpiExecutions.reverse();
             for (var i=0; i<kpiCurrentMonth.length; i++){
@@ -306,6 +308,10 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
             }
             this.lastKpiExecutions.reverse();
           } else if(kpiCurrentMonth.length==5){
+            // Format KPI last value of last month To percent
+            kpiLastMonth[kpiLastMonth.length-1].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-1].kpi_online.hist_kpiReal*100
+            kpiLastMonth[kpiLastMonth.length-2].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-2].kpi_online.hist_kpiReal*100
+
             this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-1]);
             this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-2]);
             this.lastKpiExecutions.reverse();
@@ -319,6 +325,11 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
             this.lastKpiExecutions.reverse();
 
           } else if(kpiCurrentMonth.length==4){
+            // Format KPI last value of last month To percent
+            kpiLastMonth[kpiLastMonth.length-1].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-1].kpi_online.hist_kpiReal*100
+            kpiLastMonth[kpiLastMonth.length-2].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-2].kpi_online.hist_kpiReal*100
+            kpiLastMonth[kpiLastMonth.length-3].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-3].kpi_online.hist_kpiReal*100
+
             this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-1]);
             this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-2]);
             this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-3]);
@@ -333,6 +344,12 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
             this.lastKpiExecutions.reverse();
 
           } else if(kpiCurrentMonth.length==3){
+            // Format KPI last value of last month To percent
+            kpiLastMonth[kpiLastMonth.length-1].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-1].kpi_online.hist_kpiReal*100
+            kpiLastMonth[kpiLastMonth.length-2].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-2].kpi_online.hist_kpiReal*100
+            kpiLastMonth[kpiLastMonth.length-3].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-3].kpi_online.hist_kpiReal*100
+            kpiLastMonth[kpiLastMonth.length-4].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-4].kpi_online.hist_kpiReal*100
+
             this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-1]);
             this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-2]);
             this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-3]);
@@ -348,6 +365,13 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
             this.lastKpiExecutions.reverse();
           
           } else if(kpiCurrentMonth.length==2){
+            // Format KPI last value of last month To percent
+            kpiLastMonth[kpiLastMonth.length-1].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-1].kpi_online.hist_kpiReal*100
+            kpiLastMonth[kpiLastMonth.length-2].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-2].kpi_online.hist_kpiReal*100
+            kpiLastMonth[kpiLastMonth.length-3].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-3].kpi_online.hist_kpiReal*100
+            kpiLastMonth[kpiLastMonth.length-4].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-4].kpi_online.hist_kpiReal*100
+            kpiLastMonth[kpiLastMonth.length-5].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-5].kpi_online.hist_kpiReal*100
+            
             this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-1]);
             this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-2]);
             this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-3]);
@@ -364,6 +388,14 @@ export class KpiBatchGeneralSummaryComponent implements OnInit {
             this.lastKpiExecutions.reverse();
            
           } else if(kpiCurrentMonth.length==1){
+            // Format KPI last value of last month To percent
+            kpiLastMonth[kpiLastMonth.length-1].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-1].kpi_online.hist_kpiReal*100
+            kpiLastMonth[kpiLastMonth.length-2].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-2].kpi_online.hist_kpiReal*100
+            kpiLastMonth[kpiLastMonth.length-3].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-3].kpi_online.hist_kpiReal*100
+            kpiLastMonth[kpiLastMonth.length-4].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-4].kpi_online.hist_kpiReal*100
+            kpiLastMonth[kpiLastMonth.length-5].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-5].kpi_online.hist_kpiReal*100
+            kpiLastMonth[kpiLastMonth.length-6].kpi_online.hist_kpiReal=kpiLastMonth[kpiLastMonth.length-6].kpi_online.hist_kpiReal*100
+
             this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-1]);
             this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-2]);
             this.lastKpiExecutions.push(kpiLastMonth[kpiLastMonth.length-3]);
