@@ -14,13 +14,15 @@
                         <div class="col-sm-5">
                             <div class="header">
                                 <h4 class="title"> Real </h4>
-                                <div class="div-indicator " style="background-color: red; border-color: red;"><p class="num">49.0</p></div>
+                                <p class="category">{{this.dateRealKpiOnline}}</p>
+                                <div class="div-indicator " [ngClass]="{redindicator:(this.realKpiOnline<estimatedKpiOnline-5 || this.realKpiOnline==0),greenindicator:(this.realKpiOnline>=estimatedKpiOnline)}"><p class="num">{{this.realKpiOnline}}</p></div>
                             </div>
                         </div>
                         <div class="col-sm-5">
                             <div class="header">
                                 <h4 class="title"> Estimado</h4>
-                                <div class="div-indicator"><p class="num">55.2</p></div>
+                                <p class="category">{{this.dateEstimatedKpi}}</p>
+                                <div class="div-indicator" style="background-color: #666666 ; border-color: #666666 ;"><p class="num">{{this.estimatedKpiOnline}}</p></div>
                             </div>
                         </div>
                     <div class="col-sm-1"></div>    
@@ -37,13 +39,15 @@
                         <div class="col-sm-5">
                             <div class="header">
                                 <h4 class="title"> Real </h4>
-                                <div class="div-indicator" style="background-color: green; border-color: green;"><p class="num">53.0</p></div>
+                                <p class="category">{{this.dateRealKpiCore}}</p>
+                                <div class="div-indicator" [ngClass]="{redindicator:(this.realKpiBatch<estimatedKpiBatch-5 || this.realKpiBatch==0),greenindicator:(this.realKpiBatch>=estimatedKpiBatch)}"><p class="num">{{this.realKpiBatch}}</p></div>
                             </div>
                         </div>
                         <div class="col-sm-5">
                             <div class="header">
                                 <h4 class="title"> Estimado</h4>
-                                <div class="div-indicator"><p class="num">53.0</p></div>
+                                <p class="category">{{this.dateEstimatedKpi}}</p>
+                                <div class="div-indicator" style="background-color: #666666 ; border-color: #666666 ;"><p class="num">{{this.estimatedKpiBatch}}</p></div>
                             </div>
                         </div>
                     <div class="col-sm-1"></div>    
@@ -62,13 +66,15 @@
                     <div class="col-sm-5">
                         <div class="header">
                             <h4 class="title"> Real </h4>
-                            <div class="div-indicator" style="background-color: orange; border-color: orange;" ><p class="num">58.5</p></div>
+                            <p class="category">{{this.dateRealKpiBatch}}</p>
+                            <div class="div-indicator" [ngClass]="{redindicator:(this.realKpiGlobal<estimatedKpiGlobal-5 || this.realKpiGlobal ==0),greenindicator:(this.realKpiGlobal>=estimatedKpiGlobal)}" ><p class="num">{{this.realKpiGlobal}}</p></div>
                         </div>
                     </div>
                     <div class="col-sm-5">
                         <div class="header">
                             <h4 class="title"> Estimado</h4>
-                            <div class="div-indicator"><p class="num">60.0</p></div>
+                            <p class="category">{{this.dateEstimatedKpi}}</p>
+                            <div class="div-indicator" style="background-color: #666666; border-color: #666666;"><p class="num">{{this.estimatedKpiGlobal}}</p></div>
                         </div>
                     </div>
                 <div class="col-sm-1"></div>    
@@ -85,11 +91,11 @@
                         <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        <th *ngFor="let cell of tableData2.headerRow">{{ cell }}</th>
+                                        <th *ngFor="let cell of tableKpiOnline.headerRow">{{ cell }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let row of tableData2.dataRows">
+                                    <tr *ngFor="let row of tableKpiOnline.dataRows">
                                         <td *ngFor="let cell of row">{{cell}}</td>
                                     </tr>
                                 </tbody>
@@ -108,11 +114,11 @@
                         <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        <th *ngFor="let cell of tableData2.headerRow">{{ cell }}</th>
+                                        <th *ngFor="let cell of tableKpiCore.headerRow">{{ cell }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let row of tableData2.dataRows">
+                                    <tr *ngFor="let row of tableKpiCore.dataRows">
                                         <td *ngFor="let cell of row">{{cell}}</td>
                                     </tr>
                                 </tbody>
@@ -131,11 +137,11 @@
                         <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        <th *ngFor="let cell of tableData2.headerRow">{{ cell }}</th>
+                                        <th *ngFor="let cell of tableKpiGlobal.headerRow">{{ cell }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let row of tableData2.dataRows">
+                                    <tr *ngFor="let row of tableKpiGlobal.dataRows">
                                         <td *ngFor="let cell of row">{{cell}}</td>
                                     </tr>
                                 </tbody>

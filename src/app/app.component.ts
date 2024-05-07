@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { SwPush } from '@angular/service-worker';
 import { PushNotificationServiceService } from './services/push-notification-service.service';
+import { SecurityTokenService } from './services/security-token.service';
+import { environment } from 'environments/environment';
 
+//const miliSecondsToRefreshToken=120000;
 
 @Component({
   selector: 'app-root',
@@ -11,15 +14,30 @@ import { PushNotificationServiceService } from './services/push-notification-ser
 })
 export class AppComponent implements OnInit {
 
-    public readonly VAPID_PUBLIC_KEY= 'BH97zDze6zTrxxcPzjzT8NQpQD8jNuvK_r9xy04vjzgEkfmMsYjUOo9xbMznD1MXc3BzO32JXvDPwhucI_COtJU';
+   
+    
     resultSubscription:any;
 
-    constructor(public location: Location, private swPush:SwPush, private pushNotificationService:PushNotificationServiceService) {
-      this.subscribeNotifications();
+    constructor(public securityToken:SecurityTokenService,public location: Location, private swPush:SwPush, private pushNotificationService:PushNotificationServiceService) {
+      this.subscribePushNotifications();
+      
+    }
+
+    async subscribePushNotifications(){
+      try {
+        const sub = await this.swPush.requestSubscription({serverPublicKey:environment.VAPID_PUBLIC_KEY});
+        let token = JSON.stringify(sub);
+        console.log(token)
+        let result = await this.pushNotificationService.saveToken(token);
+      
+      }catch(err){
+        console.error("Error on subscribe notifications ", err);
+      }
     }
 
 
-    async subscribeNotifications (){
+
+    /*async subscribeNotifications (){
       
       try{
         
@@ -34,19 +52,10 @@ export class AppComponent implements OnInit {
           console.error("Error on subscribe notifications ", err);
       }
 
-    }
-    
-  /*  subscribeNotifications():any{
-      this.swPush.requestSubscription({
-        serverPublicKey:this.VAPID_PUBLIC_KEY
-      }).then(sub => {
-         this.pushNotificationService.saveToken(token).subscribe(()=>{
-
-         })
-      })
     }*/
-
+    
     ngOnInit(){
+     // this.subscribeChangesOfNotification();
     }
 
     isMap(path){
@@ -57,6 +66,17 @@ export class AppComponent implements OnInit {
       }
       else {
         return true;
+      }
+    }
+
+    async generateTokenToServices(){
+      var email = {email:'juancarlos.coronado@bbva.com'}
+      try {
+          let response = await this.securityToken.generateToken(email);
+          localStorage.setItem('tokenServices',response.token);
+          console.log(response);
+      }catch (err){
+          console.log(err);
       }
     }
 }

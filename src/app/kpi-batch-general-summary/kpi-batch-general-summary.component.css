@@ -1,10 +1,10 @@
 .card-indicator{
-    height:25rem;
+    height:26rem;
 }
 
 .btn-primary{
     padding: 6px 36px 6px 20px;
-    background-color:blue;
+    background-color:#004481;
     color: white;
     font-size: xxx-large;
 }
@@ -15,7 +15,7 @@
 }
 .div-indicator{
     padding: 6px 36px 6px 20px;
-    background-color:blue;
+    background-color:#004481;
     color: white;
     margin-top:2%;
     opacity: 0.85;
@@ -23,7 +23,7 @@
 }
 
 .num{
-    font-size: xxx-large;
+    font-size: xx-large;
 }
 
 @media only screen and (max-width: 768px) {
@@ -41,7 +41,7 @@
 @media (max-width:1640px){
     .div-indicator{
         padding: 6px 36px 6px 20px;
-        background-color:blue;
+        background-color:#004481;
         color: white;
         font-size: xxx-large;
         margin-top:2%;
@@ -61,7 +61,7 @@
 @media (max-width:991px){
     .div-indicator{
         padding: 6px 36px 6px 20px;
-        background-color:blue;
+        background-color:#004481;
         color: white;
         font-size: xxx-large;
         margin-top:2%;
@@ -70,6 +70,16 @@
         display: flex;
     }
     .card-indicator {
-        height: 35rem;
+        height: 41rem;
     }
+}
+
+.greenindicator{
+    background-color: #277A3E;
+    border-color: #277A3E;
+}
+
+.redindicator{
+    background-color: #B92A45;
+    border-color: #B92A45;
 }

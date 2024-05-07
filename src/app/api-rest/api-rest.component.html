@@ -1,0 +1,929 @@
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script><script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script><script type="text/javascript">
+    $(document).ready(function() {
+    $('.page-header pre code, .top-resource-description pre code, .modal-body pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+    });
+    
+    $('[data-toggle]').click(function() {
+    var selector = $(this).data('target') + ' pre code';
+    $(selector).each(function(i, block) {
+    hljs.highlightBlock(block);
+    });
+    });
+    
+    // open modal on hashes like #_action_get
+    $(window).bind('hashchange', function(e) {
+    var anchor_id = document.location.hash.substr(1); //strip #
+    var element = $('#' + anchor_id);
+    
+    // do we have such element + is it a modal?  --> show it
+    if (element.length && element.hasClass('modal')) {
+    element.modal('show');
+    }
+    });
+    
+    // execute hashchange on first page load
+    $(window).trigger('hashchange');
+    
+    // remove url fragment on modal hide
+    $('.modal').on('hidden.bs.modal', function() {
+    try {
+    if (history && history.replaceState) {
+        history.replaceState({}, '', '#');
+    }
+    } catch(e) {}
+    });
+    });
+ </script>
+<body data-spy="scroll" data-target="#sidebar">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12" role="main">
+               <div class="page-header">
+                  <h1 style="font-size: 36px; color:gray;"> API Documentation | Estadisticas KPI</h1>
+                  <p>http://devosfernando.com:38900/api/1/</p>
+               </div>
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <h3 id="kpi" class="panel-title">/kpi</h3>
+                  </div>
+                  <div class="panel-body">
+                     <div class="panel-group">
+                        <div class="panel panel-white resource-modal">
+                           <div class="panel-heading">
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_kpi_prevmonht_kpi">
+                                <span class="parent">/kpi/prevMonht</span>/kpi</a> 
+                                <span class="methods" (click)="onClickShowModal('kpi_prevmonht_kpi_get')">
+                                    <a>
+                                        <span class="badge badge_get">get</span>
+                                    </a>
+                                </span>
+                               </h4>
+                           </div>
+                           <div id="panel_kpi_prevmonht_kpi" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                 <div class="list-group">
+                                    <div (click)="onClickShowModal('kpi_prevmonht_kpi_get')" class="list-group-item">
+                                       <a ><span class="badge badge_get">get</span></a>
+                                       <div class="method_description">
+                                          <p>Kpi mes anterior</p>
+                                       </div>
+                                       <div class="clearfix"></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="modal fade" tabindex="0" id="kpi_prevmonht_kpi_get">
+                              <div class="modal-dialog modal-lg">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('kpi_prevmonht_kpi_get')">&times;</button>
+                                       <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/kpi/prevMonht</span>/kpi</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                       <div class="alert alert-info">
+                                          <p>Kpi mes anterior</p>
+                                       </div>
+                                       <ul class="nav nav-tabs">
+                                          <li class="active"><a href="#kpi_prevmonht_kpi_get_request" data-toggle="tab">Request</a></li>
+                                          <li><a href="#kpi_prevmonht_kpi_get_response" data-toggle="tab">Response</a></li>
+                                       </ul>
+                                       <div class="tab-content">
+                                          <div class="tab-pane active" id="kpi_prevmonht_kpi_get_request">
+                                             <h3>Annotations</h3>
+                                             <ul>
+                                                <li>
+                                                   <strong>monitoringInterval</strong>
+                                                   <pre><code>30</code></pre>
+                                                </li>
+                                             </ul>
+                                          </div>
+                                          <div class="tab-pane" id="kpi_prevmonht_kpi_get_response">
+                                             <h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 200,
+"message": "Ok",
+"response": [
+    {{'{'}}
+      "execHost": 983306023,
+      "execEther": 748991609,
+      "KPI": 0.4324
+    {{'}'}}
+  ]
+{{'}'}}
+</code></pre>
+                                             </div>
+                                             <h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 500,
+"message": "Internal Server Error"
+{{'}'}}
+</code></pre>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="panel panel-white resource-modal">
+                           <div class="panel-heading">
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_kpi_prevmonht_ateneaexecutions"><span class="parent">/kpi/prevMonht</span>/ateneaExecutions</a> <span class="methods" (click)="onClickShowModal('kpi_prevmonht_ateneaexecutions_get')"><a ><span class="badge badge_get">get</span></a></span></h4>
+                           </div>
+                           <div id="panel_kpi_prevmonht_ateneaexecutions" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                 <div class="list-group">
+                                    <div (click)="onClickShowModal('kpi_prevmonht_ateneaexecutions_get')" class="list-group-item">
+                                       <span class="badge badge_get">get</span>
+                                       <div class="method_description">
+                                          <p>Registro de ejecuciones de Atenea del mes anterior</p>
+                                       </div>
+                                       <div class="clearfix"></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="modal fade" tabindex="0" id="kpi_prevmonht_ateneaexecutions_get">
+                              <div class="modal-dialog modal-lg">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('kpi_prevmonht_ateneaexecutions_get')">&times;</button>
+                                       <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/kpi/prevMonht</span>/ateneaExecutions</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                       <div class="alert alert-info">
+                                          <p>Registro de ejecuciones de Atenea del mes anterior</p>
+                                       </div>
+                                       <ul class="nav nav-tabs">
+                                          <li class="active"><a href="#kpi_prevmonht_ateneaexecutions_get_request" data-toggle="tab">Request</a></li>
+                                          <li><a href="#kpi_prevmonht_ateneaexecutions_get_response" data-toggle="tab">Response</a></li>
+                                       </ul>
+                                       <div class="tab-content">
+                                          <div class="tab-pane active" id="kpi_prevmonht_ateneaexecutions_get_request">
+                                             <h3>Annotations</h3>
+                                             <ul>
+                                                <li>
+                                                   <strong>monitoringInterval</strong>
+                                                   <pre><code>30</code></pre>
+                                                </li>
+                                             </ul>
+                                          </div>
+                                          <div class="tab-pane" id="kpi_prevmonht_ateneaexecutions_get_response">
+                                             <h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 200,
+"message": "Ok",
+"response": [
+   {{'{'}}
+      "chanel": &#39;ETHER&#39;,
+      "executions": 748991609,
+      "init": "2023-01-01T05:00:00.000Z",
+      "fin": "2023-01-31T05:00:00.000Z"
+    {{'}'}}
+  ]
+{{'}'}}
+</code></pre>
+                                             </div>
+                                             <h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 500,
+"message": "Internal Server Error"
+{{'}'}}
+</code></pre>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="panel panel-white resource-modal">
+                           <div class="panel-heading">
+                              <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" href="#panel_kpi_prevmonht_channelexecutions"><span class="parent">/kpi/prevMonht</span>/channelExecutions</a> 
+                                <span class="methods" (click)="onClickShowModal('kpi_prevmonht_channelexecutions_get')">
+                                    <a><span class="badge badge_get">get</span></a></span></h4>
+                           </div>
+                           <div id="panel_kpi_prevmonht_channelexecutions" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                 <div class="list-group">
+                                    <div (click)="onClickShowModal('kpi_prevmonht_channelexecutions_get')" class="list-group-item">
+                                       <span class="badge badge_get">get</span>
+                                       <div class="method_description">
+                                          <p>Registro de ejecuciones por canal mes anterior</p>
+                                       </div>
+                                       <div class="clearfix"></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="modal fade" tabindex="0" id="kpi_prevmonht_channelexecutions_get">
+                              <div class="modal-dialog modal-lg">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('kpi_prevmonht_channelexecutions_get')">&times;</button>
+                                       <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/kpi/prevMonht</span>/channelExecutions</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                       <div class="alert alert-info">
+                                          <p>Registro de ejecuciones por canal mes anterior</p>
+                                       </div>
+                                       <ul class="nav nav-tabs">
+                                          <li class="active"><a href="#kpi_prevmonht_channelexecutions_get_request" data-toggle="tab">Request</a></li>
+                                          <li><a href="#kpi_prevmonht_channelexecutions_get_response" data-toggle="tab">Response</a></li>
+                                       </ul>
+                                       <div class="tab-content">
+                                          <div class="tab-pane active" id="kpi_prevmonht_channelexecutions_get_request">
+                                             <h3>Annotations</h3>
+                                             <ul>
+                                                <li>
+                                                   <strong>monitoringInterval</strong>
+                                                   <pre><code>30</code></pre>
+                                                </li>
+                                             </ul>
+                                          </div>
+                                          <div class="tab-pane" id="kpi_prevmonht_channelexecutions_get_response">
+                                             <h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 200,
+"message": "Ok",
+"response": [
+    {{'{'}}
+      "chanel": &#39;Sucursales&#39;,
+      "executions": 197798085,
+      "init": 2023-01-01T05:00:00.000Z,
+      "fin": 2023-01-31T05:00:00.000Z
+    {{'}'}}
+  ]
+{{'}'}}
+</code></pre>
+                                             </div>
+                                             <h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 500,
+"message": "Internal Server Error"
+{{'}'}}
+</code></pre>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="panel panel-white resource-modal">
+                           <div class="panel-heading">
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_kpi_lastmonht_kpi"><span class="parent">/kpi/lastMonht</span>/kpi</a> <span class="methods" (click)="onClickShowModal('kpi_lastmonht_kpi_get')"><a><span class="badge badge_get">get</span></a></span></h4>
+                           </div>
+                           <div id="panel_kpi_lastmonht_kpi" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                 <div class="list-group">
+                                    <div (click)="onClickShowModal('kpi_lastmonht_kpi_get')" class="list-group-item">
+                                       <span class="badge badge_get">get</span>
+                                       <div class="method_description">
+                                          <p>Kpi mes actual</p>
+                                       </div>
+                                       <div class="clearfix"></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="modal fade" tabindex="0" id="kpi_lastmonht_kpi_get">
+                              <div class="modal-dialog modal-lg">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('kpi_lastmonht_kpi_get')">&times;</button>
+                                       <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/kpi/lastMonht</span>/kpi</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                       <div class="alert alert-info">
+                                          <p>Kpi mes actual</p>
+                                       </div>
+                                       <ul class="nav nav-tabs">
+                                          <li class="active"><a href="#kpi_lastmonht_kpi_get_request" data-toggle="tab">Request</a></li>
+                                          <li><a href="#kpi_lastmonht_kpi_get_response" data-toggle="tab">Response</a></li>
+                                       </ul>
+                                       <div class="tab-content">
+                                          <div class="tab-pane active" id="kpi_lastmonht_kpi_get_request">
+                                             <h3>Annotations</h3>
+                                             <ul>
+                                                <li>
+                                                   <strong>monitoringInterval</strong>
+                                                   <pre><code>30</code></pre>
+                                                </li>
+                                             </ul>
+                                          </div>
+                                          <div class="tab-pane" id="kpi_lastmonht_kpi_get_response">
+                                             <h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 200,
+"message": "Ok",
+"response": [
+    {{'{'}}
+      "execHost": 419889757,
+      "execEther": 317476808,
+      "KPI": 0.4306
+    {{'}'}}
+  ]
+{{'}'}}
+</code></pre>
+                                             </div>
+                                             <h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 500,
+"message": "Internal Server Error"
+{{'}'}}
+</code></pre>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="panel panel-white resource-modal">
+                           <div class="panel-heading">
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_kpi_lastmonht_ateneaexecutions"><span class="parent">/kpi/lastMonht</span>/ateneaExecutions</a> <span class="methods"  (click)="onClickShowModal('kpi_lastmonht_ateneaexecutions_get')"><a ><span class="badge badge_get">get</span></a></span></h4>
+                           </div>
+                           <div id="panel_kpi_lastmonht_ateneaexecutions" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                 <div class="list-group">
+                                    <div (click)="onClickShowModal('kpi_lastmonht_ateneaexecutions_get')" class="list-group-item">
+                                       <span class="badge badge_get">get</span>
+                                       <div class="method_description">
+                                          <p>Registro de ejecuciones de Atenea del ultimo mes</p>
+                                       </div>
+                                       <div class="clearfix"></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="modal fade" tabindex="0" id="kpi_lastmonht_ateneaexecutions_get">
+                              <div class="modal-dialog modal-lg">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('kpi_lastmonht_ateneaexecutions_get')">&times;</button>
+                                       <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/kpi/lastMonht</span>/ateneaExecutions</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                       <div class="alert alert-info">
+                                          <p>Registro de ejecuciones de Atenea del ultimo mes</p>
+                                       </div>
+                                       <ul class="nav nav-tabs">
+                                          <li class="active"><a href="#kpi_lastmonht_ateneaexecutions_get_request" data-toggle="tab">Request</a></li>
+                                          <li><a href="#kpi_lastmonht_ateneaexecutions_get_response" data-toggle="tab">Response</a></li>
+                                       </ul>
+                                       <div class="tab-content">
+                                          <div class="tab-pane active" id="kpi_lastmonht_ateneaexecutions_get_request">
+                                             <h3>Annotations</h3>
+                                             <ul>
+                                                <li>
+                                                   <strong>monitoringInterval</strong>
+                                                   <pre><code>30</code></pre>
+                                                </li>
+                                             </ul>
+                                          </div>
+                                          <div class="tab-pane" id="kpi_lastmonht_ateneaexecutions_get_response">
+                                             <h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 200,
+"message": "Ok",
+"response": [
+   {{'{'}}
+      "chanel": "ETHER",
+      "executions": 317476808,
+      "init": "2023-02-01T05:00:00.000Z",
+      "fin": "2023-02-13T05:00:00.000Z"
+    {{'}'}}
+  ]
+{{'}'}}
+</code></pre>
+                                             </div>
+                                             <h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 500,
+"message": "Internal Server Error"
+{{'}'}}
+</code></pre>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="panel panel-white resource-modal">
+                           <div class="panel-heading">
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_kpi_lastmonht_channelexecutions"><span class="parent">/kpi/lastMonht</span>/channelExecutions</a> <span class="methods" (click)="onClickShowModal('kpi_lastmonht_channelexecutions_get')"><a><span class="badge badge_get">get</span></a></span></h4>
+                           </div>
+                           <div id="panel_kpi_lastmonht_channelexecutions" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                 <div class="list-group">
+                                    <div (click)="onClickShowModal('kpi_lastmonht_channelexecutions_get')" class="list-group-item">
+                                       <span class="badge badge_get">get</span>
+                                       <div class="method_description">
+                                          <p>Registro de ejecuciones por canal del ultimos mes</p>
+                                       </div>
+                                       <div class="clearfix"></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="modal fade" tabindex="0" id="kpi_lastmonht_channelexecutions_get">
+                              <div class="modal-dialog modal-lg">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('kpi_lastmonht_channelexecutions_get')">&times;</button>
+                                       <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/kpi/lastMonht</span>/channelExecutions</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                       <div class="alert alert-info">
+                                          <p>Registro de ejecuciones por canal del ultimos mes</p>
+                                       </div>
+                                       <ul class="nav nav-tabs">
+                                          <li class="active"><a href="#kpi_lastmonht_channelexecutions_get_request" data-toggle="tab">Request</a></li>
+                                          <li><a href="#kpi_lastmonht_channelexecutions_get_response" data-toggle="tab">Response</a></li>
+                                       </ul>
+                                       <div class="tab-content">
+                                          <div class="tab-pane active" id="kpi_lastmonht_channelexecutions_get_request">
+                                             <h3>Annotations</h3>
+                                             <ul>
+                                                <li>
+                                                   <strong>monitoringInterval</strong>
+                                                   <pre><code>30</code></pre>
+                                                </li>
+                                             </ul>
+                                          </div>
+                                          <div class="tab-pane" id="kpi_lastmonht_channelexecutions_get_response">
+                                             <h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 200,
+"message": "Ok",
+"response": [
+    {{'{'}}
+      "chanel": "Autoservicios",
+      "executions": 64934667,
+      "init": "2023-02-01T05:00:00.000Z",
+      "fin": "2023-02-13T05:00:00.000Z"
+    {{'}'}}
+  ]
+{{'}'}}
+</code></pre>
+                                             </div>
+                                             <h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 500,
+"message": "Internal Server Error"
+{{'}'}}
+</code></pre>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <h3 id="top" class="panel-title">/top</h3>
+                  </div>
+                  <div class="panel-body">
+                     <div class="panel-group">
+                        <div class="panel panel-white resource-modal">
+                           <div class="panel-heading">
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_top_trx"><span class="parent">/top</span>/trx</a> <span class="methods" (click)="onClickShowModal('top_trx_get')"><a><span class="badge badge_get">get</span></a></span></h4>
+                           </div>
+                           <div id="panel_top_trx" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                 <div class="list-group">
+                                    <div (click)="onClickShowModal('top_trx_get')" class="list-group-item">
+                                       <span class="badge badge_get">get</span>
+                                       <div class="method_description">
+                                          <p>Top Transacciones</p>
+                                       </div>
+                                       <div class="clearfix"></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="modal fade" tabindex="0" id="top_trx_get">
+                              <div class="modal-dialog modal-lg">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('top_trx_get')">&times;</button>
+                                       <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/top</span>/trx</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                       <div class="alert alert-info">
+                                          <p>Top Transacciones</p>
+                                       </div>
+                                       <ul class="nav nav-tabs">
+                                          <li class="active"><a href="#top_trx_get_request" data-toggle="tab">Request</a></li>
+                                          <li><a href="#top_trx_get_response" data-toggle="tab">Response</a></li>
+                                       </ul>
+                                       <div class="tab-content">
+                                          <div class="tab-pane active" id="top_trx_get_request">
+                                             <h3>Annotations</h3>
+                                             <ul>
+                                                <li>
+                                                   <strong>monitoringInterval</strong>
+                                                   <pre><code>30</code></pre>
+                                                </li>
+                                             </ul>
+                                          </div>
+                                          <div class="tab-pane" id="top_trx_get_response">
+                                             <h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 200,
+"message": "Ok",
+"response": [
+    {{'{'}}
+      "date": 2023-02-01T05:00:00.000Z,
+      "exec_tx": &#39;KTM1&#39;,
+      "chanel": &#39;Banca Línea&#39;,
+      "executions": 11080483
+    {{'}'}}
+  ]
+{{'}'}}
+</code></pre>
+                                             </div>
+                                             <h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 500,
+"message": "Internal Server Error"
+{{'}'}}
+</code></pre>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="panel panel-white resource-modal">
+                           <div class="panel-heading">
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_top_trxlastesixmoth"><span class="parent">/top</span>/trxLasteSixMoth</a> <span class="methods" (click)="onClickShowModal('top_trxlastesixmoth_get')"><a ><span class="badge badge_get">get</span></a></span></h4>
+                           </div>
+                           <div id="panel_top_trxlastesixmoth" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                 <div class="list-group">
+                                    <div (click)="onClickShowModal('top_trxlastesixmoth_get')" class="list-group-item">
+                                       <span class="badge badge_get">get</span>
+                                       <div class="method_description">
+                                          <p>Top Transacciones 6 meses</p>
+                                       </div>
+                                       <div class="clearfix"></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="modal fade" tabindex="0" id="top_trxlastesixmoth_get">
+                              <div class="modal-dialog modal-lg">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('top_trxlastesixmoth_get')">&times;</button>
+                                       <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/top</span>/trxLasteSixMoth</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                       <div class="alert alert-info">
+                                          <p>Top Transacciones 6 meses</p>
+                                       </div>
+                                       <ul class="nav nav-tabs">
+                                          <li class="active"><a href="#top_trxlastesixmoth_get_request" data-toggle="tab">Request</a></li>
+                                          <li><a href="#top_trxlastesixmoth_get_response" data-toggle="tab">Response</a></li>
+                                       </ul>
+                                       <div class="tab-content">
+                                          <div class="tab-pane active" id="top_trxlastesixmoth_get_request">
+                                             <h3>Annotations</h3>
+                                             <ul>
+                                                <li>
+                                                   <strong>monitoringInterval</strong>
+                                                   <pre><code>30</code></pre>
+                                                </li>
+                                             </ul>
+                                          </div>
+                                          <div class="tab-pane" id="top_trxlastesixmoth_get_response">
+                                             <h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 200,
+"message": "Ok",
+"response": [
+    {{'{'}}
+      "exec_fecha": "2022-06-01T05:00:00.000Z",
+      "exec_tx": "MDIE",
+      "exec_number": 434270941
+    {{'}'}},
+    {{'{'}}
+      "exec_fecha": "2022-06-01T05:00:00.000Z",
+      "exec_tx": "J2A1",
+      "exec_number": 336177581
+    {{'}'}}
+  ]
+{{'}'}}
+</code></pre>
+                                             </div>
+                                             <h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 500,
+"message": "Internal Server Error"
+{{'}'}}
+</code></pre>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <h3 id="executionsdate" class="panel-title">Fecha de ejecuciones mes actual Mainframe vs Ether</h3>
+                  </div>
+                  <div class="panel-body">
+                     <div class="panel-group">
+                        <div class="panel panel-white resource-modal">
+                           <div class="panel-heading">
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_executionsdate"><span class="parent"></span>/executionsDate</a> <span class="methods" (click)="onClickShowModal('executionsdate_get')"><a><span class="badge badge_get">get</span></a></span></h4>
+                           </div>
+                           <div id="panel_executionsdate" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                 <div class="list-group">
+                                    <div (click)="onClickShowModal('executionsdate_get')" class="list-group-item">
+                                       <span class="badge badge_get">get</span>
+                                       <div class="method_description">
+                                          <p>Fecha de ejecuciones</p>
+                                       </div>
+                                       <div class="clearfix"></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="modal fade" tabindex="0" id="executionsdate_get">
+                              <div class="modal-dialog modal-lg">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('executionsdate_get')">&times;</button>
+                                       <h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/executionsDate</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                       <div class="alert alert-info">
+                                          <p>Fecha de ejecuciones</p>
+                                       </div>
+                                       <ul class="nav nav-tabs">
+                                          <li class="active"><a href="#executionsdate_get_request" data-toggle="tab">Request</a></li>
+                                          <li><a href="#executionsdate_get_response" data-toggle="tab">Response</a></li>
+                                       </ul>
+                                       <div class="tab-content">
+                                          <div class="tab-pane active" id="executionsdate_get_request">
+                                             <h3>Annotations</h3>
+                                             <ul>
+                                                <li>
+                                                   <strong>monitoringInterval</strong>
+                                                   <pre><code>30</code></pre>
+                                                </li>
+                                             </ul>
+                                          </div>
+                                          <div class="tab-pane" id="executionsdate_get_response">
+                                             <h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 200,
+"message": "Ok",
+"response": [
+    {{'{'}}
+      "Date": 2023-02-05T05:00:00.000Z,
+      "executions": 16016697,
+      "tipe": &#39;Mainframe&#39;
+    {{'}'}}
+  ]
+{{'}'}}
+</code></pre>
+                                             </div>
+                                             <h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 500,
+"message": "Internal Server Error"
+{{'}'}}
+</code></pre>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <h3 id="auth" class="panel-title">/auth</h3>
+                  </div>
+                  <div class="panel-body">
+                     <div class="panel-group">
+                        <div class="panel panel-white resource-modal">
+                           <div class="panel-heading">
+                              <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_auth_securitytoken"><span class="parent">/auth</span>/securityToken</a> <span class="methods" (click)="onClickShowModal('auth_securitytoken_post')"><a><span class="badge badge_post">post</span></a></span></h4>
+                           </div>
+                           <div id="panel_auth_securitytoken" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                 <div class="list-group">
+                                    <div (click)="onClickShowModal('auth_securitytoken_post')"  class="list-group-item">
+                                       <span class="badge badge_post">post</span>
+                                       <div class="method_description">
+                                          <p>Fecha de ejecuciones</p>
+                                       </div>
+                                       <div class="clearfix"></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="modal fade" tabindex="0" id="auth_securitytoken_post">
+                              <div class="modal-dialog modal-lg">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal('auth_securitytoken_post')">&times;</button>
+                                       <h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/auth</span>/securityToken</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                       <div class="alert alert-info">
+                                          <p>Fecha de ejecuciones</p>
+                                       </div>
+                                       <ul class="nav nav-tabs">
+                                          <li class="active"><a href="#auth_securitytoken_post_request" data-toggle="tab">Request</a></li>
+                                          <li><a href="#auth_securitytoken_post_response" data-toggle="tab">Response</a></li>
+                                       </ul>
+                                       <div class="tab-content">
+                                          <div class="tab-pane active" id="auth_securitytoken_post_request">
+                                             <h3>Annotations</h3>
+                                             <ul>
+                                                <li>
+                                                   <strong>monitoringInterval</strong>
+                                                   <pre><code>30</code></pre>
+                                                </li>
+                                             </ul>
+                                          </div>
+                                          <div class="tab-pane" id="auth_securitytoken_post_response">
+                                             <h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+"status": 200,
+"message": "Ok",
+"response": [
+    {{'{'}}
+        "message": "usuario autenticado",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoianVhbmNhcmxvcy5jb3JvbmFkb0BiYnZhLmNvbSIsImlhdCI6MTY3NjU2NzIwOSwiZXhwIjoxNjc2NTY3NTA5fQ.l3sienlxGcaeTw-bjMOBbh_h8BF_8zV56vhNyI6usoU"
+    {{'}'}}
+  ]
+{{'}'}}
+</code></pre>
+                                             </div>
+                                             <h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+   "status": 400,
+   "message": "Bad Request "
+{{'}'}}
+</code></pre>
+                                             </div>
+                                             <h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2>
+                                             <h3>Body</h3>
+                                             <p><strong>Media type</strong>: application/json</p>
+                                             <p><strong>Type</strong>: any</p>
+                                             <p><strong>Example</strong>:</p>
+                                             <div class="examples">
+                                                <pre><code>{{'{'}}
+  "status": 403,
+  "message": "access denied"
+{{'}'}}
+</code></pre>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="modal-backdrop fade in" *ngIf=this.renderModalBackdrop></div>
+</body>
