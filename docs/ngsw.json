@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1715050565489,
+  "timestamp": 1715050805286,
   "index": "/lraKpiTest/index.html",
   "assetGroups": [
     {
@@ -222,7 +222,7 @@
     "/lraKpiTest/glyphicons-halflings-regular.woff": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f",
     "/lraKpiTest/glyphicons-halflings-regular.woff2": "ca35b697d99cae4d1b60f2d60fcd37771987eb07",
     "/lraKpiTest/index.html": "6e08c4ed25d3b1f9eb9f467c9fcec6059aeaef10",
-    "/lraKpiTest/main.js": "8bb965018a360f49042e0db7991ed4c523d9da0f",
+    "/lraKpiTest/main.js": "4b611ba36f33a85d08ba04e4e091ed33dfcaa903",
     "/lraKpiTest/manifest.webmanifest": "5007377af41f4553a58e23dc48839602f5288600",
     "/lraKpiTest/polyfills.js": "01df6e4bceb15a9ba0754e66a8a00142cf546270",
     "/lraKpiTest/runtime.js": "44cc2afbfb44b017314faa17d1426809ec489a86",
