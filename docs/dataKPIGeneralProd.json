@@ -10461,6 +10461,48 @@
                 "hist_kpiEstimado": 0.538,
                 "hist_kpiReal": 0.5531
               }
+            },
+            {
+              "date": "05/07/2024",
+              "kpi_core": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_global": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_online": {
+                "hist_EjecEther": 336673116.0,
+                "hist_EjecHost": 277978966.0,
+                "hist_kpiEstimado": 0.538,
+                "hist_kpiReal": 0.5477
+              }
+            },
+            {
+              "date": "05/08/2024",
+              "kpi_core": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_global": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_online": {
+                "hist_EjecEther": 378063282.0,
+                "hist_EjecHost": 317635107.0,
+                "hist_kpiEstimado": 0.538,
+                "hist_kpiReal": 0.5434
+              }
             }
           ],
           "noviembre": [],
