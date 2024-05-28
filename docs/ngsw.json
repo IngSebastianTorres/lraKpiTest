@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1716925918724,
+  "timestamp": 1716933728543,
   "index": "/lraKpiTest/index.html",
   "assetGroups": [
     {
@@ -131,10 +131,10 @@
     "/lraKpiTest/Pe-icon-7-stroke.svg": "0c9cce08f3bd0a8077951b99b4f06dcd099354a4",
     "/lraKpiTest/Pe-icon-7-stroke.ttf": "e8d21ab91877f0042fbeeb72beaf71ca6595b9e8",
     "/lraKpiTest/Pe-icon-7-stroke.woff": "7e544bb11b7655998db6f324c612f7ffbf0ab66e",
-    "/lraKpiTest/_-fonts-fontawesome-webfont.svg": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed",
+    "/lraKpiTest/_-fonts-fontawesome-webfont.svg": "c0522272bbaef2acb3d341912754d6ea2d0ecfc0",
     "/lraKpiTest/_-fonts-fontawesome-webfont.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
     "/lraKpiTest/_-fonts-fontawesome-webfont.woff": "28b782240b3e76db824e12c02754a9731a167527",
-    "/lraKpiTest/_-fonts-fontawesome-webfont.woff2": "97e438cc545714309882fbceadbf344fcaddcec5",
+    "/lraKpiTest/_-fonts-fontawesome-webfont.woff2": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c",
     "/lraKpiTest/assets/css/demo.css": "10e3d02070cc1fd86b971eb09fe966a450d03533",
     "/lraKpiTest/assets/css/pe-icon-7-stroke.css": "452bbb2dc10e0e27bfb43ef025f396603812d412",
     "/lraKpiTest/assets/fonts/BentonSansBBVA-Bold.ttf": "992e4fc1605574c795b2cbba73c189cd9b732103",
@@ -213,10 +213,10 @@
     "/lraKpiTest/assets/sass/lbd/mixins/_vendor-prefixes.scss": "d7d4a30f3409129fd93e89c3f7cd7618cd53f710",
     "/lraKpiTest/assets/sass/light-bootstrap-dashboard.scss": "99b1e731935e7cfd04aeabf25f552f27de45c13b",
     "/lraKpiTest/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/lraKpiTest/fontawesome-webfont.svg": "c0522272bbaef2acb3d341912754d6ea2d0ecfc0",
+    "/lraKpiTest/fontawesome-webfont.svg": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed",
     "/lraKpiTest/fontawesome-webfont.ttf": "61d8d967807ef12598d81582fa95b9f600c3ee01",
     "/lraKpiTest/fontawesome-webfont.woff": "6d7e6a5fc802b13694d8820fc0138037c0977d2e",
-    "/lraKpiTest/fontawesome-webfont.woff2": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c",
+    "/lraKpiTest/fontawesome-webfont.woff2": "97e438cc545714309882fbceadbf344fcaddcec5",
     "/lraKpiTest/glyphicons-halflings-regular.svg": "de51a8494180a6db074af2dee2383f0a363c5b08",
     "/lraKpiTest/glyphicons-halflings-regular.ttf": "44bc1850f570972267b169ae18f1cb06b611ffa2",
     "/lraKpiTest/glyphicons-halflings-regular.woff": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f",
@@ -227,7 +227,7 @@
     "/lraKpiTest/polyfills.js": "01df6e4bceb15a9ba0754e66a8a00142cf546270",
     "/lraKpiTest/runtime.js": "44cc2afbfb44b017314faa17d1426809ec489a86",
     "/lraKpiTest/scripts.js": "219f7d25605d0eec9986b13ea42eaf838fc9ddf7",
-    "/lraKpiTest/styles.css": "9ae9ee31edafb79a12581b5df2997b1982b35b2c"
+    "/lraKpiTest/styles.css": "463e531a5d15708ab60b593d99b1eee1df45ea98"
   },
   "navigationUrls": [
     {
