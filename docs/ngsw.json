@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1716938818839,
+  "timestamp": 1716943005898,
   "index": "/lraKpiTest/index.html",
   "assetGroups": [
     {
@@ -227,7 +227,7 @@
     "/lraKpiTest/polyfills.js": "01df6e4bceb15a9ba0754e66a8a00142cf546270",
     "/lraKpiTest/runtime.js": "44cc2afbfb44b017314faa17d1426809ec489a86",
     "/lraKpiTest/scripts.js": "219f7d25605d0eec9986b13ea42eaf838fc9ddf7",
-    "/lraKpiTest/styles.css": "9431af388bd6819dfb90beae71b36b3f8b1c7b1c"
+    "/lraKpiTest/styles.css": "4354d9f75b55fd972bd25fecbb8849bd1e311dc3"
   },
   "navigationUrls": [
     {
