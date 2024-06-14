@@ -9996,6 +9996,27 @@
                 "hist_kpiEstimado": 0.542,
                 "hist_kpiReal": 0.5404
               }
+            },
+            {
+              "date": "06/13/2024",
+              "kpi_core": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_global": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_online": {
+                "hist_EjecEther": 528864161.0,
+                "hist_EjecHost": 453601514.0,
+                "hist_kpiEstimado": 0.542,
+                "hist_kpiReal": 0.5383
+              }
             }
           ],
           "marzo": [
