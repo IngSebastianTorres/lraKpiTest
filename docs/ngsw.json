@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1718638733600,
+  "timestamp": 1718639788307,
   "index": "/lraKpiTest/index.html",
   "assetGroups": [
     {
@@ -49,6 +49,7 @@
         "/lraKpiTest/assets/fonts/Pe-icon-7-stroke.svg",
         "/lraKpiTest/assets/fonts/Pe-icon-7-stroke.ttf",
         "/lraKpiTest/assets/fonts/Pe-icon-7-stroke.woff",
+        "/lraKpiTest/assets/fonts/roboto.css",
         "/lraKpiTest/assets/icons/android-chrome-192x192.png",
         "/lraKpiTest/assets/icons/android-chrome-512x512.png",
         "/lraKpiTest/assets/icons/apple-touch-icon.png",
@@ -131,7 +132,7 @@
     "/lraKpiTest/Pe-icon-7-stroke.svg": "0c9cce08f3bd0a8077951b99b4f06dcd099354a4",
     "/lraKpiTest/Pe-icon-7-stroke.ttf": "e8d21ab91877f0042fbeeb72beaf71ca6595b9e8",
     "/lraKpiTest/Pe-icon-7-stroke.woff": "7e544bb11b7655998db6f324c612f7ffbf0ab66e",
-    "/lraKpiTest/_-fonts-fontawesome-webfont.svg": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed",
+    "/lraKpiTest/_-fonts-fontawesome-webfont.svg": "c0522272bbaef2acb3d341912754d6ea2d0ecfc0",
     "/lraKpiTest/_-fonts-fontawesome-webfont.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
     "/lraKpiTest/_-fonts-fontawesome-webfont.woff": "28b782240b3e76db824e12c02754a9731a167527",
     "/lraKpiTest/_-fonts-fontawesome-webfont.woff2": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c",
@@ -147,6 +148,7 @@
     "/lraKpiTest/assets/fonts/Pe-icon-7-stroke.svg": "0c9cce08f3bd0a8077951b99b4f06dcd099354a4",
     "/lraKpiTest/assets/fonts/Pe-icon-7-stroke.ttf": "e8d21ab91877f0042fbeeb72beaf71ca6595b9e8",
     "/lraKpiTest/assets/fonts/Pe-icon-7-stroke.woff": "7e544bb11b7655998db6f324c612f7ffbf0ab66e",
+    "/lraKpiTest/assets/fonts/roboto.css": "c1b902a3b95c650bfd850e0ee3666766a5717478",
     "/lraKpiTest/assets/icons/android-chrome-192x192.png": "d255c4e370af883dfd6654a0ce3946bc6a8c64a3",
     "/lraKpiTest/assets/icons/android-chrome-512x512.png": "775ec4b86c26c466686dae8462632ba571e85e6e",
     "/lraKpiTest/assets/icons/apple-touch-icon.png": "4e20ed46c6b8c42dc08f328d9ed291cd7f21aa53",
@@ -213,7 +215,7 @@
     "/lraKpiTest/assets/sass/lbd/mixins/_vendor-prefixes.scss": "d7d4a30f3409129fd93e89c3f7cd7618cd53f710",
     "/lraKpiTest/assets/sass/light-bootstrap-dashboard.scss": "99b1e731935e7cfd04aeabf25f552f27de45c13b",
     "/lraKpiTest/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/lraKpiTest/fontawesome-webfont.svg": "c0522272bbaef2acb3d341912754d6ea2d0ecfc0",
+    "/lraKpiTest/fontawesome-webfont.svg": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed",
     "/lraKpiTest/fontawesome-webfont.ttf": "61d8d967807ef12598d81582fa95b9f600c3ee01",
     "/lraKpiTest/fontawesome-webfont.woff": "6d7e6a5fc802b13694d8820fc0138037c0977d2e",
     "/lraKpiTest/fontawesome-webfont.woff2": "97e438cc545714309882fbceadbf344fcaddcec5",
@@ -221,13 +223,13 @@
     "/lraKpiTest/glyphicons-halflings-regular.ttf": "44bc1850f570972267b169ae18f1cb06b611ffa2",
     "/lraKpiTest/glyphicons-halflings-regular.woff": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f",
     "/lraKpiTest/glyphicons-halflings-regular.woff2": "ca35b697d99cae4d1b60f2d60fcd37771987eb07",
-    "/lraKpiTest/index.html": "2628901516b6fd0531e9e7e6f2d67d2ac197678b",
+    "/lraKpiTest/index.html": "86482f6083e60199d44a1aff1101b4a84f4e6c51",
     "/lraKpiTest/main.js": "4b611ba36f33a85d08ba04e4e091ed33dfcaa903",
     "/lraKpiTest/manifest.webmanifest": "5007377af41f4553a58e23dc48839602f5288600",
     "/lraKpiTest/polyfills.js": "01df6e4bceb15a9ba0754e66a8a00142cf546270",
     "/lraKpiTest/runtime.js": "44cc2afbfb44b017314faa17d1426809ec489a86",
     "/lraKpiTest/scripts.js": "219f7d25605d0eec9986b13ea42eaf838fc9ddf7",
-    "/lraKpiTest/styles.css": "4354d9f75b55fd972bd25fecbb8849bd1e311dc3"
+    "/lraKpiTest/styles.css": "d7edfbe976b21bf90d8866296aa5b68eb8aa76aa"
   },
   "navigationUrls": [
     {
