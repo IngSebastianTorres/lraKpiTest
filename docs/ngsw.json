@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1718662103230,
+  "timestamp": 1718663797184,
   "index": "/lraKpiTest/index.html",
   "assetGroups": [
     {
@@ -134,7 +134,7 @@
     "/lraKpiTest/Pe-icon-7-stroke.woff": "7e544bb11b7655998db6f324c612f7ffbf0ab66e",
     "/lraKpiTest/_-fonts-fontawesome-webfont.svg": "c0522272bbaef2acb3d341912754d6ea2d0ecfc0",
     "/lraKpiTest/_-fonts-fontawesome-webfont.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
-    "/lraKpiTest/_-fonts-fontawesome-webfont.woff": "28b782240b3e76db824e12c02754a9731a167527",
+    "/lraKpiTest/_-fonts-fontawesome-webfont.woff": "6d7e6a5fc802b13694d8820fc0138037c0977d2e",
     "/lraKpiTest/_-fonts-fontawesome-webfont.woff2": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c",
     "/lraKpiTest/assets/css/demo.css": "10e3d02070cc1fd86b971eb09fe966a450d03533",
     "/lraKpiTest/assets/css/pe-icon-7-stroke.css": "452bbb2dc10e0e27bfb43ef025f396603812d412",
@@ -217,19 +217,19 @@
     "/lraKpiTest/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
     "/lraKpiTest/fontawesome-webfont.svg": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed",
     "/lraKpiTest/fontawesome-webfont.ttf": "61d8d967807ef12598d81582fa95b9f600c3ee01",
-    "/lraKpiTest/fontawesome-webfont.woff": "6d7e6a5fc802b13694d8820fc0138037c0977d2e",
+    "/lraKpiTest/fontawesome-webfont.woff": "28b782240b3e76db824e12c02754a9731a167527",
     "/lraKpiTest/fontawesome-webfont.woff2": "97e438cc545714309882fbceadbf344fcaddcec5",
     "/lraKpiTest/glyphicons-halflings-regular.svg": "de51a8494180a6db074af2dee2383f0a363c5b08",
     "/lraKpiTest/glyphicons-halflings-regular.ttf": "44bc1850f570972267b169ae18f1cb06b611ffa2",
     "/lraKpiTest/glyphicons-halflings-regular.woff": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f",
     "/lraKpiTest/glyphicons-halflings-regular.woff2": "ca35b697d99cae4d1b60f2d60fcd37771987eb07",
-    "/lraKpiTest/index.html": "16232319d5d3c9a0dd238c46fae3018fb893c3bd",
-    "/lraKpiTest/main.js": "4b611ba36f33a85d08ba04e4e091ed33dfcaa903",
+    "/lraKpiTest/index.html": "ac16ce85ba4eed80137c7af67cbf907526e9b625",
+    "/lraKpiTest/main.js": "8bb965018a360f49042e0db7991ed4c523d9da0f",
     "/lraKpiTest/manifest.webmanifest": "5007377af41f4553a58e23dc48839602f5288600",
     "/lraKpiTest/polyfills.js": "01df6e4bceb15a9ba0754e66a8a00142cf546270",
     "/lraKpiTest/runtime.js": "44cc2afbfb44b017314faa17d1426809ec489a86",
     "/lraKpiTest/scripts.js": "219f7d25605d0eec9986b13ea42eaf838fc9ddf7",
-    "/lraKpiTest/styles.css": "d7edfbe976b21bf90d8866296aa5b68eb8aa76aa"
+    "/lraKpiTest/styles.css": "fea6b5b69086bfe29c80d63be6be2ec55de71de3"
   },
   "navigationUrls": [
     {
