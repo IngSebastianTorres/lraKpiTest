@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1718639788307,
+  "timestamp": 1718661447842,
   "index": "/lraKpiTest/index.html",
   "assetGroups": [
     {
@@ -33,10 +33,6 @@
         "/lraKpiTest/Pe-icon-7-stroke.svg",
         "/lraKpiTest/Pe-icon-7-stroke.ttf",
         "/lraKpiTest/Pe-icon-7-stroke.woff",
-        "/lraKpiTest/_-fonts-fontawesome-webfont.svg",
-        "/lraKpiTest/_-fonts-fontawesome-webfont.ttf",
-        "/lraKpiTest/_-fonts-fontawesome-webfont.woff",
-        "/lraKpiTest/_-fonts-fontawesome-webfont.woff2",
         "/lraKpiTest/assets/css/demo.css",
         "/lraKpiTest/assets/css/pe-icon-7-stroke.css",
         "/lraKpiTest/assets/fonts/BentonSansBBVA-Bold.ttf",
@@ -132,10 +128,6 @@
     "/lraKpiTest/Pe-icon-7-stroke.svg": "0c9cce08f3bd0a8077951b99b4f06dcd099354a4",
     "/lraKpiTest/Pe-icon-7-stroke.ttf": "e8d21ab91877f0042fbeeb72beaf71ca6595b9e8",
     "/lraKpiTest/Pe-icon-7-stroke.woff": "7e544bb11b7655998db6f324c612f7ffbf0ab66e",
-    "/lraKpiTest/_-fonts-fontawesome-webfont.svg": "c0522272bbaef2acb3d341912754d6ea2d0ecfc0",
-    "/lraKpiTest/_-fonts-fontawesome-webfont.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
-    "/lraKpiTest/_-fonts-fontawesome-webfont.woff": "28b782240b3e76db824e12c02754a9731a167527",
-    "/lraKpiTest/_-fonts-fontawesome-webfont.woff2": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c",
     "/lraKpiTest/assets/css/demo.css": "10e3d02070cc1fd86b971eb09fe966a450d03533",
     "/lraKpiTest/assets/css/pe-icon-7-stroke.css": "452bbb2dc10e0e27bfb43ef025f396603812d412",
     "/lraKpiTest/assets/fonts/BentonSansBBVA-Bold.ttf": "992e4fc1605574c795b2cbba73c189cd9b732103",
