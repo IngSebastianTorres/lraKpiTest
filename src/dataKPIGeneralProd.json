@@ -10164,6 +10164,132 @@
                 "hist_kpiEstimado": 0.542,
                 "hist_kpiReal": 0.5411
               }
+            },
+            {
+              "date": "06/21/2024",
+              "kpi_core": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_global": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_online": {
+                "hist_EjecEther": 911680763.0,
+                "hist_EjecHost": 772406957.0,
+                "hist_kpiEstimado": 0.542,
+                "hist_kpiReal": 0.5413
+              }
+            },
+            {
+              "date": "06/22/2024",
+              "kpi_core": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_global": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_online": {
+                "hist_EjecEther": 945347273.0,
+                "hist_EjecHost": 795792805.0,
+                "hist_kpiEstimado": 0.542,
+                "hist_kpiReal": 0.5429
+              }
+            },
+            {
+              "date": "06/23/2024",
+              "kpi_core": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_global": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_online": {
+                "hist_EjecEther": 968806344.0,
+                "hist_EjecHost": 811621749.0,
+                "hist_kpiEstimado": 0.542,
+                "hist_kpiReal": 0.5441
+              }
+            },
+            {
+              "date": "06/24/2024",
+              "kpi_core": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_global": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_online": {
+                "hist_EjecEther": 1021037305.0,
+                "hist_EjecHost": 854673896.0,
+                "hist_kpiEstimado": 0.542,
+                "hist_kpiReal": 0.5443
+              }
+            },
+            {
+              "date": "06/25/2024",
+              "kpi_core": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_global": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_online": {
+                "hist_EjecEther": 1115734266.0,
+                "hist_EjecHost": 922600808.0,
+                "hist_kpiEstimado": 0.542,
+                "hist_kpiReal": 0.5474
+              }
+            },
+            {
+              "date": "06/26/2024",
+              "kpi_core": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_global": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_online": {
+                "hist_EjecEther": 1194506113.0,
+                "hist_EjecHost": 983129010.0,
+                "hist_kpiEstimado": 0.542,
+                "hist_kpiReal": 0.5485
+              }
             }
           ],
           "marzo": [
