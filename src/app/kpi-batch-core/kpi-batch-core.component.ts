@@ -181,37 +181,49 @@ export class KpiBatchCoreComponent implements OnInit {
           this.kpiCUrrent= this.kpiMonth.enero;
           break;
         case 1:
-          this.kpiCUrrent=this.kpiMonth.febrero;
+          //CONTROL PARA PRIMER DIA DE CADA MES CON EXPRESION TERNARIA
+          this.kpiCUrrent=this.kpiMonth.febrero.length > 0 ? this.kpiMonth.febrero : this.kpiMonth.enero;
           break;
         case 2:
-          this.kpiCUrrent=this.kpiMonth.marzo;
+          //CONTROL PARA PRIMER DIA DE CADA MES CON EXPRESION TERNARIA
+          this.kpiCUrrent=this.kpiMonth.marzo.length > 0 ? this.kpiMonth.marzo : this.kpiMonth.febrero;
           break;
         case 3:
-          this.kpiCUrrent=this.kpiMonth.abril;
+          //CONTROL PARA PRIMER DIA DE CADA MES CON EXPRESION TERNARIA
+          this.kpiCUrrent=this.kpiMonth.abril.length > 0 ? this.kpiMonth.abril : this.kpiMonth.marzo;
           break;
         case 4:
-          this.kpiCUrrent=this.kpiMonth.mayo;
+          //CONTROL PARA PRIMER DIA DE CADA MES CON EXPRESION TERNARIA
+          this.kpiCUrrent=this.kpiMonth.mayo.length > 0 ? this.kpiMonth.mayo : this.kpiMonth.abril;
           break;
         case 5:
-          this.kpiCUrrent=this.kpiMonth.junio;
+          //CONTROL PARA PRIMER DIA DE CADA MES CON EXPRESION TERNARIA
+          this.kpiCUrrent=this.kpiMonth.junio.length > 0 ? this.kpiMonth.junio : this.kpiMonth.mayo;
           break;
         case 6:
-          this.kpiCUrrent=this.kpiMonth.julio;
+          //CONTROL PARA PRIMER DIA DE CADA MES CON EXPRESION TERNARIA
+          this.kpiCUrrent=this.kpiMonth.julio.length > 0 ? this.kpiMonth.julio : this.kpiMonth.junio;
           break;
         case 7:
-          this.kpiCUrrent=this.kpiMonth.agosto;
+          //CONTROL PARA PRIMER DIA DE CADA MES CON EXPRESION TERNARIA
+          this.kpiCUrrent=this.kpiMonth.agosto.length > 0 ? this.kpiMonth.agosto : this.kpiMonth.julio ;
           break;
         case 8:
-          this.kpiCUrrent=this.kpiMonth.septiembre;
+          //CONTROL PARA PRIMER DIA DE CADA MES CON EXPRESION TERNARIA
+          this.kpiCUrrent=this.kpiMonth.septiembre.length > 0 ? this.kpiMonth.septiembre : this.kpiMonth.agosto ;
           break;
         case 9:
-          this.kpiCUrrent=this.kpiMonth.octubre;
+          //CONTROL PARA PRIMER DIA DE CADA MES CON EXPRESION TERNARIA  
+          this.kpiCUrrent=this.kpiMonth.octubre.length  > 0 ? this.kpiMonth.octubre : this.kpiMonth.septiembre ;
           break;
         case 10:
-          this.kpiCUrrent=this.kpiMonth.noviembre;
+            //CONTROL PARA PRIMER DIA DE CADA MES CON EXPRESION TERNARIA
+          this.kpiCUrrent=this.kpiMonth.noviembre.length  > 0 ? this.kpiMonth.noviembre : this.kpiMonth.octubre ;
           break;
-        case 11: 
-          this.kpiCUrrent=this.kpiMonth.diciembre;
+        case 11:
+            //CONTROL PARA PRIMER DIA DE CADA MES CON EXPRESION TERNARIA 
+          this.kpiCUrrent=this.kpiMonth.diciembre.length  > 0 ? this.kpiMonth.diciembre : this.kpiMonth.noviembre ;
+          break;
       }
       if(this.dateEstimatedKpi==null){
         this.dateEstimatedKpi = this.kpiCUrrent[this.kpiCUrrent.length-1].date;
