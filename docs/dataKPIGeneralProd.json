@@ -13113,6 +13113,111 @@
                 "hist_kpiEstimado": 0.5779,
                 "hist_kpiReal": 0.5489
               }
+            },
+            {
+              "date": "10/10/2024",
+              "kpi_core": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_global": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_online": {
+                "hist_EjecEther": 505515838.0,
+                "hist_EjecHost": 423028985.0,
+                "hist_kpiEstimado": 0.5779,
+                "hist_kpiReal": 0.5444
+              }
+            },
+            {
+              "date": "10/11/2024",
+              "kpi_core": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_global": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_online": {
+                "hist_EjecEther": 553466413.0,
+                "hist_EjecHost": 465168219.0,
+                "hist_kpiEstimado": 0.5779,
+                "hist_kpiReal": 0.5433
+              }
+            },
+            {
+              "date": "10/12/2024",
+              "kpi_core": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_global": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_online": {
+                "hist_EjecEther": 584882637.0,
+                "hist_EjecHost": 487768806.0,
+                "hist_kpiEstimado": 0.5779,
+                "hist_kpiReal": 0.5453
+              }
+            },
+            {
+              "date": "10/13/2024",
+              "kpi_core": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_global": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_online": {
+                "hist_EjecEther": 605165650.0,
+                "hist_EjecHost": 502566190.0,
+                "hist_kpiEstimado": 0.5779,
+                "hist_kpiReal": 0.5463
+              }
+            },
+            {
+              "date": "10/14/2024",
+              "kpi_core": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_global": {
+                "hist_EjecEther": 0,
+                "hist_EjecHost": 0,
+                "hist_kpiEstimado": 0.0,
+                "hist_kpiReal": 0.0
+              },
+              "kpi_online": {
+                "hist_EjecEther": 628327588.0,
+                "hist_EjecHost": 519125663.0,
+                "hist_kpiEstimado": 0.5779,
+                "hist_kpiReal": 0.5476
+              }
             }
           ],
           "septiembre": [
